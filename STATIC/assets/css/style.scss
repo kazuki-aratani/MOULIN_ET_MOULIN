@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/* -------------レスポンシブ--------------- */
+/* 961以上→ only_p */
+/* 960以下→ un_ts */
+/* 960~416→ only_t */
+/* 769以上→　ov_tab */
+/* 768以下→ un_tab */
+/* 421以上→ ov_s */
+/* 420以下→ only_s */
+
+
+@media screen and (min-width: 961px) {
+  .only_t {
+      display: none!important;
+  }
+
+  .only_s {
+      display: none!important;
+  }
+
+  .un_ts {
+      display: none!important;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .only_p {
+      display: none!important;
+  }
+
+  .only_t {
+      display: block!important;
+  }
+
+  .only_s {
+      display: none!important;
+  }
+
+  .un_ts {
+      display: block!important;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .ov_tab {
+    display: block!important;
+  }
+
+  .un_tab {
+    display: none!important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ov_tab {
+    display: none!important;
+  }
+
+  .un_tab {
+    display: block!important;
+  }
+}
+
+@media screen and (min-width: 421px) {
+  .ov_s {
+      display: block!important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .only_p {
+      display: none!important;
+  }
+
+  .only_t {
+      display: none!important;
+  }
+  .only_s {
+      display: block!important;
+  }
+
+  .ov_s {
+      display: none!important;
+  }
+}
