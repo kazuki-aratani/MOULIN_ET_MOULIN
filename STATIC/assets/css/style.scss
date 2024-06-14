@@ -84,3 +84,139 @@
       display: none!important;
   }
 }
+
+/* 共通 */
+body {
+  font-family: "brandon-grotesque", "source-han-sans-japanese", sans-serif;
+  color: #565655;
+}
+
+.brdn {
+  font-family: "brandon-grotesque", sans-serif;
+}
+
+.gen {
+  font-family: "source-han-sans-japanese", sans-serif;
+}
+
+.inner_960 {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+.header_wrp {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  height: 105px;
+  .icon_blc {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 25px;
+    padding: 35px;
+  }
+}
+
+/* top */
+#fv {
+  .fv_blc {
+    background-image: url(../img/top_fv.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    h1 {
+      display: none;
+    }
+    .blc_bnr {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      column-gap: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+.gdt_bg {
+  padding: 120px 0;
+  .gdt_flex {
+    display: flex;
+    flex-direction: column;
+    row-gap: 150px;
+  }
+  #concept {
+    .h2_blc {
+      text-align: center;
+      margin-bottom: 55px;
+      h2 {
+        display: inline;
+        font-size: 32px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #7e9298, #94b3bd, #5b5e5e, #656a66, #9eb4a7, #676d69);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+    .text {
+      font-size: 13px;
+      text-align: center;
+      line-height: 3;
+      margin-bottom: 80px;
+    }
+    .img_blc {
+      height: 550px;
+      position: relative;
+      @media screen and (max-width: 960px) {
+        height: 57.5vw;
+      }
+      .left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 63%;
+      }
+      .right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 30%;
+      }
+    } 
+  }
+  #thought {
+    .thought_blc {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 100px;
+      .left {
+        width: 52%;
+        letter-spacing: 0.16em;
+        h2 {
+          font-size: 32px;
+          margin-bottom: 55px;
+        }
+        .text {
+          font-size: 13px;
+          line-height: 3;
+          margin-bottom: 35px;
+        }
+        .note {
+          font-size: 10px;
+          color: #b4b4b4;
+        }
+      }
+      .right {
+        width: 40%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
