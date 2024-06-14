@@ -8,7 +8,7 @@
 html {
   font-size: 62.5%;
   -webkit-text-size-adjust: 100%;
-  line-height: 1.15;
+  line-height: 1.75;
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
@@ -22,6 +22,7 @@ body {
   font-family: 'Noto Serif JP', serif , yu-mincho-pr6, sans-serif;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 0.16em;
   /* overflow: auto; */
 }
 
