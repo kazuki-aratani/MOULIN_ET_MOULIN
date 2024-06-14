@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30.19" height="6.68" viewBox="0 0 30.19 6.68">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #000;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#565655"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="arrow_blk.svg" class="cls-1">
+    <path id="シェイプ_1" data-name="シェイプ 1" class="cls-2" d="M3944.81,7805H3975" transform="translate(-3944.81 -7801.66)"/>
+    <path id="シェイプ_2" data-name="シェイプ 2" class="cls-3" d="M3971,7802l3,3-3,3" transform="translate(-3944.81 -7801.66)"/>
+  </g>
+</svg>
