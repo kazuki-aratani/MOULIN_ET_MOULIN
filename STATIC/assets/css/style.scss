@@ -640,6 +640,7 @@ body {
   .skinCheck_blc {
     background-image: url(../img/top_bottom_area_bg.png);
     background-repeat: no-repeat;
+    background-size: cover;
     height: 618px;
     margin: 0 20px;
     color: #fff;
@@ -659,6 +660,52 @@ body {
       .logo {
         margin-left: -12px;
         margin-bottom: 50px;
+      }
+    }
+  }
+}
+footer {
+  .footer_blc {
+    position: relative;
+    .gdt_point03 {
+      position: absolute;
+      top: -12%;
+      left: 10%;
+    }
+    .footer_cont {
+      display: flex;
+      justify-content: space-between;
+      .left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .ft_logo {
+          width: 242px;
+        }
+        .copy {
+          font-size: 10px;
+        }
+      }
+      .right {
+        width: 47%;
+        .top_blc {
+          font-size: 18px;
+          display: flex;
+          flex-wrap: wrap;
+          row-gap: 10px;
+          column-gap: 25px;
+          margin-bottom: 55px;
+        }
+        .bottom_blc {
+          font-size: 12px;
+          color: #bfbfbf;
+          display: flex;
+          flex-wrap: wrap;
+          row-gap: 10px;
+          column-gap: 25px;
+        }
+
       }
     }
   }
