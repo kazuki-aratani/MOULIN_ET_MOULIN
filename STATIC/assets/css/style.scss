@@ -9,79 +9,78 @@
 /* 421以上→ ov_s */
 /* 420以下→ only_s */
 
-
 @media screen and (min-width: 961px) {
   .only_t {
-      display: none!important;
+    display: none !important;
   }
 
   .only_s {
-      display: none!important;
+    display: none !important;
   }
 
   .un_ts {
-      display: none!important;
+    display: none !important;
   }
 }
 
 @media screen and (max-width: 960px) {
   .only_p {
-      display: none!important;
+    display: none !important;
   }
 
   .only_t {
-      display: block!important;
+    display: block !important;
   }
 
   .only_s {
-      display: none!important;
+    display: none !important;
   }
 
   .un_ts {
-      display: block!important;
+    display: block !important;
   }
 }
 
 @media screen and (min-width: 769px) {
   .ov_tab {
-    display: block!important;
+    display: block !important;
   }
 
   .un_tab {
-    display: none!important;
+    display: none !important;
   }
 }
 
 @media screen and (max-width: 768px) {
   .ov_tab {
-    display: none!important;
+    display: none !important;
   }
 
   .un_tab {
-    display: block!important;
+    display: block !important;
   }
 }
 
 @media screen and (min-width: 421px) {
   .ov_s {
-      display: block!important;
+    display: block !important;
   }
 }
 
 @media screen and (max-width: 420px) {
   .only_p {
-      display: none!important;
+    display: none !important;
   }
 
   .only_t {
-      display: none!important;
+    display: none !important;
   }
   .only_s {
-      display: block!important;
+    display: block !important;
   }
 
   .ov_s {
-      display: none!important;
+    display: none !important;
   }
 }
 
@@ -134,7 +133,7 @@ body {
   }
   &:after {
     display: inline-block;
-    content: '';
+    content: "";
     background-image: url(../img/arrow_wht.svg);
     background-repeat: no-repeat;
     width: 30px;
@@ -157,7 +156,7 @@ body {
   border: 1px solid #565655;
   &:after {
     display: inline-block;
-    content: '';
+    content: "";
     background-image: url(../img/arrow_blk.svg);
     background-repeat: no-repeat;
     width: 30px;
@@ -180,7 +179,7 @@ body {
   border: 1px solid #565655;
   &:after {
     display: inline-block;
-    content: '';
+    content: "";
     background-image: url(../img/arrow_blk.svg);
     background-repeat: no-repeat;
     width: 30px;
@@ -205,7 +204,7 @@ body {
   background-color: #a4bbbb;
   &:after {
     display: inline-block;
-    content: '';
+    content: "";
     background-image: url(../img/arrow_wht.svg);
     background-repeat: no-repeat;
     width: 30px;
@@ -231,6 +230,113 @@ body {
     padding: 35px;
   }
 }
+
+/*　ハンバーガーボタン　*/
+.hamburger,
+.hamburger_close {
+  cursor: pointer;
+}
+
+/* ナビ開いてる時のボタン */
+.hamburger.active {
+  height: 40px;
+}
+
+nav.globalMenuSp {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  color: #565655;
+  background-color: #fff;
+  transform: translateX(100%);
+  transition: all 0.6s;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  display: flex;
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+  }
+  .left_area {
+    width: 37%;
+    img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      @media screen and (max-width: 768px) {
+        height: 100vh;
+      }
+    }
+  }
+  .right_area {
+    padding-left: 150px;
+    width: 63%;
+    @media screen and (max-width: 960px) {
+      padding-left: 90px;
+    }
+    @media screen and (max-width: 768px) {
+      padding-left: 15px;
+    }
+    @media screen and (max-width: 599px) {
+      width: 60%;
+    }
+    .ham_header {
+      position: relative;
+      height: 80px;
+      margin-bottom: 40px;
+      @media screen and (max-width: 768px) {
+        height: 70px;
+      }
+    }
+    .ham_cont {
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+      height: calc(100% - 200px);
+      justify-content: center;
+    }
+  }
+}
+
+nav.globalMenuSp ul {
+  width: 100%;
+}
+
+nav.globalMenuSp ul li {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+nav.globalMenuSp ul li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+nav.globalMenuSp ul li a {
+  display: block;
+  color: #565655;
+  text-decoration: none;
+  padding: 10px 0;
+  span {
+    display: block;
+    &.ttl {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-align: left;
+      @media screen and (max-width: 599px) {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+  transform: translateX(0%);
+}
+/*　ハンバーガーボタン end　*/
 
 /* top */
 #fv {
@@ -279,7 +385,6 @@ body {
     @media screen and (max-width: 1400px) {
       height: 1010px;
     }
-
   }
   .gdt_flex {
     display: flex;
@@ -305,7 +410,15 @@ body {
           display: inline;
           font-size: 32px;
           font-weight: 500;
-          background: linear-gradient(90deg, #7e9298, #94b3bd, #5b5e5e, #656a66, #9eb4a7, #676d69);
+          background: linear-gradient(
+            90deg,
+            #7e9298,
+            #94b3bd,
+            #5b5e5e,
+            #656a66,
+            #9eb4a7,
+            #676d69
+          );
           -webkit-background-clip: text;
           color: transparent;
         }
@@ -334,7 +447,7 @@ body {
           right: 0;
           width: 30%;
         }
-      } 
+      }
     }
   }
   #thought {
@@ -503,7 +616,7 @@ body {
   .product_blc {
     .product_grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       column-gap: 50px;
       row-gap: 50px;
       .product_grid_item {
@@ -555,7 +668,8 @@ body {
       }
     }
   }
-  .setItem_blc,.singleItem_blc {
+  .setItem_blc,
+  .singleItem_blc {
     .h2_blc {
       h2 {
         color: #5893b2;
@@ -572,7 +686,7 @@ body {
     .setItem_blc_text {
       font-size: 13px;
       margin-top: 30px;
-    } 
+    }
   }
 }
 #service {
@@ -597,7 +711,8 @@ body {
       justify-content: space-between;
       column-gap: 80px;
       margin-bottom: 50px;
-      .left,.right {
+      .left,
+      .right {
         width: 50%;
         img {
           width: 100%;
@@ -705,7 +820,6 @@ footer {
           row-gap: 10px;
           column-gap: 25px;
         }
-
       }
     }
   }
