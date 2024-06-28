@@ -105,6 +105,9 @@ body {
 .inner_840 {
   max-width: 840px;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    margin: 0 20px;
+  }
 }
 
 .pd_100 {
@@ -114,7 +117,7 @@ body {
 .pd_120 {
   padding: 120px 0;
   @media screen and (max-width: 768px) {
-    padding: 80px 0;
+    padding: 60px 0;
   }
 }
 
@@ -133,12 +136,10 @@ body {
   align-items: center;
   position: relative;
   background: linear-gradient(80deg, #97bcce, #abcab2);
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
   span {
     display: block;
     font-size: 10px;
+    font-weight: 500;
   }
   &:after {
     display: inline-block;
@@ -166,6 +167,10 @@ body {
   align-items: center;
   position: relative;
   border: 1px solid #565655;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    height: 45px;
+  }
   &:after {
     display: inline-block;
     content: "";
@@ -177,6 +182,10 @@ body {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
+    @media screen and (max-width: 768px) {
+      background-size: 60%;
+      right: -5px;
+    }
   }
 }
 .service_btn {
@@ -189,6 +198,9 @@ body {
   align-items: center;
   position: relative;
   border: 1px solid #565655;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   &:after {
     display: inline-block;
     content: "";
@@ -408,7 +420,7 @@ nav.globalMenuSp.active {
     right: 15%;
     z-index: -1;
     @media screen and (max-width: 768px) {
-      top: 21%;
+      top: 24%;
       right: 8%;
     }
   }
@@ -420,6 +432,9 @@ nav.globalMenuSp.active {
     width: 100%;
     @media screen and (max-width: 1400px) {
       height: 1010px;
+    }
+    @media screen and (max-width: 768px) {
+      height: auto;
     }
   }
   .gdt_flex {
@@ -547,7 +562,7 @@ nav.globalMenuSp.active {
         }
         .h2_blc {
           @media screen and (max-width: 768px) {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
           }
           h2 {
             display: none;
@@ -600,8 +615,11 @@ nav.globalMenuSp.active {
       .h2_blc {
         text-align: center;
         margin-bottom: 50px;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 40px;
+        }
         img {
-          margin: 0 auto 20px;
+          margin: 0 auto 10px;
         }
         h2 {
           font-size: 12px;
@@ -612,8 +630,15 @@ nav.globalMenuSp.active {
         justify-content: space-between;
         align-items: center;
         column-gap: 60px;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          row-gap: 20px;
+        }
         .left {
           width: 50%;
+          @media screen and (max-width: 768px) {
+            width: 100%;
+          }
           img {
             width: 100%;
           }
@@ -623,26 +648,55 @@ nav.globalMenuSp.active {
           display: flex;
           flex-direction: column;
           row-gap: 30px;
+          @media screen and (max-width: 768px) {
+            width: 100%;
+          }
           .text_blc {
             .ttl {
               font-size: 18px;
               display: flex;
               align-items: center;
               margin-bottom: 15px;
+              @media screen and (max-width: 768px) {
+                margin-bottom: 5px;
+              }
               .num {
                 font-size: 32px;
                 color: #82a9bb;
                 margin-right: 15px;
+                @media screen and (max-width: 768px) {
+                  font-size: 30px;
+                }
               }
             }
             .text {
               font-size: 13px;
               line-height: 2;
-              margin-bottom: 30px;
+            }
+            &:first-of-type {
+              .text {
+                margin-bottom: 30px;
+              }
             }
             @media screen and (max-width: 960px) {
               .gdt_btn {
                 width: 95%;
+              }
+            }
+            @media screen and (max-width: 768px) {
+              .gdt_btn {
+                font-weight: 600;
+                width: 400px;
+                height: 70px;
+                padding: 0 15px;
+                align-items: flex-start;
+                margin: 0 auto;
+              }
+            }
+            @media screen and (max-width: 450px) {
+              .gdt_btn {
+                font-size: 14px;
+                width: 100%;
               }
             }
           }
@@ -671,6 +725,9 @@ nav.globalMenuSp.active {
         color: #5893b2;
         font-size: 28px;
         margin-bottom: 50px;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 20px;
+        }
       }
     }
     .lineup_text {
@@ -678,43 +735,89 @@ nav.globalMenuSp.active {
       line-height: 2.5;
       margin-bottom: 40px;
       text-align: center;
+      @media screen and (max-width: 768px) {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
       span {
         font-weight: 600;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .gdt_btn {
+        font-weight: 600;
+        width: 400px;
+        height: 70px;
+        padding: 0 15px;
+        align-items: flex-start;
+        margin: 0 auto;
+      }
+    }
+    @media screen and (max-width: 450px) {
+      .gdt_btn {
+        font-size: 14px;
+        width: 100%;
       }
     }
   }
   .teiki_blc {
     background-color: #e7f0f3;
     padding: 55px 45px 60px;
+    @media screen and (max-width: 768px) {
+      padding: 30px 15px;
+    }
     .ttl {
       font-size: 20px;
       font-weight: 600;
       text-align: center;
       margin-bottom: 50px;
+      @media screen and (max-width: 768px) {
+        font-size: 15px;
+        margin-bottom: 40px;
+      }
     }
     .teiki_cont {
       display: flex;
       justify-content: center;
       column-gap: 25px;
+      @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+        row-gap: 40px;
+      }
       .teiki_cont_item {
         background-color: #fff;
         width: 25%;
         height: 210px;
         padding: 30px 20px;
         position: relative;
+        @media screen and (max-width: 768px) {
+          width: 45%;
+          height: auto;
+          padding: 25px 5px 20px;
+        }
         .num {
           font-size: 28px;
           color: #82a9bb;
           position: absolute;
           top: -25px;
           left: 10px;
+          @media screen and (max-width: 768px) {
+            font-size: 24px;
+            top: -22px;
+          }
         }
         img {
           margin: 0 auto 20px;
+          @media screen and (max-width: 768px) {
+            width: 35%;
+          }
         }
         .text {
           font-size: 13px;
           text-align: center;
+          @media screen and (max-width: 768px) {
+            font-size: 11px;
+          }
           span {
             font-size: 10px;
             color: #b4b4b4;
@@ -729,23 +832,47 @@ nav.globalMenuSp.active {
       grid-template-columns: repeat(3, 1fr);
       column-gap: 50px;
       row-gap: 50px;
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        row-gap: 30px;
+      }
       .product_grid_item {
         display: flex;
         flex-direction: column;
         row-gap: 15px;
+        .product_name_blc {
+          @media screen and (max-width: 768px) {
+            height: 64px;
+          }
+        }
         .product_name {
           font-size: 16px;
           font-weight: 600;
+          @media screen and (max-width: 768px) {
+            font-size: 12px;
+            margin-bottom: 5px;
+          }
         }
         .product_name_en {
           font-size: 12px;
+          @media screen and (max-width: 768px) {
+            font-size: 10px;
+            letter-spacing: 1px;
+          }
         }
         .skin_type_blc {
           span {
+            font-size: 10px;
             display: inline-block;
             padding: 2px 8px;
             color: #fff;
             margin-right: 5px;
+            @media screen and (max-width: 768px) {
+              padding: 2px 4px;
+              margin-right: 4px;
+              letter-spacing: 0.6px;
+            }
             &.oil {
               background-color: #caa5ab;
             }
@@ -758,16 +885,25 @@ nav.globalMenuSp.active {
             &.dry {
               background-color: #adc7c7;
             }
+            &:last-of-type {
+              margin-right: initial;
+            }
           }
         }
         .set_item {
           font-size: 12px;
           color: #b4b4b4;
           line-height: 1.5;
+          @media screen and (max-width: 768px) {
+            font-size: 10px;
+          }
         }
         .teiki_price_blc {
           font-size: 15px;
           font-weight: 600;
+          @media screen and (max-width: 768px) {
+            font-size: 12px;
+          }
         }
         .normal_price {
           font-size: 15px;
@@ -808,25 +944,41 @@ nav.globalMenuSp.active {
         color: #5893b2;
         font-size: 28px;
         margin-bottom: 50px;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 20px;
+        }
       }
     }
-    .lineup_text {
+    .service_text {
       font-size: 15px;
       line-height: 2.5;
       margin-bottom: 40px;
       text-align: center;
+      @media screen and (max-width: 768px) {
+        font-size: 12px;
+      }
     }
     .service_cont {
       display: flex;
       justify-content: space-between;
       column-gap: 80px;
       margin-bottom: 50px;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
       .left,
       .right {
         width: 50%;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         img {
           width: 100%;
           margin-bottom: 20px;
+          @media screen and (max-width: 768px) {
+            margin-bottom: 10px;
+          }
         }
       }
       .ttl {
@@ -834,10 +986,17 @@ nav.globalMenuSp.active {
         display: flex;
         align-items: center;
         margin-bottom: 15px;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 5px;
+        }
         .num {
           font-size: 32px;
           color: #82a9bb;
           margin-right: 15px;
+          @media screen and (max-width: 768px) {
+            font-size: 28px;
+            margin-right: 10px;
+          }
         }
       }
       .text {
@@ -869,11 +1028,18 @@ nav.globalMenuSp.active {
     height: 618px;
     margin: 0 20px;
     color: #fff;
+    @media screen and (max-width: 768px) {
+      background-image: url(../img/sp_top_bottom_area_bg.png);
+      height: auto;
+    }
     .skinCheck_cont {
       display: flex;
       align-items: center;
       justify-content: space-between;
       column-gap: 120px;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
       h2 {
         font-size: 12px;
         margin-bottom: 65px;
