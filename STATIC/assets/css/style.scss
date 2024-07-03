@@ -112,6 +112,9 @@ body {
 
 .pd_100 {
   padding: 100px 0;
+  @media screen and (max-width: 768px) {
+    padding: 50px 0;
+  }
 }
 
 .pd_120 {
@@ -127,7 +130,7 @@ body {
 
 .gdt_btn {
   font-size: 16px;
-  color: #fff;
+  color: #fff !important;
   width: 450px;
   height: 80px;
   display: flex;
@@ -144,7 +147,7 @@ body {
   &:after {
     display: inline-block;
     content: "";
-    background-image: url(../img/arrow_wht.svg);
+    background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_wht.svg);
     background-repeat: no-repeat;
     width: 30px;
     height: 6px;
@@ -167,6 +170,7 @@ body {
   align-items: center;
   position: relative;
   border: 1px solid #565655;
+  color: #565656 !important;
   @media screen and (max-width: 768px) {
     font-size: 12px;
     height: 45px;
@@ -174,7 +178,7 @@ body {
   &:after {
     display: inline-block;
     content: "";
-    background-image: url(../img/arrow_blk.svg);
+    background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_blk.svg);
     background-repeat: no-repeat;
     width: 30px;
     height: 6px;
@@ -198,13 +202,14 @@ body {
   align-items: center;
   position: relative;
   border: 1px solid #565655;
+  color: #565656 !important;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
   &:after {
     display: inline-block;
     content: "";
-    background-image: url(../img/arrow_blk.svg);
+    background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_blk.svg);
     background-repeat: no-repeat;
     width: 30px;
     height: 6px;
@@ -223,16 +228,17 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  color: #fff;
+  color: #fff !important;
   border: 1px solid #fff;
   background-color: #a4bbbb;
   @media screen and (max-width: 768px) {
+    font-size: 15px;
     width: 100%;
   }
   &:after {
     display: inline-block;
     content: "";
-    background-image: url(../img/arrow_wht.svg);
+    background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_wht.svg);
     background-repeat: no-repeat;
     width: 30px;
     height: 6px;
@@ -257,7 +263,6 @@ body {
     padding: 35px;
     @media screen and (max-width: 768px) {
       column-gap: 20px;
-      padding: 25px 20px;
       img {
         width: 85%;
       }
@@ -291,9 +296,13 @@ nav.globalMenuSp {
   display: flex;
   @media screen and (max-width: 768px) {
     height: 100vh;
+    flex-direction: column;
   }
   .left_area {
     width: 37%;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
     img {
       width: 100%;
       height: 100vh;
@@ -310,10 +319,9 @@ nav.globalMenuSp {
       padding-left: 90px;
     }
     @media screen and (max-width: 768px) {
-      padding-left: 15px;
-    }
-    @media screen and (max-width: 599px) {
-      width: 60%;
+      padding-left: initial;
+      padding: 0 20px;
+      width: 100%;
     }
     .ham_header {
       position: relative;
@@ -329,6 +337,9 @@ nav.globalMenuSp {
       row-gap: 40px;
       height: calc(100% - 200px);
       justify-content: center;
+      @media screen and (max-width: 768px) {
+        padding-top: 70px;
+      }
     }
   }
 }
@@ -359,9 +370,17 @@ nav.globalMenuSp ul li a {
       font-weight: 500;
       letter-spacing: 4px;
       text-align: left;
-      @media screen and (max-width: 599px) {
-        font-size: 15px;
+      @media screen and (max-width: 768px) {
+        font-size: 20px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ham_link_btn {
+    img {
+      width: 100%;
     }
   }
 }
@@ -375,7 +394,7 @@ nav.globalMenuSp.active {
 /* top */
 #fv {
   .fv_blc {
-    background-image: url(../img/top_fv.jpg);
+    background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/top_fv.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -526,7 +545,7 @@ nav.globalMenuSp.active {
           right: 0;
           width: 30%;
           @media screen and (max-width: 768px) {
-            right: -20px;
+            right: 0;
             width: 60%;
           }
         }
@@ -1022,46 +1041,67 @@ nav.globalMenuSp.active {
 }
 #skinCheck {
   .skinCheck_blc {
-    background-image: url(../img/top_bottom_area_bg.png);
+    background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/top_bottom_area_bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 618px;
     margin: 0 20px;
     color: #fff;
     @media screen and (max-width: 768px) {
-      background-image: url(../img/sp_top_bottom_area_bg.png);
+      background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/sp_top_bottom_area_bg.png);
       height: auto;
+      margin: 0 10px;
     }
     .skinCheck_cont {
       display: flex;
       align-items: center;
       justify-content: space-between;
       column-gap: 120px;
+      @media screen and (max-width: 960px) {
+        column-gap: 60px;
+      }
       @media screen and (max-width: 768px) {
         flex-direction: column;
       }
       h2 {
         font-size: 12px;
         margin-bottom: 65px;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 35px;
+        }
       }
       .text {
         font-size: 24px;
         margin-bottom: 50px;
+        @media screen and (max-width: 768px) {
+          font-size: 16px;
+          margin-bottom: 30px;
+        }
       }
       .logo {
         margin-left: -12px;
         margin-bottom: 50px;
+        @media screen and (max-width: 768px) {
+          margin-left: -5px;
+        }
+      }
+      .left_img {
+        margin-bottom: 40px;
       }
     }
   }
 }
 footer {
+  @media screen and (max-width: 768px) {
+    padding-bottom: 40px;
+  }
   .footer_blc {
     position: relative;
     .gdt_point03 {
       position: absolute;
       top: -12%;
       left: 10%;
+      z-index: -1;
       @media screen and (max-width: 768px) {
         top: -30%;
         left: -40%;
@@ -1070,20 +1110,30 @@ footer {
     .footer_cont {
       display: flex;
       justify-content: space-between;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
       .left {
         width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          margin-bottom: 40px;
+        }
         .ft_logo {
           width: 242px;
-        }
-        .copy {
-          font-size: 10px;
+          @media screen and (max-width: 600px) {
+            width: 55%;
+          }
         }
       }
       .right {
         width: 47%;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         .top_blc {
           font-size: 18px;
           display: flex;
@@ -1091,15 +1141,36 @@ footer {
           row-gap: 10px;
           column-gap: 25px;
           margin-bottom: 55px;
+          @media screen and (max-width: 768px) {
+            column-gap: 30px;
+            margin-bottom: 35px;
+          }
+          li {
+            a {
+              color: #565656;
+            }
+          }
         }
         .bottom_blc {
           font-size: 12px;
-          color: #bfbfbf;
           display: flex;
           flex-wrap: wrap;
           row-gap: 10px;
           column-gap: 25px;
+          @media screen and (max-width: 768px) {
+            font-size: 11px;
+            column-gap: 10px;
+            margin-bottom: 35px;
+          }
+          li {
+            a {
+              color: #bfbfbf;
+            }
+          }
         }
+      }
+      .copy {
+        font-size: 10px;
       }
     }
   }

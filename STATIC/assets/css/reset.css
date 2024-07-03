@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  }
+}
 
 html {
   font-size: 62.5%;
@@ -14,12 +14,12 @@ html {
   /* 2 */
   -webkit-tap-highlight-color: transparent;
   /* 3*/
-  overflow-y:scroll;
+  overflow-y: scroll;
   overflow-x: hidden;
 }
 
 body {
-  font-family: 'Noto Serif JP', serif , yu-mincho-pr6, sans-serif;
+  font-family: "Noto Serif JP", serif, yu-mincho-pr6, sans-serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0.16em;
@@ -155,9 +155,9 @@ sup {
 }
 
 img {
-  display: block;
-  width: auto;
-  height: auto;
+  /* display: block; */
+  /* width: auto; */
+  /* height: auto; */
   max-width: 100%;
   max-height: 100%;
   border-style: none;
@@ -174,8 +174,7 @@ button,
 /*input,*/
 optgroup,
 select
-/*textarea */
-{
+/*textarea */ {
   vertical-align: middle;
   color: inherit;
   font: inherit;
@@ -329,7 +328,7 @@ summary {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width:100%;
+  width: 100%;
   margin: 3% 0;
 }
 

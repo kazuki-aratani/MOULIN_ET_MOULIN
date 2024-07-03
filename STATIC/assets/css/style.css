@@ -100,6 +100,11 @@ body {
 .pd_100 {
   padding: 100px 0;
 }
+@media screen and (max-width: 768px) {
+  .pd_100 {
+    padding: 50px 0;
+  }
+}
 
 .pd_120 {
   padding: 120px 0;
@@ -116,7 +121,7 @@ body {
 
 .gdt_btn {
   font-size: 16px;
-  color: #fff;
+  color: #fff !important;
   width: 450px;
   height: 80px;
   display: flex;
@@ -134,7 +139,7 @@ body {
 .gdt_btn:after {
   display: inline-block;
   content: "";
-  background-image: url(../img/arrow_wht.svg);
+  background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_wht.svg);
   background-repeat: no-repeat;
   width: 30px;
   height: 6px;
@@ -159,6 +164,7 @@ body {
   align-items: center;
   position: relative;
   border: 1px solid #565655;
+  color: #565656 !important;
 }
 @media screen and (max-width: 768px) {
   .product_btn {
@@ -169,7 +175,7 @@ body {
 .product_btn:after {
   display: inline-block;
   content: "";
-  background-image: url(../img/arrow_blk.svg);
+  background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_blk.svg);
   background-repeat: no-repeat;
   width: 30px;
   height: 6px;
@@ -195,6 +201,7 @@ body {
   align-items: center;
   position: relative;
   border: 1px solid #565655;
+  color: #565656 !important;
 }
 @media screen and (max-width: 768px) {
   .service_btn {
@@ -204,7 +211,7 @@ body {
 .service_btn:after {
   display: inline-block;
   content: "";
-  background-image: url(../img/arrow_blk.svg);
+  background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_blk.svg);
   background-repeat: no-repeat;
   width: 30px;
   height: 6px;
@@ -223,19 +230,20 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  color: #fff;
+  color: #fff !important;
   border: 1px solid #fff;
   background-color: #a4bbbb;
 }
 @media screen and (max-width: 768px) {
   .skinCheck_btn {
+    font-size: 15px;
     width: 100%;
   }
 }
 .skinCheck_btn:after {
   display: inline-block;
   content: "";
-  background-image: url(../img/arrow_wht.svg);
+  background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_wht.svg);
   background-repeat: no-repeat;
   width: 30px;
   height: 6px;
@@ -264,7 +272,6 @@ body {
   .header_wrp .icon_blc {
     -moz-column-gap: 20px;
          column-gap: 20px;
-    padding: 25px 20px;
   }
   .header_wrp .icon_blc img {
     width: 85%;
@@ -299,10 +306,16 @@ nav.globalMenuSp {
 @media screen and (max-width: 768px) {
   nav.globalMenuSp {
     height: 100vh;
+    flex-direction: column;
   }
 }
 nav.globalMenuSp .left_area {
   width: 37%;
+}
+@media screen and (max-width: 768px) {
+  nav.globalMenuSp .left_area {
+    width: 100%;
+  }
 }
 nav.globalMenuSp .left_area img {
   width: 100%;
@@ -326,12 +339,9 @@ nav.globalMenuSp .right_area {
 }
 @media screen and (max-width: 768px) {
   nav.globalMenuSp .right_area {
-    padding-left: 15px;
-  }
-}
-@media screen and (max-width: 599px) {
-  nav.globalMenuSp .right_area {
-    width: 60%;
+    padding-left: initial;
+    padding: 0 20px;
+    width: 100%;
   }
 }
 nav.globalMenuSp .right_area .ham_header {
@@ -350,6 +360,11 @@ nav.globalMenuSp .right_area .ham_cont {
   row-gap: 40px;
   height: calc(100% - 200px);
   justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  nav.globalMenuSp .right_area .ham_cont {
+    padding-top: 70px;
+  }
 }
 
 nav.globalMenuSp ul {
@@ -382,12 +397,17 @@ nav.globalMenuSp ul li a span.ttl {
   letter-spacing: 4px;
   text-align: left;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 768px) {
   nav.globalMenuSp ul li a span.ttl {
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 
+@media screen and (max-width: 768px) {
+  .ham_link_btn img {
+    width: 100%;
+  }
+}
 /* このクラスを、jQueryで付与・削除する */
 nav.globalMenuSp.active {
   transform: translateX(0%);
@@ -396,7 +416,7 @@ nav.globalMenuSp.active {
 /*　ハンバーガーボタン end　*/
 /* top */
 #fv .fv_blc {
-  background-image: url(../img/top_fv.jpg);
+  background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/top_fv.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -573,7 +593,7 @@ nav.globalMenuSp.active {
 }
 @media screen and (max-width: 768px) {
   .gdt_bg #concept .concept_blc .img_blc .right {
-    right: -20px;
+    right: 0;
     width: 60%;
   }
 }
@@ -1121,7 +1141,7 @@ nav.globalMenuSp.active {
 }
 
 #skinCheck .skinCheck_blc {
-  background-image: url(../img/top_bottom_area_bg.png);
+  background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/top_bottom_area_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 618px;
@@ -1130,8 +1150,9 @@ nav.globalMenuSp.active {
 }
 @media screen and (max-width: 768px) {
   #skinCheck .skinCheck_blc {
-    background-image: url(../img/sp_top_bottom_area_bg.png);
+    background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/sp_top_bottom_area_bg.png);
     height: auto;
+    margin: 0 10px;
   }
 }
 #skinCheck .skinCheck_blc .skinCheck_cont {
@@ -1140,6 +1161,12 @@ nav.globalMenuSp.active {
   justify-content: space-between;
   -moz-column-gap: 120px;
        column-gap: 120px;
+}
+@media screen and (max-width: 960px) {
+  #skinCheck .skinCheck_blc .skinCheck_cont {
+    -moz-column-gap: 60px;
+         column-gap: 60px;
+  }
 }
 @media screen and (max-width: 768px) {
   #skinCheck .skinCheck_blc .skinCheck_cont {
@@ -1150,15 +1177,39 @@ nav.globalMenuSp.active {
   font-size: 12px;
   margin-bottom: 65px;
 }
+@media screen and (max-width: 768px) {
+  #skinCheck .skinCheck_blc .skinCheck_cont h2 {
+    margin-bottom: 35px;
+  }
+}
 #skinCheck .skinCheck_blc .skinCheck_cont .text {
   font-size: 24px;
   margin-bottom: 50px;
+}
+@media screen and (max-width: 768px) {
+  #skinCheck .skinCheck_blc .skinCheck_cont .text {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
 }
 #skinCheck .skinCheck_blc .skinCheck_cont .logo {
   margin-left: -12px;
   margin-bottom: 50px;
 }
+@media screen and (max-width: 768px) {
+  #skinCheck .skinCheck_blc .skinCheck_cont .logo {
+    margin-left: -5px;
+  }
+}
+#skinCheck .skinCheck_blc .skinCheck_cont .left_img {
+  margin-bottom: 40px;
+}
 
+@media screen and (max-width: 768px) {
+  footer {
+    padding-bottom: 40px;
+  }
+}
 footer .footer_blc {
   position: relative;
 }
@@ -1166,6 +1217,7 @@ footer .footer_blc .gdt_point03 {
   position: absolute;
   top: -12%;
   left: 10%;
+  z-index: -1;
 }
 @media screen and (max-width: 768px) {
   footer .footer_blc .gdt_point03 {
@@ -1177,20 +1229,38 @@ footer .footer_blc .footer_cont {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 768px) {
+  footer .footer_blc .footer_cont {
+    flex-direction: column;
+  }
+}
 footer .footer_blc .footer_cont .left {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+@media screen and (max-width: 768px) {
+  footer .footer_blc .footer_cont .left {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
 footer .footer_blc .footer_cont .left .ft_logo {
   width: 242px;
 }
-footer .footer_blc .footer_cont .left .copy {
-  font-size: 10px;
+@media screen and (max-width: 600px) {
+  footer .footer_blc .footer_cont .left .ft_logo {
+    width: 55%;
+  }
 }
 footer .footer_blc .footer_cont .right {
   width: 47%;
+}
+@media screen and (max-width: 768px) {
+  footer .footer_blc .footer_cont .right {
+    width: 100%;
+  }
 }
 footer .footer_blc .footer_cont .right .top_blc {
   font-size: 18px;
@@ -1201,12 +1271,35 @@ footer .footer_blc .footer_cont .right .top_blc {
        column-gap: 25px;
   margin-bottom: 55px;
 }
+@media screen and (max-width: 768px) {
+  footer .footer_blc .footer_cont .right .top_blc {
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+    margin-bottom: 35px;
+  }
+}
+footer .footer_blc .footer_cont .right .top_blc li a {
+  color: #565656;
+}
 footer .footer_blc .footer_cont .right .bottom_blc {
   font-size: 12px;
-  color: #bfbfbf;
   display: flex;
   flex-wrap: wrap;
   row-gap: 10px;
   -moz-column-gap: 25px;
        column-gap: 25px;
+}
+@media screen and (max-width: 768px) {
+  footer .footer_blc .footer_cont .right .bottom_blc {
+    font-size: 11px;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+    margin-bottom: 35px;
+  }
+}
+footer .footer_blc .footer_cont .right .bottom_blc li a {
+  color: #bfbfbf;
+}
+footer .footer_blc .footer_cont .copy {
+  font-size: 10px;
 }/*# sourceMappingURL=style.css.map */

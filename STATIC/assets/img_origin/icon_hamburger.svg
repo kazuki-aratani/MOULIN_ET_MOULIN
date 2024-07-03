@@ -1,0 +1,8 @@
+<svg id="icon_hamburger.svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39" height="28" viewBox="0 0 39 28">
+  <defs>
+    <image id="image" width="39" height="3" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAADCAYAAAAQnhYVAAAAnklEQVQYlc3QsWrCUBgF4C81QwsFqSAOIkIKCr6Mm0tewLd1cmghARGHIlgEQQfbdPhvaPoGPXC4ww+Hy5cty9UacxSpIwzQ8zdnHLFDjSp1j1u6f+MBfTxigtfUAlMM072bL5zwkbZrvGXLctX4p8mxwRbvfn99FRJ3IfgsJMZCoJUohMQLss5ug08h3W5W6T0I6YsQy4XkU2dzhsUP7mgmPP6M/3kAAAAASUVORK5CYII="/>
+  </defs>
+  <use id="ベクトルスマートオブジェクト" xlink:href="#image"/>
+  <use id="ベクトルスマートオブジェクト_のコピー" data-name="ベクトルスマートオブジェクト のコピー" y="13" xlink:href="#image"/>
+  <use id="ベクトルスマートオブジェクト_のコピー_2" data-name="ベクトルスマートオブジェクト のコピー 2" y="25" xlink:href="#image"/>
+</svg>
