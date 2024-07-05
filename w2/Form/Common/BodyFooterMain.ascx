@@ -8,8 +8,9 @@ Copyright : Copyright W2 Co.,Ltd. 2009 All Rights Reserved.
 Src="~/Form/Common/AccessLogTrackerScript.ascx" %> <%@ control language="C#"
 autoeventwireup="true" inherits="Form_Common_BodyFooterMain,
 App_Web_bodyfootermain.ascx.2af06a88" %> <%--
-下記のタグはファイル情報保持用です。削除しないでください。 <%@ FileInfo
-LastChanged="最終更新者" %> --%> <%-- ▽編集可能領域：フッタ領域▽ --%>
+下記のタグはファイル情報保持用です。削除しないでください。 
+<%@ FileInfo LastChanged="最終更新者" %> --%> 
+<%-- ▽編集可能領域：フッタ領域▽ --%>
 <footer>
   <div class="footer_blc">
     <img
@@ -54,5 +55,6 @@ LastChanged="最終更新者" %> --%> <%-- ▽編集可能領域：フッタ領�
     </div>
   </div>
 </footer>
-<%-- △編集可能領域△ --%> <%-- w2アクセスログトラッカー出力 --%>
+<%-- △編集可能領域△ --%>
+<%-- w2アクセスログトラッカー出力 --%>
 <uc:AccessLogTrackerScript id="AccessLogTrackerScript1" runat="server" />

@@ -262,9 +262,16 @@ body {
     column-gap: 25px;
     padding: 35px;
     @media screen and (max-width: 768px) {
-      column-gap: 20px;
+      column-gap: 15px;
+      padding: 20px;
+      a {
+        text-align: right;
+      }
+      .hamburger {
+        text-align: right;
+      }
       img {
-        width: 85%;
+        width: 75%;
       }
     }
   }

@@ -270,11 +270,18 @@ body {
 }
 @media screen and (max-width: 768px) {
   .header_wrp .icon_blc {
-    -moz-column-gap: 20px;
-         column-gap: 20px;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    padding: 20px;
+  }
+  .header_wrp .icon_blc a {
+    text-align: right;
+  }
+  .header_wrp .icon_blc .hamburger {
+    text-align: right;
   }
   .header_wrp .icon_blc img {
-    width: 85%;
+    width: 75%;
   }
 }
 
