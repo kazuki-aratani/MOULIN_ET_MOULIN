@@ -186,22 +186,15 @@
 </script>
 
 <table id="tblLayout" class="tblLayout_ProductList">
-<tr>
-<td>
-<div id="secondary">
 <%-- ▽レイアウト領域：レフトエリア▽ --%>
-<uc:ProductColorSearchBox runat="server" />
-<uc:BodyProductCategoryTree runat="server" />
 <%-- △レイアウト領域△ --%>
-</div>
-</td>
 <td>
 <div id="divTopArea">
 <%-- ▽レイアウト領域：トップエリア▽ --%>
 <%-- △レイアウト領域△ --%>
 </div>
 <%-- ▽編集可能領域：コンテンツ▽ --%>
-<div id="primary">
+<div id="product_list_wrp">
 
 <!--▽ 上部カテゴリリンク ▽-->
 <div id="breadcrumb">
@@ -217,15 +210,14 @@
 <uc:BodyProductGroupContentsHtml runat="server" />
 <!--△ 商品グループページHTML領域 △-->
 
-<uc:BodyProductAdvancedSearchBox runat="server" />
-
 <!--▽ ソートコントロール ▽-->
 <uc:BodyProductSortBox CategoryName="<%# this.CategoryName %>" runat="server"></uc:BodyProductSortBox>
 <!--△ ソートコントロール △-->
 
+
 <!--▽ ページャ ▽-->
 <% if (this.IsInfiniteLoad == false) { %>
-<div id="pagination" class="above clearFix">
+<div id="pagination" class="above clearFix top_pager">
 <%# this.PagerHtml %>
 </div>
 <% } %>
@@ -604,12 +596,30 @@
 				<%-- ▽商品一覧ループ(ウインドウショッピング)▽ --%>
 				<asp:Repeater ID="rProductsWindowShopping" runat="server" Visible="<%# this.IsDispImageKbnWindowsShopping %>" OnItemCommand="InnerRepeater_ItemCommand">
 				<HeaderTemplate>
-				<div class="heightLineParent clearFix">
+				<div class="product_list_grid heightLineParent clearFix">
 				</HeaderTemplate>
 				<ItemTemplate>
-				<div id="dInfiniteLoadProduct" class="glbPlist column5 windowpanel" runat="server">
-
-				<ul>
+				<div id="dInfiniteLoadProduct" class="product_list_grid_item" runat="server">
+          
+          <div class="thumb">
+            <% if(Constants.LAYER_DISPLAY_VARIATION_IMAGES_ENABLED
+              && (Constants.SETTING_PRODUCT_LIST_SEARCH_KBN == false)) { %>
+            <uc:BodyProductVariationImages ImageSize="M" ProductMaster="<%# Container.DataItem %>" VariationList="<%# this.ProductVariationList %>" VariationNo="<%# Container.ItemIndex.ToString() %>" runat="server" />
+            <% } else { %>
+            <a href='<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>'>
+            <% if (Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) { %>
+              <w2c:ProductImage ImageSize="M" ProductMaster="<%# Container.DataItem %>" IsVariation="false" IsGroupVariation="true" runat="server" />
+            <% } else { %>
+              <w2c:ProductImage ImageSize="M" ProductMaster="<%# Container.DataItem %>" IsVariation="false" runat="server" />
+            <% } %>
+            </a>
+            <% } %><span visible='<%# ProductListUtility.IsProductSoldOut(Container.DataItem) %>' runat="server" class="soldout">SOLDOUT</span>
+          </div>
+          <li class="name">
+            <a href='<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>'><%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, "name")) %></a>
+          <!-- 商品ID表示 -->
+              <p><%#: StringUtility.ToEmpty(ProductPage.GetKeyValueToNull(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1)) %></p>
+          </li>
           <li class="icon">
             <w2c:ProductIcon IconNo="1" ProductMaster="<%# Container.DataItem %>" runat="server" />
             <w2c:ProductIcon IconNo="2" ProductMaster="<%# Container.DataItem %>" runat="server" />
@@ -622,84 +632,51 @@
             <w2c:ProductIcon IconNo="9" ProductMaster="<%# Container.DataItem %>" runat="server" />
             <w2c:ProductIcon IconNo="10" ProductMaster="<%# Container.DataItem %>" runat="server" />
           </li>
-				<li class="thumb">
-				<% if(Constants.LAYER_DISPLAY_VARIATION_IMAGES_ENABLED
-					&& (Constants.SETTING_PRODUCT_LIST_SEARCH_KBN == false)) { %>
-				<uc:BodyProductVariationImages ImageSize="M" ProductMaster="<%# Container.DataItem %>" VariationList="<%# this.ProductVariationList %>" VariationNo="<%# Container.ItemIndex.ToString() %>" runat="server" />
-				<% } else { %>
-				<a href='<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>'>
-				<% if (Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) { %>
-					<w2c:ProductImage ImageSize="M" ProductMaster="<%# Container.DataItem %>" IsVariation="false" IsGroupVariation="true" runat="server" />
-				<% } else { %>
-					<w2c:ProductImage ImageSize="M" ProductMaster="<%# Container.DataItem %>" IsVariation="false" runat="server" />
-				<% } %>
-				</a>
-				<% } %><span visible='<%# ProductListUtility.IsProductSoldOut(Container.DataItem) %>' runat="server" class="soldout">SOLDOUT</span>
-				</li>
-				<li class="name">
-					<p class="pid"><%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_PRODUCT_ID)) %></p>
-					<a href='<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>'><%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, "name")) %></a>
-				<!-- 商品ID表示 -->
-						<p><%#: StringUtility.ToEmpty(ProductPage.GetKeyValueToNull(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1)) %></p>
-				</li>
-				<li class="price">
+          <li class="price">
 
-				<%-- ▽商品会員ランク価格有効▽ --%>
-				<p visible='<%# GetProductMemberRankPriceValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
-				会員ランク:<span style="text-decoration: line-through"><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span><br />
-				<span style="color: #f00;"><%#: CurrencyManager.ToPrice(ProductPage.GetProductMemberRankPrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span>
-				</p>
+            <%-- ▽商品会員ランク価格有効▽ --%>
+            <p visible='<%# GetProductMemberRankPriceValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
+            会員ランク:<span style="text-decoration: line-through"><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span><br />
+            <span style="color: #f00;"><%#: CurrencyManager.ToPrice(ProductPage.GetProductMemberRankPrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span>
+            </p>
 
-				<%-- ▽商品セール価格有効▽ --%>
-				<p visible='<%# GetProductTimeSalesValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
-					セール:<span style="text-decoration: line-through"><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span><br />
-					<span style="color: #f00;"><%#: CurrencyManager.ToPrice(ProductPage.GetProductTimeSalePriceNumeric(Container.DataItem)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span>
-				</p>
+            <%-- ▽商品セール価格有効▽ --%>
+            <p visible='<%# GetProductTimeSalesValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
+              セール:<span style="text-decoration: line-through"><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span><br />
+              <span style="color: #f00;"><%#: CurrencyManager.ToPrice(ProductPage.GetProductTimeSalePriceNumeric(Container.DataItem)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span>
+            </p>
 
-				<%-- ▽商品特別価格有効▽ --%>
-				<p visible='<%# GetProductSpecialPriceValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
-				特別:<span style="text-decoration: line-through"><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span><br />
-				<span style="color: #f00;"><%#: CurrencyManager.ToPrice(ProductPage.GetProductSpecialPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span>
-				</p>
+            <%-- ▽商品特別価格有効▽ --%>
+            <p visible='<%# GetProductSpecialPriceValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
+            特別:<span style="text-decoration: line-through"><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span><br />
+            <span style="color: #f00;"><%#: CurrencyManager.ToPrice(ProductPage.GetProductSpecialPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）</span>
+            </p>
 
-				<%-- ▽商品通常価格有効▽ --%>
-				<p visible='<%# GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
-				通常:<%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）
-				</p>
-				<%-- ▽定期購入価格有効▽ --%>
-				<% if (Constants.FIXEDPURCHASE_OPTION_ENABLED) {%>
-				<p visible='<%# (GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG).ToString() != Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_INVALID) && (CheckFixedPurchaseLimitedUserLevel(this.ShopId, (string)GetProductData(Container.DataItem, "product_id")) == false) %>' runat="server">
-					<p visible='<%# IsProductFixedPurchaseFirsttimePriceValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
-						定期初回:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchaseFirsttimePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
-					</p>
-					<p>
-						定期通常:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchasePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
-					</p>
-				</p>
-				<% } %>
-				<%-- ▽頒布会購入価格有効▽ --%>
-				<% if (Constants.SUBSCRIPTION_BOX_OPTION_ENABLED) {%>
-				<p visible='<%# (GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_SUBSCRIPTION_BOX_FLG).ToString() != Constants.FLG_PRODUCT_SUBSCRIPTION_BOX_FLG_INVALID) && (CheckFixedPurchaseLimitedUserLevel(this.ShopId, (string)GetProductData(Container.DataItem, "product_id")) == false) %>' runat="server">
-					<p>
-						頒布会通常:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchasePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
-					</p>
-				</p>
-				<% } %>
-				<%-- △頒布会購入価格有効△ --%>
-				</li>
-				<%-- ▽お気に入りの登録人数表示▽ --%>
-				<li class="favorite" runat="server">
-				お気に入りの登録人数：<%# this.GetFavoriteCount((string)GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_PRODUCT_ID)) %>人
-				</li>
-				<%-- △お気に入りの登録人数表示△ --%>
-
-				<% if (Constants.USE_MODAL_PRODUCT_LIST) { %>
-					<a class="productlist_detailsLink" href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>">詳細ページへ</a>
-					<a><asp:Button ID="btnShowDetail" runat="server" Text="注文する" CommandArgument="<%# GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_PRODUCT_ID) %>" CommandName="btnOpenModalOrAddCart" CssClass="productlist_orderButton"/></a>
-				<% } else { %>
-					<a class="link_product_detail" href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>">▶ 詳細ページへ</a>
-				<% } %>
-				</ul>
+            <%-- ▽商品通常価格有効▽ --%>
+            <p visible='<%# GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
+            販売価格:<%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）
+            </p>
+            <%-- ▽定期購入価格有効▽ --%>
+            <% if (Constants.FIXEDPURCHASE_OPTION_ENABLED) {%>
+            <p visible='<%# (GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG).ToString() != Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_INVALID) && (CheckFixedPurchaseLimitedUserLevel(this.ShopId, (string)GetProductData(Container.DataItem, "product_id")) == false) %>' runat="server">
+              <p visible='<%# IsProductFixedPurchaseFirsttimePriceValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
+                定期初回:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchaseFirsttimePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
+              </p>
+              <p>
+                定期通常:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchasePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
+              </p>
+            </p>
+            <% } %>
+            <%-- ▽頒布会購入価格有効▽ --%>
+            <% if (Constants.SUBSCRIPTION_BOX_OPTION_ENABLED) {%>
+            <p visible='<%# (GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_SUBSCRIPTION_BOX_FLG).ToString() != Constants.FLG_PRODUCT_SUBSCRIPTION_BOX_FLG_INVALID) && (CheckFixedPurchaseLimitedUserLevel(this.ShopId, (string)GetProductData(Container.DataItem, "product_id")) == false) %>' runat="server">
+              <p>
+                頒布会通常:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchasePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
+              </p>
+            </p>
+            <% } %>
+            <%-- △頒布会購入価格有効△ --%>
+          </li>
 				</div>
 				</ItemTemplate>
 				<FooterTemplate>
@@ -730,7 +707,7 @@
 <%--△ 商品一覧（無限ロード）△--%>
 <!--▽ ページャ ▽-->
 <% if (this.IsInfiniteLoad == false) { %>
-	<div id="pagination" class="below clearFix">
+	<div id="pagination" class="below clearFix bottom_pager">
 	<%# this.PagerHtml %>
 	</div>
 <% } %>
