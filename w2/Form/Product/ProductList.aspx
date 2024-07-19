@@ -197,23 +197,28 @@
 <div id="product_list_wrp">
 
 <!--▽ 上部カテゴリリンク ▽-->
-<div id="breadcrumb">
-<uc:BodyProductCategoryLinks runat="server"></uc:BodyProductCategoryLinks>
+<div id="breadcrumb" class="breadcrumb_cstm">
+  <ul>
+    <li><a href="https://mybalance.jp/">TOP</a></li>
+    <span>-</span>
+    <li>LINE UP</li>
+  </ul>
 </div>
 <!--△ 上部カテゴリリンク △-->
 
-<!--▽ カテゴリHTML領域 ▽-->
-<uc:BodyProductCategoryHtml runat="server" />
-<!--△ カテゴリHTML領域 △-->
+<div class="h1_blc">
+  <h1>LINE UP</h1>
+  <span class="h1_sub">商品一覧</span>
+</div>
 
 <!--▽ 商品グループページHTML領域 ▽-->
 <uc:BodyProductGroupContentsHtml runat="server" />
 <!--△ 商品グループページHTML領域 △-->
 
+<div class="product_sort_flex">
 <!--▽ ソートコントロール ▽-->
 <uc:BodyProductSortBox CategoryName="<%# this.CategoryName %>" runat="server"></uc:BodyProductSortBox>
 <!--△ ソートコントロール △-->
-
 
 <!--▽ ページャ ▽-->
 <% if (this.IsInfiniteLoad == false) { %>
@@ -222,6 +227,7 @@
 </div>
 <% } %>
 <!--△ ページャ △-->
+</div>
 
 <div class="listProduct">
 
@@ -735,10 +741,6 @@
 <!--△ 商品が1つもなかった場合のエラー文言 △-->
 </div><!-- (this.ProductMasterList.Count != 0) -->
 
-<%-- ▽最近チェックした商品▽ --%>
-<uc:BodyProductHistory runat="server" />
-<uc:BodyRecommendTagsRelatedCategory CategoryName="<%# this.CategoryName %>" runat="server"></uc:BodyRecommendTagsRelatedCategory>
-<%-- △最近チェックした商品△ --%>
 
 </div>
 <%-- △編集可能領域△ --%>

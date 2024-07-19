@@ -173,14 +173,7 @@
 
 <table id="tblLayout" class="tblLayout_ProductDetail">
 <tr>
-<td>
-<div id="secondary">
-<%-- ▽レイアウト領域：レフトエリア▽ --%>
-<uc:ProductColorSearchBox runat="server" />
-<uc:BodyProductCategoryTree runat="server" />
-<%-- △レイアウト領域△ --%>
-</div>
-</td>
+
 <td>
 <div id="divTopArea">
 <%-- ▽レイアウト領域：トップエリア▽ --%>
@@ -214,7 +207,6 @@
 <div class="ChangesByVariation" runat="server">
 	<!-- 商品画像 -->
 	<div class="mainImage">
-	<p class="mb5"><a href='<%# CreateUrlForProductZoomImage() %>' class="thickbox btn btn-mini">拡大画像を表示する</a></p>
 	<a class="thickbox" rel="gal1" href='<%# CreateUrlForProductZoomImage() %>'>
 	<w2c:ProductImage ImageTagId="zoomPicture" data-zoom-image="" ImageSize="LL" IsVariation="<%# (this.VariationSelected) %>" ProductMaster="<%# this.ProductMaster %>" runat="server" />
 	</a>
@@ -225,26 +217,7 @@
 </div>
 <%-- ↑バリエーション変更時の表示更新領域を指定しています --%>
 
-<ul class="btnListContact">
-	<li>
-	<!-- お問い合わせリンク -->
-	<div class="ChangesByVariation" runat="server">
-	<a href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductInquiryUrl(this.ProductMaster, this.VariationSelected)) %>">この商品に関する問い合わせ</a>
-	</div>
-	</li><!--
-	--><li><% if(Constants.VARIATION_FAVORITE_CORRESPONDENCE){ %>
-		<asp:LinkButton ID="lbAddFavoriteId" OnClick="lbAddFavorite_Click" runat="server" OnClientClick=<%# (Alertdisplaycheck((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "display_alert_check_for_mailsend()" : "" %>>
-		<%# (FavoriteDisplayWord((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "お気に入り登録済み" : "お気に入りに追加" %>
-			<% if(HasVariation){ %>&nbsp;(<%# SetFavoriteDataOfProductForDisplay() %>人)<% } %>
-		</asp:LinkButton><% }else{ %>
-		<asp:LinkButton ID="lbAddFavorite" runat="server" OnClick="lbAddFavorite_Click">お気に入りに追加</asp:LinkButton>	<% } %>
-	</li>
-</ul>
-
 <div class="description">
-
-	<!-- キャッチコピー -->
-	<h3><%# WebSanitizer.HtmlEncode(GetProductData("catchcopy")) %></h3>
 
 	<!-- 販売期間 -->
 	<%if (this.DisplaySell) {%>
@@ -271,28 +244,37 @@
 
 <div id="detailOne">
 
-<!-- 商品アイコン -->
-<p class="icon">
-<w2c:ProductIcon IconNo="1" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="2" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="3" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="4" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="5" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="6" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="7" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="8" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="9" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-<w2c:ProductIcon IconNo="10" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-</p>
-
 <%-- ↓バリエーション変更時の表示更新領域を指定しています --%>
 <div class="ChangesByVariation" runat="server">
+  <%-- 商品詳細3 --%>
+	<p class="detail_name_en"><%# GetProductDataHtml("desc_detail3") %></p><br />
 	<!-- 商品名 -->
-	<h2><%# WebSanitizer.HtmlEncode(GetProductData("name")) %></h2>
-	<div id="dvProductSubInfo" class="clearFix">
-		<!-- 商品ID  -->
-		<p class="productDetailId">&nbsp;[<span class="productId"><%# WebSanitizer.HtmlEncode(GetProductData("variation_id")) %>]</span></p>
-</div>
+	<h2 class="detail_name"><%# WebSanitizer.HtmlEncode(GetProductData("name")) %></h2>
+  <%-- 商品詳細4 --%>
+	<p class="detail_capacity">内容量:<%# GetProductDataHtml("desc_detail4") %></p>
+
+  <!-- 商品アイコン -->
+  <p class="icon">
+  <w2c:ProductIcon IconNo="1" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="2" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="3" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="4" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="5" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="6" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="7" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="8" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="9" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="10" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  </p>
+
+  <!-- キャッチコピー -->
+	<h3><%# WebSanitizer.HtmlEncode(GetProductData("catchcopy")) %></h3>
+
+  <!-- 概要 -->
+  <p><%# GetProductDataHtml("outline") %></p>
+
+  <%-- 商品詳細1 --%>
+	<p><%# GetProductDataHtml("desc_detail1") %></p><br />
 
 	<div class="wrapProductPrice">
 	<!-- 商品価格・税区分・加算ポイント -->
@@ -347,24 +329,10 @@
 </div>
 <%-- ↑バリエーション変更時の表示更新領域を指定しています --%>
 
-<%-- SNSボタン ※mixiチェックはクライアント毎にデベロッパ登録したキーを設定する必要あり --%>
-<ul class="snsList clearFix">
-	<li><iframe src="//www.facebook.com/plugins/like.php?href=<%# HttpUtility.UrlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_PRODUCT_DETAIL + "?" + Constants.REQUEST_KEY_PRODUCT_ID + "=" + this.ProductId) %><%# HttpUtility.UrlEncode(Constants.PRODUCT_BRAND_ENABLED ? "&" + Constants.REQUEST_KEY_BRAND_ID + "=" + this.BrandId : "") %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe></li>
-	<li><a href="javascript:void(0);" onclick='<%# WebSanitizer.HtmlEncode("window.open('http://mixi.jp/share.pl?u=" + HttpUtility.UrlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_PRODUCT_DETAIL + "?" + Constants.REQUEST_KEY_PRODUCT_ID + "=" + this.ProductId + (Constants.PRODUCT_BRAND_ENABLED ? "&" + Constants.REQUEST_KEY_BRAND_ID + "=" + this.BrandId : "") + "&k=01ac61d95d41a50ea61d0c5ab84adf0cfbf62f7d") + "','share',['width=632','height=456','location=yes','resizable=yes','toolbar=no','menubar=no','scrollbars=no','status=no'].join(','));") %>'><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mixi_bt_check_1.png" alt="mixiチェック" border="0" /></a></li>
-	<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-lang="ja">ツイート</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script></li>
-</ul>
+
 
 <div class="wrapDetailImage">
-<%-- ▽メイン画像▽ --%>
-<div class="unit">
-	<div class="mainImage">
-		<p class="title">メイン画像</p>
-		<a href="javascript:void(0);">
-			<img class="zoomTarget" src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-zoom-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" />
-		</a>
-	</div>
-</div>
-<%-- △メイン画像△ --%>
+
 <!-- バリエーション画像一覧 -->
 <%-- ▽バリエーション画像一覧▽ --%>
 <asp:Repeater ID="rVariation" DataSource='<%# this.ProductVariationMasterList %>' Visible="<%# this.HasVariation %>" runat="server" >
@@ -448,17 +416,17 @@
 <%-- ↓バリエーション変更時の表示更新領域を指定しています --%>
 <div class="ChangesByVariation" runat="server">
 <div class="productSellInfo">
-
-<!-- バリエーション選択 -->
-<div class="selectValiation">
-<% if(this.HasVariation) {%>
-<% if ((this.SelectVariationKbn == Constants.SelectVariationKbn.PANEL)
-		|| (this.IsVariationName3 && ((this.SelectVariationKbn == Constants.SelectVariationKbn.DOUBLEDROPDOWNLIST)
+  <!-- バリエーション選択 -->
+  <div class="selectValiation">
+    <% if(this.HasVariation) {%>
+      <% if ((this.SelectVariationKbn == Constants.SelectVariationKbn.PANEL)
+      || (this.IsVariationName3 && ((this.SelectVariationKbn == Constants.SelectVariationKbn.DOUBLEDROPDOWNLIST)
 			|| (this.SelectVariationKbn == Constants.SelectVariationKbn.MATRIX)
 			|| (this.SelectVariationKbn == Constants.SelectVariationKbn.MATRIXANDMESSAGE)))){ %>
-	<asp:HiddenField ID="hIsSelectingVariationExist" Value="<%# this.IsSelectingVariationExist %>" runat="server" />
-	<asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
-		<HeaderTemplate>
+        <asp:HiddenField ID="hIsSelectingVariationExist" Value="<%# this.IsSelectingVariationExist %>" runat="server" />
+        <asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
+        <HeaderTemplate>
+          <p>下記よりセットをお選びください</p>
 			<div style="width:100%; padding-bottom:30px; clear:both">
 				<div style="width:100%">
 					<span>Color</span><br />
@@ -773,6 +741,16 @@
 	</a>
 </p>
 <%} %>
+
+<ul class="btnListContact">
+  <!--  お気に入りに追加 --><li><% if(Constants.VARIATION_FAVORITE_CORRESPONDENCE){ %>
+		<asp:LinkButton ID="lbAddFavoriteId" OnClick="lbAddFavorite_Click" runat="server" OnClientClick=<%# (Alertdisplaycheck((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "display_alert_check_for_mailsend()" : "" %>>
+		<%# (FavoriteDisplayWord((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "お気に入り登録済み" : "お気に入りに追加" %>
+			<% if(HasVariation){ %>&nbsp;(<%# SetFavoriteDataOfProductForDisplay() %>人)<% } %>
+		</asp:LinkButton><% }else{ %>
+		<asp:LinkButton ID="lbAddFavorite" runat="server" OnClick="lbAddFavorite_Click">お気に入りに追加</asp:LinkButton>	<% } %>
+	</li>
+</ul>
 
 </div><!-- productSellInfo -->
 </div>
@@ -1100,22 +1078,14 @@
 <br />
 
 <div id="dvProductDescription">
-	<div visible='<%# this.IsProductOutlineVisible %>' runat="server">
-	<p class="title">概要</p><br />
-		<p><%# GetProductDataHtml("outline") %></p><br />
-	</div>
-
-　　<div visible='<%# this.IsProductDetailVisible %>' runat="server">
-	<p class="title">詳細情報</p><br />
-	<%-- 商品詳細1 --%>
-	<p><%# GetProductDataHtml("desc_detail1") %></p><br />
-	<%-- 商品詳細2 --%>
-	<p><%# GetProductDataHtml("desc_detail2") %></p><br />
-	<%-- 商品詳細3 --%>
-	<p><%# GetProductDataHtml("desc_detail3") %></p><br />
-	<%-- 商品詳細4 --%>
-	<p><%# GetProductDataHtml("desc_detail4") %></p>
-	</div>
+  <div class="dvProductDescription_cont">
+    <div class="h2_blc">
+      <h2 class="title">ITEM INFO</h2>
+      <span class="title_sub">商品詳細</span>
+    </div>
+    <%-- 商品詳細2 --%>
+    <p><%# GetProductDataHtml("desc_detail2") %></p><br />
+  </div>
 </div>
 
 <%-- ▽最近チェックした商品▽ --%>

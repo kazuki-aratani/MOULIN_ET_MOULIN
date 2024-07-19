@@ -1059,29 +1059,14 @@ input.nameShipping {
 }
 
 /* 定額頒布会情報 */
-#dvUserBox
-  #dvOrderHistoryDetail
-  .dvOrderHistoryProduct
-  .fixed-amount-course-container {
+#dvUserBox #dvOrderHistoryDetail .dvOrderHistoryProduct .fixed-amount-course-container {
   font-size: 10px;
 }
 
 /* 同梱注文の同じ定額頒布会商品同士のボーダーを削除 */
-#dvUserBox
-  #dvOrderHistoryDetail
-  .dvOrderHistoryProduct
-  .fixed-amount-course-item-line
-  .productName,
-#dvUserBox
-  #dvOrderHistoryDetail
-  .dvOrderHistoryProduct
-  .fixed-amount-course-item-line
-  .productPrice,
-#dvUserBox
-  #dvOrderHistoryDetail
-  .dvOrderHistoryProduct
-  .fixed-amount-course-item-line
-  .orderCount {
+#dvUserBox #dvOrderHistoryDetail .dvOrderHistoryProduct .fixed-amount-course-item-line .productName,
+#dvUserBox #dvOrderHistoryDetail .dvOrderHistoryProduct .fixed-amount-course-item-line .productPrice,
+#dvUserBox #dvOrderHistoryDetail .dvOrderHistoryProduct .fixed-amount-course-item-line .orderCount {
   border-bottom-style: none;
 }
 
@@ -1135,33 +1120,15 @@ input.nameShipping {
   margin-right: 0;
 }
 /* 会員ランク割引額*/
-#dvUserBox
-  #dvOrderHistoryDetail
-  .dvOrderSumWrap
-  .dvOrderSum
-  dl
-  dd.MemberRankUse
-  span {
+#dvUserBox #dvOrderHistoryDetail .dvOrderSumWrap .dvOrderSum dl dd.MemberRankUse span {
   color: #ff0000;
 }
 /* ポイント利用額 */
-#dvUserBox
-  #dvOrderHistoryDetail
-  .dvOrderSumWrap
-  .dvOrderSum
-  dl
-  dd.pointUse
-  span {
+#dvUserBox #dvOrderHistoryDetail .dvOrderSumWrap .dvOrderSum dl dd.pointUse span {
   color: #ff0000;
 }
 /* クーポン割引額 */
-#dvUserBox
-  #dvOrderHistoryDetail
-  .dvOrderSumWrap
-  .dvOrderSum
-  dl
-  dd.couponUse
-  span {
+#dvUserBox #dvOrderHistoryDetail .dvOrderSumWrap .dvOrderSum dl dd.couponUse span {
   color: #ff0000;
 }
 
@@ -1311,11 +1278,7 @@ input.nameShipping {
   width: 65px;
 }
 /* 定期購入ステータス（通常) */
-#dvUserBox
-  #dvFixedPurchaseList
-  table
-  .fixedPurchaseStatus
-  .fixedPurchaseStatus_10 {
+#dvUserBox #dvFixedPurchaseList table .fixedPurchaseStatus .fixedPurchaseStatus_10 {
   color: #333333;
   font-weight: bold;
 }
@@ -1328,11 +1291,7 @@ input.nameShipping {
   font-weight: bold;
 }
 /* 定期購入ステータス（キャンセル) */
-#dvUserBox
-  #dvFixedPurchaseList
-  table
-  .fixedPurchaseStatus
-  .fixedPurchaseStatus_30 {
+#dvUserBox #dvFixedPurchaseList table .fixedPurchaseStatus .fixedPurchaseStatus_30 {
 }
 
 /* 商品表示エリア */
@@ -1458,8 +1417,7 @@ input.nameShipping {
 #dvUserBox #dvFixedPurchaseDetail table td small pre {
   line-height: 1.5em;
   color: #333333;
-  font-family: "Lucida Grande", "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN",
-    sans-serif;
+  font-family: "Lucida Grande", "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN", sans-serif;
 }
 
 /* アラート・情報 */
@@ -1506,37 +1464,22 @@ input.nameShipping {
   text-align: center;
 }
 
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvFixedPurchaseItem
-  .subscriptionBoxProductName {
+#dvUserBox #dvFixedPurchaseDetail .dvFixedPurchaseItem .subscriptionBoxProductName {
   width: 50%;
 }
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvFixedPurchaseItem
-  .subscriptionBoxProductPrice {
+#dvUserBox #dvFixedPurchaseDetail .dvFixedPurchaseItem .subscriptionBoxProductPrice {
   width: 15%;
   text-align: center;
 }
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvFixedPurchaseItem
-  .subscriptionBoxOrderCount {
+#dvUserBox #dvFixedPurchaseDetail .dvFixedPurchaseItem .subscriptionBoxOrderCount {
   width: 10%;
   text-align: center;
 }
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvFixedPurchaseItem
-  .subscriptionBoxOrderSubtotal {
+#dvUserBox #dvFixedPurchaseDetail .dvFixedPurchaseItem .subscriptionBoxOrderSubtotal {
   width: 15%;
   text-align: center;
 }
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvFixedPurchaseItem
-  .subscriptionBoxProductDelete {
+#dvUserBox #dvFixedPurchaseDetail .dvFixedPurchaseItem .subscriptionBoxProductDelete {
   width: 10%;
   text-align: center;
 }
@@ -1597,20 +1540,13 @@ input.nameShipping {
 }
 
 /* 合計情報ブロック */
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder {
   float: right;
   width: 50%;
 }
 
 /* 見出し */
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  > div {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder > div {
   border-bottom: solid;
   border-bottom-color: #ccc;
   border-bottom-width: 1px;
@@ -1619,47 +1555,25 @@ input.nameShipping {
 }
 
 /* 項目名 */
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  dl
-  dt {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder dl dt {
   width: 35%;
   text-align: right;
   line-height: 1.4em;
   margin-top: 8px;
 }
 /* 値 */
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  dl
-  dd {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder dl dd {
   text-align: right;
   margin-top: -1.25em;
   margin-left: 35%;
 }
 
 /* クーポン割引額 */
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  dl
-  dd.couponUse
-  span {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder dl dd.couponUse span {
   color: #f00;
   display: inline-block;
 }
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  dl
-  dd.couponUse
-  span:first-child {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder dl dd.couponUse span:first-child {
   margin-bottom: 3px;
 }
 /* ポイント利用額 */
@@ -1672,35 +1586,20 @@ input.nameShipping {
 }
 
 /* 総合計 */
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  dl.orderTotal {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder dl.orderTotal {
   border-top-style: solid;
   border-top-width: 1px;
   border-top-color: #ccc;
   font-weight: bold;
   margin-top: 5px;
 }
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  dl.orderTotal
-  span {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder dl.orderTotal span {
   width: 100%;
   height: 100%;
   margin: 10px 0;
   display: inline-block;
 }
-#dvUserBox
-  #dvFixedPurchaseDetail
-  .dvPlannedTotalAmountForTheNextOrderWrap
-  .dvPlannedTotalAmountForTheNextOrder
-  dl.orderTotal
-  span
-  p {
+#dvUserBox #dvFixedPurchaseDetail .dvPlannedTotalAmountForTheNextOrderWrap .dvPlannedTotalAmountForTheNextOrder dl.orderTotal span p {
   font-size: 0.7em;
 }
 

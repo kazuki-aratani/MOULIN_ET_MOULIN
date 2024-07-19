@@ -278,6 +278,12 @@ h6 {
 #breadcrumb span,
 #breadcrumb a {
   padding: 0 5px;
+  display: inline;
+}
+.breadcrumb_cstm ul {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
 }
 
 /*==============================================================================================
@@ -328,10 +334,10 @@ a:active {
 /*03 レーヤアウト*/
 
 #Wrap {
-  width: 980px;
+  width: 960px;
   text-align: left;
   margin: 0px auto;
-  padding-top: 105px;
+  padding-top: 70px;
 }
 .wrapTop {
   width: 100%;
@@ -1043,8 +1049,9 @@ a.ag:active {
 }
 
 #primary {
-  width: 780px;
-  padding-left: 20px;
+  /* width: 780px; */
+  /* padding-left: 20px; */
+  width: 960px;
   margin-top: 10px;
 }
 
@@ -1509,6 +1516,12 @@ a.ag:active {
   border: none;
 }
 
+.product_sort_flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
 /* ページング */
 #pagination {
   clear: both;
@@ -1586,7 +1599,19 @@ a.ag:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 15px;
+  column-gap: 10px;
+}
+.bottom_pager_cont_num span,
+.bottom_pager_cont_num a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.bottom_pager_cont_num .pager_active {
+  font-weight: 600;
+  background-color: #e7f0f3;
+  border-radius: 25px;
 }
 
 /* 在庫が無い場合 */

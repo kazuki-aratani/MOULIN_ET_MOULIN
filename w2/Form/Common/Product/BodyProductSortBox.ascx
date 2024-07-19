@@ -80,7 +80,7 @@
 <% if (this.DisplayFixedPurchaseFilter) {%>
 <%--- 定期購入フィルタ ---%>
 <div class="box clearFix">
-    <p class="title">通常・定期</p>
+    <p class="title">通常・定期：</p>
     <ul class="nav clearFix">
         <% if (this.FixedPurchaseFilter == Constants.KBN_PRODUCT_LIST_FIXED_PURCHASE_FILTER_ALL) { %>
             <li class="active">すべて表示</li>
@@ -100,7 +100,7 @@
 </div>
 
 <script>
-    document.querySelector('.title').addEventListener('mouseenter', function() {
+    document.querySelector('.box').addEventListener('mouseenter', function() {
         document.querySelector('.dropdown').style.display = 'block';
     });
 
@@ -113,42 +113,43 @@
 <style>
   .box {
     position: relative;
-}
+    cursor: pointer;
+  }
 
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    z-index: 1000;
-    width: 200px; /* 適宜調整 */
-}
+  .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      z-index: 1000;
+      width: 300px; /* 適宜調整 */
+      box-shadow: 10px 10px 21px -6px #dfdddd;
+      border-radius: 15px;
+  }
 
-.dropdown ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+  .dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  }
 
-.dropdown ul li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-}
+  .dropdown ul li {
+      border-bottom: 1px solid #ccc;
+  }
 
-.dropdown ul li a {
-    text-decoration: none;
-    color: #333;
-}
+  .dropdown ul li a {
+      text-decoration: none;
+      color: #333;
+  }
 
-.dropdown ul li:hover {
-    background-color: #f5f5f5;
-}
+  .dropdown ul li:hover {
+      background-color: #f5f5f5;
+  }
 
-.title:hover + .dropdown, .dropdown:hover {
-    display: block;
-}
+  .title:hover + .dropdown, .dropdown:hover {
+      display: block;
+  }
 
 </style>
 
