@@ -109,7 +109,6 @@
                 </li>
             </ul>
             <a href="" class="ham_link_btn">
-              <img class="ov_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_bnr.jpg" alt="">
               <img class="un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_ham_bnr.jpg" alt="">
             </a>
           </div>

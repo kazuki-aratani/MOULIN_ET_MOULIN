@@ -61,18 +61,30 @@
               <h2 class="side_word">CONCEPT</h2>
               <div class="h2_blc">
                 <h2>CONCEPT</h2>
-                <p class="h2_sub">肌が整うと、毎日が楽しい</p>
+                <p class="h2_sub"><span>肌</span>が<span>整</span>うと、<span>毎日</span>が<span>楽</span>しい</p>
               </div>
               <p class="text">
-                なりたいキレイを叶えることで、自信が芽生え、<br class="un_tab">心も前向きになります。<br>
-                美しさへの近道は、自分の肌状態を知り、<br class="un_tab">自分に合ったスキンケアを知ること。<br>
-                そうすることで、<br class="un_tab">肌はしっかりとこたえてくれます。<br>
-                さあ、自分の肌を信じよう
+                ひとは皆それぞれが持つバランスを保つことで、<br>
+                毎日を楽しく過ごしています。<br>
+                私たちは、肌本来の美しさを保つスキンケアで、<br>
+                あなたの肌のマイバランスをサポートします。
               </p>
               <div class="img_blc">
-                <img class="left" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_concept_01.jpg" alt="">
-                <img class="right" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_concept_02.jpg" alt="">
+                <img class="" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_concept_01.jpg" alt="">
               </div>
+              <div class="bottom_blc">
+                <h3>自分の肌を信じよう</h3>
+                <div class="text">
+                  肌には自ら美しさを保つ力があります。<br>
+                  自分の肌状態を知り、自分に合った正しいスキンケアをすることで、肌はしっかり応えてくれます。<br>
+                  なりたいキレイを叶えると、自信が芽生え、心も前向きになります。<br>
+                  <span></span>さあ、自分の肌を信じよう。
+                </div>
+                <div class="img_blc">
+                  <img class="" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_thought_01.jpg" alt="">
+                </div>
+              </div>
+
             </div>
           </section>
           <section id="thought">
@@ -84,19 +96,9 @@
                   <p class="h2_sub">一人ひとりの肌に寄り添う</p>
                 </div>
                 <p class="text">
-                  私たちは美しさを提案する美容メーカーとして、<br>
-                  一人ひとりの 「キレイ」と向き合ってきました。<br>
-                  その中で、毎日をがんばっている人の肌に目を向けると、<br class="ov_tab">
-                  不規則な生活や環境からくるストレスによって、<br class="ov_tab">
-                  自分でも気づかないうちに、バリア機能が低下した<br class="ov_tab">
-                  “ゆらぎ肌”※の方が多いことが分かりました。<br>
-                  マイバランスは、そんなゆらぎ肌の方にもご使用いただけるご提案と、<br class="ov_tab">
-                  商品設計にこだわり、あなたの「肌が整うと毎日が楽しい」を応援します。
+                  私たちは、一人ひとりの「キレイ」と向き合う中で、バリア機能が低下した“ゆらぎ肌”の方が多いことが分かりました。<br>
+                  一人ひとり異なるゆらぎ肌の原因を見つめ直す提案で、あなたのなりたい肌に寄り添います。
                 </p>
-                <p class="note">※バリア機能が低下し、不安定な状態の肌</p>
-              </div>
-              <div class="right">
-                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_thought_01.jpg" alt="">
               </div>
             </div>
           </section>
@@ -104,7 +106,7 @@
             <div class="suggestion_blc">
               <div class="h2_blc">
                 <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_mb_h2.png" alt="MyBALANCE">
-                <h2>マイバランスのご提案</h2>
+                <h2>マイバランスができる<span>3</span>つの提案</h2>
               </div>
               <div class="contents_flex">
                 <div class="left">
@@ -115,17 +117,20 @@
                     <div class="ttl"><span class="num">01</span>自分の肌状態を知る</div>
                     <p class="text">スキンチェックによって、皮膚科学の専門家が、あなたの肌状態を科学的に分析します。<br>まずはスキンチェックで自分の肌状態を知りましょう！</p>
                     <a href="" class="gdt_btn">
-                      <span>SKIN CHECK</span>
-                      スキンチェックのお申し込みはこちら
+                      <div class="left_blc"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/gdt_btn_free.png" alt="無料"></div>
+                      <div class="right_blc">
+                        <span>SKIN CHECK</span>
+                        スキンチェックの<br>お申し込みはこちら
+                      </div>
                     </a>
                   </div>
                   <div class="text_blc">
-                    <div class="ttl"><span class="num">02</span>自分に合った化粧品を知る</div>
+                    <div class="ttl"><span class="num">02</span>自分の肌に合った化粧品を知る</div>
                     <p class="text">スキンチェックの結果から、あなたの肌状態に合ったマイバランスのアイテムをご提案します。</p>
                   </div>
                   <div class="text_blc">
-                    <div class="ttl"><span class="num">03</span>正しいスキンケアを知る</div>
-                    <p class="text">スキンケアの効果をより感じていただくためのコンシェルジュやオンラインカウンセリングサポート。</p>
+                    <div class="ttl"><span class="num">03</span>正しいお手入れ方法を知る</div>
+                    <p class="text">アイテムを効果的にお使いいただくための、あなたの肌状態に合ったお手入れ方法をご提案。</p>
                   </div>
                 </div>
               </div>
@@ -135,8 +140,7 @@
       </div>
     </div>
     <section id="fullImg">
-      <div class="fullImg_blc ov_tab"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_fullImg.jpg" alt=""></div>
-      <div class="fullImg_blc un_tab"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_fullImg.jpg" alt=""></div>
+      <div class="fullImg_blc"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_fullImg.jpg" alt=""></div>
     </section>
     <section id="lineup">
       <div class="lineup_wrp inner_960 pd_120">
@@ -144,56 +148,64 @@
           <div class="h2_blc">
             <h2>LINE UP</h2>
           </div>
-          <p class="lineup_text gen">My BALANCEはお客さま一人ひとりの肌状態に合った商品をお使いいただくため、<br>
-            <span>スキンチェック（肌分析）にお申込みいただいた方のみ</span>に販売をさせていただいております。
+          <p class="lineup_text gen">マイバランスはお客さま一人ひとりの肌状態に合った商品をお使いいただくため、<br>
+            <span>スキンチェック（肌分析）を<br>お申込みいただいた方に</span>販売しております。
           </p>
-          <a href="" class="gdt_btn center">
-            <span>SKIN CHECK</span>
-            スキンチェックのお申し込みはこちら
+          <a href="" class="gdt_btn">
+            <div class="left_blc"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/gdt_btn_free.png" alt="無料"></div>
+            <div class="right_blc">
+              <span>SKIN CHECK</span>
+              スキンチェックの<br>お申し込みはこちら
+            </div>
           </a>
         </div>
         <div class="teiki_blc">
           <div class="ttl">定期お届けコースがお得！</div>
+          <p class="ttl_sub">マイバランスはデイリーケアとして<br>正しいお手入れを継続的に<br>行っていただくことで、<br>なりたい肌に近づけると考えています。<br>まずはお得な定期お届けコースから<br>始めてみませんか？</p>
           <ul class="teiki_cont">
             <li class="teiki_cont_item">
               <span class="num">01</span>
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_01.svg" alt="">
-              <p class="text">33％OFF</p>
+              <p class="text">通常価格から<br><span class="marker">33%OFF</span></p>
             </li>
             <li class="teiki_cont_item">
               <span class="num">02</span>
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_02.svg" alt="">
-              <p class="text">6回ご購入ごとに、<br>スキンチェックが無料<br><span>※通常¥1,650（税込）</span></p>
+              <p class="text">デイリーケアセットを<br>6回ご購入ごとに、<br><span class="small">スキンチェックが無料</span></p>
             </li>
             <li class="teiki_cont_item">
               <span class="num">03</span>
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_03.svg" alt="">
-              <p class="text">いつでも解約OK</p>
+              <p class="text">購入回数に関わらず、<br><span>いつでも解約OK</span></p>
             </li>
             <li class="teiki_cont_item">
               <span class="num">04</span>
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_04.svg" alt="">
-              <p class="text">配達日・<br>セット内容変更OK</p>
+              <p class="text">配達日・セット内容<br><span>変更OK</span></p>
             </li>
           </ul>
+          <div class="about">
+            <p class="left">定期お届けコースとは</p>
+            <p class="right">毎月1回定期的にお選びになった<br>デイリーケアセットが届くシステムです。<br><span>※商品は基本の使用量で約1か月分となっております。</span></p>
+          </div>
         </div>
         <div class="setItem_blc product_blc">
           <div class="h2_blc">
-            <h2>SET ITEM<span class="h2_sub">定期商品</span></h2>
+            <h2>SET ITEM<span class="h2_sub">定期お届けコース用セット</span></h2>
           </div>
           <p class="setItem_blc_text">スキンチェックの結果より、あなたの肌状態に合ったスキンケアセットをお選びください！</p>
           <ul class="product_grid">
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_n.jpg" alt="">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス デイリーケア N</p>
+                <p class="product_name gen" style="height: 40px;">マイバランス デイリーケア N</p>
                 <span class="product_name_en">My BALANCE Daily Care N</span>
               </div>
               <div class="skin_type_blc"><span class="oil">オイリー肌</span><span class="normal">ノーマル肌</span></div>
-              <p class="set_item">セット内容：クレンジング/ウォッシング N/リクイド N</p>
+              <p class="set_item">セット内容：<br>クレンジング/ウォッシング N/リクイド N</p>
               <div class="teiki_price_blc">
-                <p class="teiki_price">通常価格 7,500円</p>
-                <p class="teiki_sale_price">→ 5,000円（税込 5,500円）</p>
+                <p class="teiki_price">単品合計価格 <span class="cross">7,500円<span class="tax">(税込)</span></span></p>
+                <p class="teiki_sale_price">→ 5,000円(税込 5,500円)</p>
               </div>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
@@ -204,10 +216,10 @@
                 <span class="product_name_en">My BALANCE Daily Care ND</span>
               </div>
               <div class="skin_type_blc"><span class="normal">ノーマル肌</span><span class="oildry">オイリードライ肌</span></div>
-              <p class="set_item">セット内容：クレンジング/ウォッシング N/リクイド D</p>
+              <p class="set_item">セット内容：<br>クレンジング/ウォッシング N/リクイド D</p>
               <div class="teiki_price_blc">
-                <p class="teiki_price">通常価格 7,500円</p>
-                <p class="teiki_sale_price">→ 5,000円（税込 5,500円）</p>
+                <p class="teiki_price">単品合計価格 <span class="cross">7,500円<span class="tax">(税込)</span></span></p>
+                <p class="teiki_sale_price">→ 5,000円(税込 5,500円)</p>
               </div>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
@@ -218,10 +230,10 @@
                 <span class="product_name_en">My BALANCE Daily Care D</span>
               </div>
               <div class="skin_type_blc"><span class="oildry">オイリードライ肌</span><span class="dry">ドライ肌</span></div>
-              <p class="set_item">セット内容：クレンジング/ウォッシング D/リクイド D</p>
+              <p class="set_item">セット内容：<br>クレンジング/ウォッシング D/リクイド D</p>
               <div class="teiki_price_blc">
-                <p class="teiki_price">通常価格 7,500円</p>
-                <p class="teiki_sale_price">→ 5,000円（税込 5,500円）</p>
+                <p class="teiki_price">単品合計価格 <span class="cross">7,500円<span class="tax">(税込)</span></span></p>
+                <p class="teiki_sale_price">→ 5,000円(税込 5,500円)</p>
               </div>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
@@ -238,7 +250,7 @@
                 <p class="product_name gen">マイバランス デイリーケア N</p>
                 <span class="product_name_en">My BALANCE Daily Care N</span>
               </div>
-              <p class="normal_price">75g ｜ 2,250円<span>（税込 2,475円）</span></p>
+              <p class="normal_price">75g/2,250円<span>(税込 2,475円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
@@ -247,7 +259,7 @@
                 <p class="product_name gen">マイバランス ウォッシング N</p>
                 <span class="product_name_en">My BALANCE Washing N</span>
               </div>
-              <p class="normal_price">90g ｜ 2,250円<span>（税込 2,475円）</span></p>
+              <p class="normal_price">90g/2,250円<span>(税込 2,475円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
@@ -256,7 +268,7 @@
                 <p class="product_name gen">マイバランス ウォッシング D</p>
                 <span class="product_name_en">My BALANCE Washing D</span>
               </div>
-              <p class="normal_price">90g ｜ 2,250円<span>（税込 2,475円）</span></p>
+              <p class="normal_price">90g/2,250円<span>(税込 2,475円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
@@ -265,7 +277,7 @@
                 <p class="product_name gen">マイバランス リクイド N</p>
                 <span class="product_name_en">My BALANCE Liquid N</span>
               </div>
-              <p class="normal_price">100mL ｜ 3,000円<span>（税込 3,300円）</span></p>
+              <p class="normal_price">100mL/3,000円<span>(税込 3,300円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
@@ -274,7 +286,7 @@
                 <p class="product_name gen">マイバランス リクイド D</p>
                 <span class="product_name_en">My BALANCE Liquid D</span>
               </div>
-              <p class="normal_price">100mL ｜ 3,000円<span>（税込 3,300円）</span></p>
+              <p class="normal_price">100mL/3,000円<span>(税込 3,300円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
@@ -283,7 +295,7 @@
                 <p class="product_name gen">スキンチェック（肌分析）</p>
                 <span class="product_name_en">SKIN CHECK</span>
               </div>
-              <p class="normal_price">1,500円<span>（税込 1,650円）</span></p>
+              <p class="normal_price">1,500円<span>(税込 1,650円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
           </ul>
@@ -297,28 +309,27 @@
               <h2>SERVICE</h2>
             </div>
             <p class="service_text gen">
-              スキンチェックを受けていただいた方は、<br class="un_tab">コンシェルジュやオンラインカウンセリングによる、<br>
-              お肌のお悩みや、正しいお手入れ方法を<br class="un_tab">ご相談できます。
+              スキンチェックを受けていただいた方は、<br>
+              お客さまご相談窓口や<br>
+              オンラインカウンセリングにて、<br>
+              お肌のお悩みや正しいお手入れ方法を<br>
+              ご相談できます。
             </p>
             <div class="service_cont">
               <div class="left">
-                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_service_01.jpg" class="ov_tab" alt="">
-                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_service_01.jpg" class="un_tab" alt="">
-                <p class="ttl"><span class="num">01</span>コンシェルジュ</p>
-                <p class="text">商品サービスや基本的なスキンケアに関するご質問をお受けします。</p>
+                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_service_01.jpg" class="" alt="">
+                <p class="ttl"><span class="num">01</span>お客さまご相談窓口</p>
+                <p class="text">商品やサービスのご不明点など「教えて！マイバランスパートナー」または「お問い合わせフォーム」から気軽にお問い合わせいただけます。</p>
               </div>
               <div class="right">
-                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_service_02.jpg" class="ov_tab" alt="">
-                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_service_02.jpg" class="un_tab" alt="">
+                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_service_02.jpg" class="" alt="">
                 <p class="ttl"><span class="num">02</span>オンラインカウンセリング</p>
-                <p class="text">肌の悩みなど、より専門的な肌に関するご質問をお受けします。</p>
+                <p class="text">肌の悩みなど、より専門的な肌に関するご質問をお受けします。ご予約は、お客さまご相談窓口までお問い合わせください。</p>
               </div>
             </div>
             <div class="service_btn_blc">
-              <p class="service_btn_text">＼ ご利用はこちらから／</p>
               <div class="service_btn_flex">
-                <a href="" class="service_btn">チャットボット</a>
-                <a href="" class="service_btn">メール</a>
+                <a href="" class="service_btn">お問い合わせフォーム</a>
               </div>
             </div>
           </div>
@@ -334,7 +345,7 @@
               <p class="text">マイバランスをはじめる</p>
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_bottom_area_logo.png" alt="" class="logo">
               <img class="left_img un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_bottom_area_img.png" alt="">
-              <a href="" class="skinCheck_btn">スキンチェックへ</a>
+              <a href="" class="skinCheck_btn"><span><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/skinCheck_btn_free.png" class="" alt="無料"></span>スキンチェックから始める</a>
             </div>
             <div class="right ov_tab">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_bottom_area_img.png" alt="">

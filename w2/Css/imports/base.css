@@ -266,7 +266,7 @@ h6 {
 #breadcrumb {
   clear: both;
   padding: 10px 0;
-  margin-bottom: 10px;
+  margin-bottom: 80px;
 }
 
 #breadcrumb ul li {
@@ -279,11 +279,6 @@ h6 {
 #breadcrumb a {
   padding: 0 5px;
   display: inline;
-}
-.breadcrumb_cstm ul {
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
 }
 
 /*==============================================================================================
@@ -337,7 +332,7 @@ a:active {
   width: 960px;
   text-align: left;
   margin: 0px auto;
-  padding-top: 70px;
+  padding-top: 120px;
 }
 .wrapTop {
   width: 100%;
@@ -349,7 +344,7 @@ a:active {
 #Foot {
   width: 100%;
   clear: both;
-  border-top: 1px solid #ccc;
+  /* border-top: 1px solid #ccc; */
   padding: 15px 0;
 }
 
@@ -1581,37 +1576,6 @@ a.ag:active {
 #pagination .nav .prev a {
   padding: 0 10px 0 15px;
   background: url("../../Contents/ImagesPkg/arwL.png") no-repeat left 1px;
-}
-
-.top_pager .bottom_pager_cont {
-  display: none;
-}
-.bottom_pager .top_pager_cont {
-  display: none;
-}
-.pager_cont_none {
-  display: none;
-}
-.top_pager_cont_all {
-  text-align: right;
-}
-.bottom_pager_cont_num {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 10px;
-}
-.bottom_pager_cont_num span,
-.bottom_pager_cont_num a {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-}
-.bottom_pager_cont_num .pager_active {
-  font-weight: 600;
-  background-color: #e7f0f3;
-  border-radius: 25px;
 }
 
 /* 在庫が無い場合 */

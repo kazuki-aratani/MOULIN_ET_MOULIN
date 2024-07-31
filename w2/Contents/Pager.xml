@@ -125,25 +125,42 @@
   <!-- スマートフォンページャセッティング -->
   <SmartPhonePagerSetting>
     <!-- 前へリンク -->
-    <PageBackNormal><![CDATA[]]></PageBackNormal>
-    <PageBackAnchor><![CDATA[<a href="@@url@@">前へ</a>]]></PageBackAnchor>
+    <PageBackNormal></PageBackNormal>
+    <PageBackAnchor><![CDATA[<a href="@@url@@"><img src="https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_prev.svg" alt=""></a>]]></PageBackAnchor>
     <!-- 次へリンク -->
-    <PageNextNormal><![CDATA[]]></PageNextNormal>
-    <PageNextAnchor><![CDATA[<a href="@@url@@">次へ</a>]]></PageNextAnchor>
+    <PageNextNormal></PageNextNormal>
+    <PageNextAnchor><![CDATA[<a href="@@url@@"><img src="https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_next.svg" alt=""></a>]]></PageNextAnchor>
     <!-- 数字リンク -->
-    <PageNumNormal><![CDATA[@@page_num@@]]></PageNumNormal>
+    <PageNumNormal><![CDATA[<span class="pager_active">@@page_num@@</span>]]></PageNumNormal>
     <PageNumAnchor><![CDATA[<a href="@@url@@">@@page_num@@</a>]]></PageNumAnchor>
-    <PageNumSeperator><![CDATA[ | ]]></PageNumSeperator>
+    <PageNumSeperator><![CDATA[  ]]></PageNumSeperator>
     <PageNumOmitSeperator><![CDATA[ ... ]]></PageNumOmitSeperator>
     <!-- ページャテンプレート -->
     <Template>
       <![CDATA[
-    <ul class="pager">
-      <li class="prev"><@@PageBackLink@@></li>
-      <li class="count"><span class="total">全@@total_counts@@件</span><span class="page-now">(@@page_num@@/@@page_total@@)</span>
-        <div class="pager-nums"><@@PageNumLink@@></div></li>
-      <li class="next"><@@PageNextLink@@></li>
-    </ul>
+      <div class="top_pager_cont">
+        <div class="top_pager_cont_all">
+          @@page_bgn@@件～@@page_end@@件（全@@total_counts@@件）
+        </div>
+        <div class="pager_cont_none">
+          <@@PageBackLink@@>
+          <@@PageNextLink@@>
+          　　　　　　
+          <@@PageNumLink@@>
+        </div>
+      </div>
+      ]]>
+      <![CDATA[
+      <div class="bottom_pager_cont">
+        <div class="pager_cont_none">
+          @@page_bgn@@件～@@page_end@@件（全@@total_counts@@件）
+        </div>
+        <div class="bottom_pager_cont_num">
+          <@@PageBackLink@@>
+          <@@PageNumLink@@>
+          <@@PageNextLink@@>
+        </div>
+      </div>
       ]]>
     </Template>
   </SmartPhonePagerSetting>

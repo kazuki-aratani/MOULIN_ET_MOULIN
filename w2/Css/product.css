@@ -158,7 +158,7 @@ h3 {
 /* h1 */
 #product_list_wrp .h1_blc {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 #product_list_wrp .h1_blc h1 {
   font-size: 28px;
@@ -1715,48 +1715,4 @@ a.recommendTag span {
   padding: 5px;
   background-color: #ececec;
   color: #000;
-}
-
-/* LEGIT追加CSS */
-.product_list_grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  -moz-column-gap: 50px;
-       column-gap: 50px;
-  row-gap: 50px;
-  width: 100%;
-}
-.product_list_grid .product_list_grid_item {
-  position: relative;
-}
-.product_list_grid .product_list_grid_item .icon {
-  height: auto;
-  margin-bottom: 10px;
-}
-.product_list_grid .product_list_grid_item .icon img {
-  height: 20px;
-}
-.product_list_grid .product_list_grid_item .thumb {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.product_list_grid .product_list_grid_item .thumb .soldout {
-  color: #fff;
-  word-wrap: normal;
-  position: absolute;
-  top: 28%;
-  left: 0%;
-  text-align: center;
-  width: 100%;
-  height: 26px;
-  line-height: 26px;
-  background-color: #000;
-  filter: alpha(opacity=50);
-  -moz-opacity: 0.5;
-  opacity: 0.5;
-}
-.product_list_grid .product_list_grid_item .name {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
 }/*# sourceMappingURL=product.css.map */

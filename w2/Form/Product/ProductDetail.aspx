@@ -191,8 +191,12 @@
 <% IsDisplayPopupAddFavorite = true; %>
 
 <!--▽ 上部カテゴリバー ▽-->
-<div id="breadcrumb">
-	<uc:BodyProductCategoryLinks runat="server"></uc:BodyProductCategoryLinks>
+<div id="breadcrumb" class="breadcrumb_cstm">
+  <ul>
+    <li><a href="https://mybalance.jp/">TOP</a></li>
+    <span>-</span>
+    <li><%: this.ProductName %></li>
+  </ul>
 </div>
 <!--△ 上部カテゴリバー △-->
 

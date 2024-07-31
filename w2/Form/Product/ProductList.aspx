@@ -26,7 +26,7 @@
 <%@ Register TagPrefix="uc" TagName="Criteo" Src="~/Form/Common/Criteo.ascx" %>
 <%@ Register TagPrefix="uc" TagName="BodyRecommendTagsRelatedCategory" Src="~/Form/Common/Product/BodyRecommendTagsRelatedCategory.ascx" %>
 <%@ Register TagPrefix="uc" TagName="ProductDetailModal" Src="~/Form/Common/Product/ProductDetailModal.ascx" %>
-<%@ page language="C#" masterpagefile="~/Form/Common/DefaultPage.master" autoeventwireup="true" inherits="Form_Product_ProductList, App_Web_productlist.aspx.1e99e05" title="商品一覧ページ" %>
+<%@ page language="C#" masterpagefile="~/Form/Common/DefaultPage.master" autoeventwireup="true" inherits="Form_Product_ProductList, App_Web_productlist.aspx.1e99e05" title="商品一覧｜マイバランスショップ" %>
 <%@ Import Namespace="ProductListDispSetting" %>
 <%--
 
@@ -45,6 +45,14 @@
 <% if (Constants.SEOTAG_IN_PRODUCTLIST_ENABLED){ %>
 	<meta name="Keywords" content="<%: this.SeoKeywords %>" />
 <% } %>
+<style>
+	#Wrap {
+		padding-top: 70px;
+	}
+	#Contents {
+		margin: 0;
+	}
+</style>
 <%-- △編集可能領域△ --%>
 <%# this.PaginationTag %>
 </asp:Content>
@@ -660,19 +668,9 @@
 
             <%-- ▽商品通常価格有効▽ --%>
             <p visible='<%# GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
-            販売価格:<%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %>）
+            <%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>円）
             </p>
-            <%-- ▽定期購入価格有効▽ --%>
-            <% if (Constants.FIXEDPURCHASE_OPTION_ENABLED) {%>
-            <p visible='<%# (GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG).ToString() != Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_INVALID) && (CheckFixedPurchaseLimitedUserLevel(this.ShopId, (string)GetProductData(Container.DataItem, "product_id")) == false) %>' runat="server">
-              <p visible='<%# IsProductFixedPurchaseFirsttimePriceValid(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN) %>' runat="server">
-                定期初回:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchaseFirsttimePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
-              </p>
-              <p>
-                定期通常:<%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchasePrice(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>（<%#: GetTaxIncludeString(Container.DataItem) %>）
-              </p>
-            </p>
-            <% } %>
+            
             <%-- ▽頒布会購入価格有効▽ --%>
             <% if (Constants.SUBSCRIPTION_BOX_OPTION_ENABLED) {%>
             <p visible='<%# (GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_SUBSCRIPTION_BOX_FLG).ToString() != Constants.FLG_PRODUCT_SUBSCRIPTION_BOX_FLG_INVALID) && (CheckFixedPurchaseLimitedUserLevel(this.ShopId, (string)GetProductData(Container.DataItem, "product_id")) == false) %>' runat="server">
@@ -683,6 +681,9 @@
             <% } %>
             <%-- △頒布会購入価格有効△ --%>
           </li>
+					<div class="product_list_btn_blc">
+						<a href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>" class="product_list_btn">DETAIL MORE</a>
+					</div>
 				</div>
 				</ItemTemplate>
 				<FooterTemplate>

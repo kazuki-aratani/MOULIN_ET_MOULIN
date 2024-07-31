@@ -21,7 +21,6 @@
 <%-- ▽編集可能領域：フッタ領域▽ --%>
 <footer>
   <div class="footer_blc">
-    <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/bg_gradation_point03.png" alt="" class="gdt_point03" />
     <div class="inner_960 pd_120">
       <div class="footer_cont">
         <div class="left">

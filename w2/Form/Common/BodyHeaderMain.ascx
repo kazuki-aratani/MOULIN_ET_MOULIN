@@ -60,7 +60,13 @@
 		<%--▲ グローバル:切り替えタグ ▲--%>
 
     <header class="header_wrp">
+      <div class="header_logo">
+        <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>">
+          <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/hd_logo.png" alt="">
+        </a>
+      </div>
       <div class="icon_blc">
+        <a href="" class="hd_skincheck_btn"><span>初めての方</span>スキンチェックのお申込み</a>
         <%if (this.IsLoggedIn) { %>
           <a href="<%: this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE %>" class="">
             <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ">

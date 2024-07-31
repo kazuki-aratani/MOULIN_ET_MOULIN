@@ -1,34 +1,11 @@
-﻿<%--
-=========================================================================================================
-Module : 共通フッタ出力コントローラ(BodyFooterMain.ascx)
-･･･････････････････････････････････････････････････････････････････････････････････････････････････････
-Copyright : Copyright W2 Co.,Ltd. 2009 All Rights Reserved.
-=========================================================================================================
---%> <%@ Register TagPrefix="uc" TagName="AccessLogTrackerScript"
-Src="~/Form/Common/AccessLogTrackerScript.ascx" %> <%@ control language="C#"
-autoeventwireup="true" inherits="Form_Common_BodyFooterMain,
-App_Web_bodyfootermain.ascx.2af06a88" %> <%--
-下記のタグはファイル情報保持用です。削除しないでください。 
-<%@ FileInfo LastChanged="最終更新者" %> --%> 
-<%-- ▽編集可能領域：フッタ領域▽ --%>
+﻿<%-- ========================================================================================================= Module : 共通フッタ出力コントローラ(BodyFooterMain.ascx) ･･･････････････････････････････････････････････････････････････････････････････････････････････････････ Copyright : Copyright W2 Co.,Ltd. 2009 All Rights Reserved. ========================================================================================================= --%> <%@ Register TagPrefix="uc" TagName="AccessLogTrackerScript" Src="~/Form/Common/AccessLogTrackerScript.ascx" %> <%@ control language="C#" autoeventwireup="true" inherits="Form_Common_BodyFooterMain, App_Web_bodyfootermain.ascx.2af06a88" %> <%-- 下記のタグはファイル情報保持用です。削除しないでください。 <%@ FileInfo LastChanged="最終更新者" %> --%> <%-- ▽編集可能領域：フッタ領域▽ --%>
 <footer>
   <div class="footer_blc">
-    <img
-      src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/bg_gradation_point03.png"
-      alt=""
-      class="gdt_point03"
-    />
     <div class="inner_960 pd_120">
       <div class="footer_cont">
         <div class="left">
-          <a
-            href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>"
-          >
-            <img
-              src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ft_logo.png"
-              alt=""
-              class="ft_logo"
-            />
+          <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>">
+            <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ft_logo.png" alt="" class="ft_logo" />
           </a>
           <div class="copy ov_tab">©️2024 My BALANCE</div>
         </div>
@@ -55,6 +32,5 @@ App_Web_bodyfootermain.ascx.2af06a88" %> <%--
     </div>
   </div>
 </footer>
-<%-- △編集可能領域△ --%>
-<%-- w2アクセスログトラッカー出力 --%>
+<%-- △編集可能領域△ --%> <%-- w2アクセスログトラッカー出力 --%>
 <uc:AccessLogTrackerScript id="AccessLogTrackerScript1" runat="server" />
