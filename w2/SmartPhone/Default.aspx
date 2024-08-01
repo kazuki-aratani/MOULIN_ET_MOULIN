@@ -70,7 +70,7 @@
                 あなたの肌のマイバランスをサポートします。
               </p>
               <div class="img_blc">
-                <img class="" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_concept_01.jpg" alt="">
+                <img class="" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_concept_01.jpg" alt="コンセプトイメージ画像01">
               </div>
               <div class="bottom_blc">
                 <h3>自分の肌を信じよう</h3>
@@ -81,7 +81,7 @@
                   <span></span>さあ、自分の肌を信じよう。
                 </div>
                 <div class="img_blc">
-                  <img class="" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_thought_01.jpg" alt="">
+                  <img class="" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_thought_01.jpg" alt="THOUGHTイメージ画像01">
                 </div>
               </div>
 
@@ -110,7 +110,7 @@
               </div>
               <div class="contents_flex">
                 <div class="left">
-                  <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_mb_figure.png" alt="">
+                  <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_mb_figure.png" alt="なりたい肌へ">
                 </div>
                 <div class="right">
                   <div class="text_blc">
@@ -140,7 +140,7 @@
       </div>
     </div>
     <section id="fullImg">
-      <div class="fullImg_blc"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_fullImg.jpg" alt=""></div>
+      <div class="fullImg_blc"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_fullImg.jpg" alt="フルイメージ画像"></div>
     </section>
     <section id="lineup">
       <div class="lineup_wrp inner_960 pd_120">
@@ -165,22 +165,22 @@
           <ul class="teiki_cont">
             <li class="teiki_cont_item">
               <span class="num">01</span>
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_01.svg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_01.svg" alt="定期お届けコースアイコン01">
               <p class="text">通常価格から<br><span class="marker">33%OFF</span></p>
             </li>
             <li class="teiki_cont_item">
               <span class="num">02</span>
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_02.svg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_02.svg" alt="定期お届けコースアイコン02">
               <p class="text">デイリーケアセットを<br>6回ご購入ごとに、<br><span class="small">スキンチェックが無料</span></p>
             </li>
             <li class="teiki_cont_item">
               <span class="num">03</span>
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_03.svg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_03.svg" alt="定期お届けコースアイコン03">
               <p class="text">購入回数に関わらず、<br><span>いつでも解約OK</span></p>
             </li>
             <li class="teiki_cont_item">
               <span class="num">04</span>
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_04.svg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_course_04.svg" alt="定期お届けコースアイコン04">
               <p class="text">配達日・セット内容<br><span>変更OK</span></p>
             </li>
           </ul>
@@ -196,9 +196,9 @@
           <p class="setItem_blc_text">スキンチェックの結果より、あなたの肌状態に合ったスキンケアセットをお選びください！</p>
           <ul class="product_grid">
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_n.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_n.jpg" alt="マイバランス デイリーケア N">
               <div class="product_name_blc">
-                <p class="product_name gen" style="height: 40px;">マイバランス デイリーケア N</p>
+                <p class="product_name gen" style="height: 40px;">マイバランス<br>デイリーケア N</p>
                 <span class="product_name_en">My BALANCE Daily Care N</span>
               </div>
               <div class="skin_type_blc"><span class="oil">オイリー肌</span><span class="normal">ノーマル肌</span></div>
@@ -210,9 +210,9 @@
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_nd.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_nd.jpg" alt="マイバランス デイリーケア ND">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス デイリーケア ND</p>
+                <p class="product_name gen">マイバランス<br>デイリーケア ND</p>
                 <span class="product_name_en">My BALANCE Daily Care ND</span>
               </div>
               <div class="skin_type_blc"><span class="normal">ノーマル肌</span><span class="oildry">オイリードライ肌</span></div>
@@ -224,9 +224,9 @@
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_d.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_d.jpg" alt="マイバランス デイリーケア D">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス デイリーケア D</p>
+                <p class="product_name gen">マイバランス<br>デイリーケア D</p>
                 <span class="product_name_en">My BALANCE Daily Care D</span>
               </div>
               <div class="skin_type_blc"><span class="oildry">オイリードライ肌</span><span class="dry">ドライ肌</span></div>
@@ -245,52 +245,52 @@
           </div>
           <ul class="product_grid">
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_cleansing.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_cleansing.jpg" alt="マイバランス デイリーケア N">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス デイリーケア N</p>
+                <p class="product_name gen">マイバランス<br>デイリーケア N</p>
                 <span class="product_name_en">My BALANCE Daily Care N</span>
               </div>
               <p class="normal_price">75g/2,250円<span>(税込 2,475円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_washing_n.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_washing_n.jpg" alt="マイバランス ウォッシング N">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス ウォッシング N</p>
+                <p class="product_name gen">マイバランス<br>ウォッシング N</p>
                 <span class="product_name_en">My BALANCE Washing N</span>
               </div>
               <p class="normal_price">90g/2,250円<span>(税込 2,475円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_washing_d.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_washing_d.jpg" alt="マイバランス ウォッシング D">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス ウォッシング D</p>
+                <p class="product_name gen">マイバランス<br>ウォッシング D</p>
                 <span class="product_name_en">My BALANCE Washing D</span>
               </div>
               <p class="normal_price">90g/2,250円<span>(税込 2,475円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_liquid_n.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_liquid_n.jpg" alt="マイバランス リクイド N">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス リクイド N</p>
+                <p class="product_name gen">マイバランス<br>リクイド N</p>
                 <span class="product_name_en">My BALANCE Liquid N</span>
               </div>
               <p class="normal_price">100mL/3,000円<span>(税込 3,300円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_liquid_d.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_liquid_d.jpg" alt="マイバランス リクイド D">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス リクイド D</p>
+                <p class="product_name gen">マイバランス<br>リクイド D</p>
                 <span class="product_name_en">My BALANCE Liquid D</span>
               </div>
               <p class="normal_price">100mL/3,000円<span>(税込 3,300円)</span></p>
               <a href="" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_skincheck.jpg" alt="">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_skincheck.jpg" alt="スキンチェック（肌分析）">
               <div class="product_name_blc">
                 <p class="product_name gen">スキンチェック（肌分析）</p>
                 <span class="product_name_en">SKIN CHECK</span>

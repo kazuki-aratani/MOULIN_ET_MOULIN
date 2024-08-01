@@ -629,11 +629,6 @@
             </a>
             <% } %><span visible='<%# ProductListUtility.IsProductSoldOut(Container.DataItem) %>' runat="server" class="soldout">SOLDOUT</span>
           </div>
-          <li class="name">
-            <a href='<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>'><%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, "name")) %></a>
-          <!-- 商品ID表示 -->
-              <p><%#: StringUtility.ToEmpty(ProductPage.GetKeyValueToNull(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1)) %></p>
-          </li>
           <li class="icon">
             <w2c:ProductIcon IconNo="1" ProductMaster="<%# Container.DataItem %>" runat="server" />
             <w2c:ProductIcon IconNo="2" ProductMaster="<%# Container.DataItem %>" runat="server" />
@@ -645,6 +640,11 @@
             <w2c:ProductIcon IconNo="8" ProductMaster="<%# Container.DataItem %>" runat="server" />
             <w2c:ProductIcon IconNo="9" ProductMaster="<%# Container.DataItem %>" runat="server" />
             <w2c:ProductIcon IconNo="10" ProductMaster="<%# Container.DataItem %>" runat="server" />
+          </li>
+          <li class="name">
+            <a href='<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrl(Container.DataItem, true)) %>'><%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, "name")) %></a>
+          <!-- 商品ID表示 -->
+              <p><%#: StringUtility.ToEmpty(ProductPage.GetKeyValueToNull(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1)) %></p>
           </li>
           <li class="price">
 
@@ -668,7 +668,7 @@
 
             <%-- ▽商品通常価格有効▽ --%>
             <p visible='<%# GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
-            <%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>円）
+            <%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)).Replace("¥","") %>円）
             </p>
             
             <%-- ▽頒布会購入価格有効▽ --%>

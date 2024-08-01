@@ -347,6 +347,8 @@ body {
   font-weight: 600;
   padding: 10px 60px 10px 10px;
   position: relative;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
 }
 .header_wrp .icon_blc .hd_skincheck_btn:after {
   display: inline-block;
@@ -681,11 +683,16 @@ nav.globalMenuSp.active {
 .gdt_bg #concept .concept_blc .bottom_blc .text span:before {
   display: inline-block;
   content: "";
-  width: 35vw;
+  width: 260px;
   height: 1px;
   background-color: #565655;
   vertical-align: middle;
   margin-right: 10px;
+}
+@media screen and (max-width: 768px) {
+  .gdt_bg #concept .concept_blc .bottom_blc .text span:before {
+    width: 35vw;
+  }
 }
 .gdt_bg #concept .concept_blc .bottom_blc .img_blc {
   text-align: center;
@@ -1315,14 +1322,6 @@ nav.globalMenuSp.active {
     font-size: 11px;
   }
 }
-#lineup .product_blc .product_grid .product_grid_item .normal_price span {
-  font-size: 12px;
-}
-@media screen and (max-width: 768px) {
-  #lineup .product_blc .product_grid .product_grid_item .normal_price span {
-    font-size: 10px;
-  }
-}
 #lineup .setItem_blc .h2_blc h2,
 #lineup .singleItem_blc .h2_blc h2 {
   color: #5893b2;
@@ -1677,7 +1676,7 @@ footer .footer_blc .footer_cont .copy {
   padding-bottom: 60px;
 }
 .product_list_grid .product_list_grid_item .icon {
-  height: auto;
+  height: 30px;
   margin-bottom: 10px;
 }
 .product_list_grid .product_list_grid_item .icon img {
@@ -1769,4 +1768,35 @@ footer .footer_blc .footer_cont .copy {
     background-size: 60%;
     right: -5px;
   }
+}
+
+/* 商品詳細ページ */
+#dvProductDetailArea .detail_name_en {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+#dvProductDetailArea .detail_name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+#dvProductDetailArea .detail_capacity {
+  margin-bottom: 20px;
+}
+#dvProductDetailArea .detail_copy {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+#dvProductDetailArea .detail_overview {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+#dvProductDetailArea .detail_annotation {
+  font-size: 10px;
+  color: #b4b4b4;
+}
+#dvProductDetailArea .productPrice {
+  font-size: 24px;
+  font-weight: 600;
 }/*# sourceMappingURL=style.css.map */

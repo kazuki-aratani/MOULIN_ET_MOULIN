@@ -89,8 +89,8 @@
         <div class="right_area">
           <div class="ham_header">
             <div class="icon_blc">
-              <a href=""><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ"></a>
-              <a href=""><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart.svg" alt="カート"></a>
+              <a href="<%: this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ"></a>
+              <a href="<%: this.CartListPageUrl %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart.svg" alt="カート"></a>
               <div class="hamburger_close">
                 <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_hamburger_close.svg" alt="ハンバーガー">
               </div>
@@ -100,22 +100,22 @@
             <div class="ham_logo"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_logo.png" alt="MyBALANCE"></div>
             <ul>
                 <li class="anker">
-                  <a href="">
+                  <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#concept">
                     <span class="ttl">CONCEPT</span>
                   </a>
                 </li>
                 <li class="anker">
-                  <a href="">
+                  <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#service">
                     <span class="ttl">SERVICE</span>
                   </a>
                 </li>
                 <li class="anker">
-                  <a href="">
+                  <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/form/Product/ProductList.aspx">
                     <span class="ttl">LINE UP</span>
                   </a>
                 </li>
                 <li class="anker">
-                  <a href="">
+                  <a href="https://m-moulin.jp/company/" target="_blank">
                     <span class="ttl">COMPANY</span>
                   </a>
                 </li>

@@ -344,7 +344,8 @@ body {
       font-weight: 600;
       padding: 10px 60px 10px 10px;
       position: relative;
-
+      background-color: transparent;
+      transition: background-color 0.3s ease;
       &:after {
         display: inline-block;
         content: "";
@@ -680,11 +681,14 @@ nav.globalMenuSp.active {
             &:before {
               display: inline-block;
               content: "";
-              width: 35vw;
+              width: 260px;
               height: 1px;
               background-color: #565655;
               vertical-align: middle;
               margin-right: 10px;
+              @media screen and (max-width: 768px) {
+                width: 35vw;
+              }
             }
           }
         }
@@ -1335,12 +1339,6 @@ nav.globalMenuSp.active {
           @media screen and (max-width: 768px) {
             font-size: 11px;
           }
-          span {
-            font-size: 12px;
-            @media screen and (max-width: 768px) {
-              font-size: 10px;
-            }
-          }
         }
       }
     }
@@ -1703,7 +1701,7 @@ footer {
     padding-bottom: 60px;
 
     .icon {
-      height: auto;
+      height: 30px;
       margin-bottom: 10px;
 
       img {
@@ -1805,5 +1803,38 @@ footer {
         }
       }
     }
+  }
+}
+
+/* 商品詳細ページ */
+#dvProductDetailArea {
+  .detail_name_en {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .detail_name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .detail_capacity {
+    margin-bottom: 20px;
+  }
+  .detail_copy {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .detail_overview {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .detail_annotation {
+    font-size: 10px;
+    color: #b4b4b4;
+  }
+  .productPrice {
+    font-size: 24px;
+    font-weight: 600;
   }
 }

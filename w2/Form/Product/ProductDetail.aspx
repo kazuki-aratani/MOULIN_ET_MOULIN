@@ -200,7 +200,7 @@
 </div>
 <!--△ 上部カテゴリバー △-->
 
-<div id="dvProductDetailArea">
+<div id="dvProductDetailArea" class="productDetail">
 <%-- UPDATE PANEL開始 --%>
 <asp:UpdatePanel ID="upUpdatePanel" runat="server">
 <ContentTemplate>
@@ -251,11 +251,11 @@
 <%-- ↓バリエーション変更時の表示更新領域を指定しています --%>
 <div class="ChangesByVariation" runat="server">
   <%-- 商品詳細3 --%>
-	<p class="detail_name_en"><%# GetProductDataHtml("desc_detail3") %></p><br />
+	<p class="detail_name_en"><%# GetProductDataHtml("desc_detail3") %></p>
 	<!-- 商品名 -->
 	<h2 class="detail_name"><%# WebSanitizer.HtmlEncode(GetProductData("name")) %></h2>
   <%-- 商品詳細4 --%>
-	<p class="detail_capacity">内容量:<%# GetProductDataHtml("desc_detail4") %></p>
+	<p class="detail_capacity"><%# GetProductDataHtml("desc_detail4") %></p>
 
   <!-- 商品アイコン -->
   <p class="icon">
@@ -272,13 +272,13 @@
   </p>
 
   <!-- キャッチコピー -->
-	<h3><%# WebSanitizer.HtmlEncode(GetProductData("catchcopy")) %></h3>
+	<p class="detail_copy"><%# WebSanitizer.HtmlEncode(GetProductData("catchcopy")) %></p>
 
   <!-- 概要 -->
-  <p><%# GetProductDataHtml("outline") %></p>
+  <p class="detail_overview"><%# GetProductDataHtml("outline") %></p>
 
   <%-- 商品詳細1 --%>
-	<p><%# GetProductDataHtml("desc_detail1") %></p><br />
+	<p class="detail_annotation"><%# GetProductDataHtml("desc_detail1") %></p>
 
 	<div class="wrapProductPrice">
 	<!-- 商品価格・税区分・加算ポイント -->
@@ -302,7 +302,7 @@
 	<%-- △商品特別価格有効△ --%>
 	<%-- ▽商品通常価格有効▽ --%>
 	<div visible='<%# GetProductNormalPriceValid(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected)) %>' runat="server">
-		<p class="productPrice">販売価格:<span><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))) %></span>(<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %>)</p>
+		<p class="productPrice"><%# WebSanitizer.HtmlEncode(GetProductData(Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円 (<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))).Replace("¥","") %>円)</p>
 	</div>
 	<%-- △商品通常価格有効△ --%>
 	<%-- ▽商品加算ポイント▽ --%>

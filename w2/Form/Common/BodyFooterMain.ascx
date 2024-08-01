@@ -11,18 +11,18 @@
         </div>
         <div class="right">
           <ul class="top_blc">
-            <li><a href="">CONCEPT</a></li>
-            <li><a href="">SERVICE</a></li>
-            <li><a href="">LINE UP</a></li>
+            <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#concept">CONCEPT</a></li>
+            <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#service">SERVICE</a></li>
+            <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/form/Product/ProductList.aspx">LINE UP</a></li>
             <li><a href="">SKIN CHECK</a></li>
-            <li><a href="" target="_blank">COMPANY</a></li>
+            <li><a href="https://m-moulin.jp/company/" target="_blank">COMPANY</a></li>
           </ul>
           <ul class="bottom_blc">
-            <li><a href="">お問い合わせ</a></li>
-            <li><a href="">特定商取引法</a></li>
+            <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Form/Inquiry/InquiryInput.aspx">お問い合わせ</a></li>
+            <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/termofuse.aspx">特定商取引法</a></li>
             <li><a href="">利用規約</a></li>
-            <li><a href="">プライバシーポリシー</a></li>
-            <li><a href="">ご利用ガイド</a></li>
+            <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/privacy.aspx">プライバシーポリシー</a></li>
+            <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/first.aspx">ご利用ガイド</a></li>
             <li><a href="">よくある質問</a></li>
             <li><a href="">会社概要</a></li>
           </ul>
@@ -32,5 +32,15 @@
     </div>
   </div>
 </footer>
+<script>
+  window.addEventListener('scroll', function() {
+      var button = document.querySelector('.hd_skincheck_btn');
+      if (window.scrollY > 200) {
+          button.style.backgroundColor = '#fff';
+      } else {
+          button.style.backgroundColor = 'transparent';
+      }
+  });
+</script>
 <%-- △編集可能領域△ --%> <%-- w2アクセスログトラッカー出力 --%>
 <uc:AccessLogTrackerScript id="AccessLogTrackerScript1" runat="server" />
