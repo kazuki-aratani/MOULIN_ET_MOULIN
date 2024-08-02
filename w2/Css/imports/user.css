@@ -287,7 +287,8 @@ input.nameShipping {
 }
 /* フロート用コンテンツ枠 */
 #dvUserFltContents {
-  width: 740px;
+  /* width: 740px; */
+  width: 680px;
   margin: 0;
   float: right;
   display: inline;

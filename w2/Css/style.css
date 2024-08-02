@@ -1799,4 +1799,236 @@ footer .footer_blc .footer_cont .copy {
 #dvProductDetailArea .productPrice {
   font-size: 24px;
   font-weight: 600;
+}
+
+#dvCrossSell .productInfoList .productInfoListItem {
+  width: 100%;
+}
+
+#divMultiVariation {
+  display: none;
+}
+
+.productAmount_selectBoxContent {
+  margin: 30px 0;
+}
+.productAmount_selectBoxContent .productAmount_selectBox_label {
+  display: inline-block;
+}
+.productAmount_selectBoxContent .input_box {
+  display: inline-block;
+  border: 1px solid #565655;
+  width: 50px;
+  height: 40px;
+  line-height: 35px;
+  text-align: center;
+  margin-left: 10px;
+  position: relative;
+}
+.productAmount_selectBoxContent .input_box:after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  display: inline-block;
+  content: "";
+  background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_down.svg);
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 7px;
+  pointer-events: none; /* クリックイベントを無効化 */
+}
+.productAmount_selectBoxContent .input_box select {
+  width: 50px;
+  padding: 0 10px;
+}
+
+.btnCart {
+  font-size: 16px;
+}
+.btnCart .btnCartBlack {
+  width: 100%;
+  border-radius: 0;
+  height: 55px;
+  background-color: #565655;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.btnCart .btnCartBlue {
+  width: 100%;
+  border-radius: 0;
+  height: 55px;
+  background-color: #5893b2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  border: 1px solid #565655;
+  height: 55px;
+}
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId.favorite-registered {
+  opacity: 0.6;
+}
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId.favorite-registered:hover {
+  opacity: 0.6;
+}
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId:hover {
+  opacity: 1;
+  color: #565655;
+}
+
+#dvProductDescription {
+  clear: both;
+  margin: 10px 0 30px 0;
+  margin: 0 calc(50% - 50vw);
+  padding: 0 calc(50vw - 50%);
+  background-color: #f4f8f9;
+}
+#dvProductDescription .dvProductDescription_cont {
+  padding: 110px 0 90px;
+  /* margin-bottom: 120px; */
+}
+#dvProductDescription .h2_blc {
+  text-align: center;
+  margin-bottom: 50px;
+}
+#dvProductDescription .h2_blc .title {
+  font-size: 28px;
+  color: #5893b2;
+  padding: 8px;
+}
+#dvProductDescription .h2_blc .title_sub {
+  font-size: 12px;
+  font-weight: 600;
+}
+#dvProductDescription table {
+  border-top: 1px solid #565655;
+}
+#dvProductDescription table th, #dvProductDescription table td {
+  padding: 25px 0;
+  border-bottom: 1px solid #565655;
+  line-height: 1.75;
+}
+#dvProductDescription table th {
+  width: 235px;
+  padding-left: 25px;
+}
+
+.selectValiation {
+  border-bottom: 1px solid #eeeeee;
+}
+.selectValiation p {
+  padding-top: 30px;
+  border-top: 1px solid #eeeeee;
+}
+.selectValiation .selectValiationItem:last-of-type .VariationPanelSelected {
+  padding-bottom: 20px;
+}
+
+.variationImage {
+  display: none;
+}
+
+.valiation_flex {
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.valiation_flex .valiation_item {
+  width: 33.3%;
+}
+.valiation_flex .valiation_item a:hover {
+  opacity: 1;
+  color: #565655;
+}
+.valiation_flex .valiation_item .VariationPanelSelected {
+  width: 100%;
+  border: 1px solid #5893b2;
+  padding: 20px 5px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  background-color: #f4f8f9;
+  float: left;
+  text-align: center;
+}
+.valiation_flex .valiation_item .VariationPanel {
+  width: 100%;
+  border: 1px;
+  padding: 20px 5px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-color: #adb0b0;
+  background-color: #f5f7f7;
+  float: left;
+  text-align: center;
+}
+
+.valiation_item_text .valiation_item a:hover {
+  opacity: 1;
+  color: #565655;
+}
+.valiation_item_text .valiation_item .VariationPanelSelected {
+  margin-bottom: 10px;
+}
+
+.crossItem {
+  margin-top: 120px;
+}
+.crossItem .h2_blc {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.crossItem .h2_blc .title {
+  font-size: 28px;
+  color: #5893b2;
+  padding: 8px;
+}
+.crossItem .h2_blc .title_sub {
+  font-size: 12px;
+  font-weight: 600;
+}
+.crossItem .productName .relateItemName {
+  font-size: 16px;
+  font-weight: 600;
+}
+.crossItem .productName .relateItemPrice {
+  font-size: 15px;
+}
+
+.relate_slick .slick-prev,
+.relate_slick .slick-next {
+  width: 40px; /* 矢印の幅 */
+  height: 40px; /* 矢印の高さ */
+  z-index: 1000; /* 矢印がスライドの上に表示されるようにする */
+}
+.relate_slick .slick-prev {
+  left: -50px; /* 矢印の位置を調整 */
+  background: url("https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_prev.svg") no-repeat center center; /* カスタム矢印画像を設定 */
+  background-size: 30%;
+}
+.relate_slick .slick-next {
+  right: -50px; /* 矢印の位置を調整 */
+  background: url("https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_next.svg") no-repeat center center; /* カスタム矢印画像を設定 */
+  background-size: 30%;
+}
+.relate_slick .slick-prev:before,
+.relate_slick .slick-next:before {
+  display: none; /* デフォルトの矢印を非表示にする */
 }/*# sourceMappingURL=style.css.map */

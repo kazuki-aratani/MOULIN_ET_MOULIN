@@ -77,6 +77,29 @@
 <%-- △編集可能領域△ --%>
 
 <style type="text/css">
+	.VariationPanel
+	{
+		width:100px;
+		border:1px;
+		padding:10px 5px 5px 5px;
+		margin-right: 15px;
+		margin-bottom: 10px;
+		border-style:solid;
+		border-color: #adb0b0;
+		background-color: #f5f7f7;
+		float:left
+	}
+	.VariationPanelSelected
+	{
+		width:100px;
+		border:1px;
+		border-style:solid;
+		padding:10px 5px 5px 5px;
+		margin-right: 15px;
+		margin-bottom: 10px;
+		background-color: #dbdfdf;
+		float:left
+	}
 	[id$="ddlSubscriptionBox"] {
 		height: 28px;
 		margin-left: 10px;
@@ -92,9 +115,6 @@
 		justify-content: flex-start;
 		max-width: 100%;
 	}
-  #Contents {
-    margin: initial;
-  }
 </style>
 </asp:Content>
 
@@ -312,6 +332,7 @@
 <asp:Repeater ID="rVariation" DataSource='<%# this.ProductVariationMasterList %>' Visible="<%# this.HasVariation %>" runat="server" >
 <HeaderTemplate>
 		<div class="unit">
+		<p class="title">バリエーション</p>
 	<ul class="variationImage">
 </HeaderTemplate>
 <ItemTemplate>
@@ -400,12 +421,16 @@
         <asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
         <HeaderTemplate>
           <p>下記よりセットをお選びください</p>
-			<div class="selectValiationItem" style="width:100%; clear:both">
+			<div style="width:100%; padding-bottom:30px; clear:both">
 				<div style="width:100%">
-					<div class="valiation_flex">
+					<span>Color</span><br />
+				</div>
+				<div style="width:100%">
+					<div style="padding-left:10px; width:10%; float:left">&nbsp;</div>
+					<div style="float:left; width:100%">
 		</HeaderTemplate>
 		<ItemTemplate>
-			<div class="valiation_item">
+			<div style="padding-left: 14%">
 				<asp:LinkButton ID="lbVariationName1List" OnClick="lbVariationName1List_OnClick" CommandArgument="<%# Container.DataItem %>" runat="server">
 					<div class="<%# ((string)Container.DataItem == this.SelectedVariationName1) ? "VariationPanelSelected" : "VariationPanel" %>"><%#: Container.DataItem %></div>
 				</asp:LinkButton>
@@ -417,15 +442,22 @@
 			</div>
 		</FooterTemplate>
 	</asp:Repeater>
+	<br />
 	<% if (this.ProductVariationName2List.Count > 0) { %>
 	<asp:Repeater ID="rVariationName2List" DataSource="<%# this.ProductVariationName2List %>" runat="server">
 		<HeaderTemplate>
-			<div class="selectValiationItem" style="width:100%; clear:both">
+			<br />
+			<div style="width:100%; padding-bottom:30px; clear:both">
+				<hr /><br />
 				<div style="width:100%">
-					<div class="valiation_item_text">
+					<span>Size</span><br />
+				</div>
+				<div style="width:100%">
+					<div style="padding-left:10px; width:10%; float:left">&nbsp;</div>
+					<div style="float:left; width:100%">
 		</HeaderTemplate>
 		<ItemTemplate>
-			<div class="valiation_item">
+			<div style="padding-left: 14%">
 				<asp:LinkButton ID="lbVariationName2List" OnClick="lbVariationName2List_OnClick" CommandArgument="<%# Container.DataItem %>" runat="server">
 					<div class="<%# ((string)Container.DataItem == this.SelectedVariationName2) ? "VariationPanelSelected" : "VariationPanel" %>"><%#: Container.DataItem %></div>
 				</asp:LinkButton>
@@ -439,14 +471,21 @@
 	</asp:Repeater>
 	<%} %>
 	<% if (this.ProductVariationName3List.Count > 0) { %>
+	<br />
 	<asp:Repeater ID="rVariationName3List" DataSource="<%# this.ProductVariationName3List %>" runat="server">
 		<HeaderTemplate>
-			<div class="selectValiationItem" style="width:100%; clear:both">
+			<br />
+			<div style="width:100%; padding-bottom:30px; clear:both">
+				<hr /><br />
 				<div style="width:100%">
-					<div class="valiation_item_text">
+					<span>Type</span><br />
+				</div>
+				<div style="width:100%">
+					<div style="padding-left:10px; width:10%; float:left">&nbsp;</div>
+					<div style="float:left; width:100%">
 		</HeaderTemplate>
 		<ItemTemplate>
-			<div class="valiation_item">
+			<div style="padding-left: 14%">
 				<asp:LinkButton ID="lbVariationName3List" OnClick="lbVariationName3List_OnClick" CommandArgument="<%# Container.DataItem %>" runat="server">
 					<div class="<%# ((string)Container.DataItem == this.SelectedVariationName3) ? "VariationPanelSelected" : "VariationPanel" %>"><%#: Container.DataItem %></div>
 				</asp:LinkButton>
@@ -560,56 +599,10 @@
 </div>
 <%-- △商品付帯情報△ --%>
 
-
-<div class="productAmount_selectBox">
-  <div class="productAmount_selectBoxContent" style='<%# (this.IsSelectingVariationExist == false) ? "display:none" : "" %>' runat="server" visible="<%# this.ArrivalMailKbn != Constants.FLG_USERPRODUCTARRIVALMAIL_ARRIVAL_MAIL_KBN_ARRIVAL %>">
-    <div class="productAmount_selectBox_label">数量</div>
-    <div class="input_box">
-      <select id="quantity" onChange="changeQuantity()" class="change_quantity">
-        <%-- 普通の商品 --%>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-      </select>
-    </div>
-  </div>
-</div>
 <!-- 注文数量指定 -->
-<div class="productAmount" style='display: none;' runat="server">
+<div class="productAmount" style='<%# (this.IsSelectingVariationExist == false) ? "display:none" : "" %>' runat="server">
 注文数：<asp:TextBox ID="tbCartAddProductCount" runat="server" Text="1" MaxLength="3" Width="28px" OnTextChanged="ddlVariationId_SelectedIndexChanged" AutoPostBack="true" style="text-align:center;"></asp:TextBox>
 </div>
-
-<script>
-setQuantity();
-
-var prm = Sys.WebForms.PageRequestManager.getInstance();
-prm.add_endRequest(function (s, e) {
-	setQuantity();
-});
-
-function setQuantity() {
-	$(function () {
-		var quantityTextBox = $('input[id$="tbCartAddProductCount"]').val();
-		$("select[id$=quantity] option[value='" + quantityTextBox + "']").prop('selected',true);
-	});
-}
-
-function changeQuantity() {
-	$(function () {
-		$('input[id$="tbCartAddProductCount"]').keypress();
-		var quantityDropDown = $("select[id$=quantity]").val();
-		$('input[id$="tbCartAddProductCount"]').val(quantityDropDown);
-		$('input[id$="tbCartAddProductCount"]').blur();
-	});
-}
-</script>
 
 <div visible="<%# this.Buyable %>" runat="server">
 
@@ -618,15 +611,15 @@ function changeQuantity() {
 <!-- カート投入リンク -->
 <div class="addCart">
 	<p class="btnCart">
-    <asp:LinkButton ID="lbCartAdd" class="btnCartBlack" runat="server" Visible="<%# (this.CanAddCart) && (this.IsSubscriptionBoxOnly == false) %>" Onclick="lbCartAdd_Click" OnClientClick="return add_cart_check();">
-      <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart_wht.svg" alt="カートアイコン">カートに入れる
-    </asp:LinkButton>
-  </p>
+	<asp:LinkButton ID="lbCartAdd" class="btn btn-mid btn-inverse" runat="server" Visible="<%# (this.CanAddCart) && (this.IsSubscriptionBoxOnly == false) %>" Onclick="lbCartAdd_Click" OnClientClick="return add_cart_check();">
+	カートに入れる
+</asp:LinkButton>
+</p>
 	<p class="btnCart">
-    <asp:LinkButton ID="lbCartAddFixedPurchase" class="btnCartBlue" runat="server" Visible="<%# (this.CanFixedPurchase) && (this.IsUserFixedPurchaseAble) && (this.IsSubscriptionBoxOnly == false) %>" OnClick="lbCartAddFixedPurchase_Click" OnClientClick="return add_cart_check_for_fixedpurchase();">
-      <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart_wht.svg" alt="カートアイコン">定期購入
-    </asp:LinkButton>
-    <span runat="server" Visible='<%# (this.CanFixedPurchase) && ((string)this.ProductMaster[Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG] == Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_ONLY) && (this.IsUserFixedPurchaseAble == false) %>' style="color: red;">定期購入のご利用はできません</span>
+	<asp:LinkButton ID="lbCartAddFixedPurchase" class="btn btn-mid btn-inverse" runat="server" Visible="<%# (this.CanFixedPurchase) && (this.IsUserFixedPurchaseAble) && (this.IsSubscriptionBoxOnly == false) %>" OnClick="lbCartAddFixedPurchase_Click" OnClientClick="return add_cart_check_for_fixedpurchase();">
+	カートに入れる(定期購入)
+	</asp:LinkButton>
+	<span runat="server" Visible='<%# (this.CanFixedPurchase) && ((string)this.ProductMaster[Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG] == Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_ONLY) && (this.IsUserFixedPurchaseAble == false) %>' style="color: red;">定期購入のご利用はできません</span>
 	</p>
 	<p class="btnCart">
 	<asp:LinkButton ID="lbCartAddSubscriptionBox" class="btn btn-mid btn-inverse" runat="server" Visible="<%# (this.CanFixedPurchase) && (this.IsUserFixedPurchaseAble) && (this.IsSubscriptionBoxValid) %>" OnClick="lbCartAddSubscriptionBox_Click" OnClientClick="return add_cart_check_for_subscriptionBox(this);">
@@ -668,6 +661,11 @@ function changeQuantity() {
 在庫状況：<%# WebSanitizer.HtmlEncode(w2.App.Common.Order.ProductCommon.CreateProductStockMessage(this.ProductMaster, true)) %><%} // (this.HasVariation == false) %></p>
 <%} // (this.HasStockMessage) %>
 
+<% if(Constants.VARIATION_FAVORITE_CORRESPONDENCE){ %>
+<p>お気に入りの総登録人数：<%# SetTotalFavoriteDataForDisplay() %>人</p>
+<% }else{ %>	
+<p>お気に入りの登録人数：<%# this.FavoriteUserCount %>人</p>
+<% } %>
 </div>
 
 </div><!-- <%# this.Buyable %> -->
@@ -740,42 +738,13 @@ function changeQuantity() {
 
 <ul class="btnListContact">
   <!--  お気に入りに追加 --><li><% if(Constants.VARIATION_FAVORITE_CORRESPONDENCE){ %>
-		<asp:LinkButton ID="lbAddFavoriteId" OnClick="lbAddFavorite_Click" runat="server" OnClientClick='<%# (Alertdisplaycheck((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "display_alert_check_for_mailsend()" : "" %>'>
-    <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_heart.svg" alt="カートアイコン">
-    <span class="favorite-text"><%# (FavoriteDisplayWord((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "お気に入り登録済み" : "お気に入りに追加" %></span>
-    <% if(HasVariation){ %><% } %>
-    </asp:LinkButton><% }else{ %>
-		<asp:LinkButton ID="lbAddFavorite" runat="server" OnClick="lbAddFavorite_Click"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_heart.svg" alt="カートアイコン">お気に入りに追加</asp:LinkButton>	<% } %>
+		<asp:LinkButton ID="lbAddFavoriteId" OnClick="lbAddFavorite_Click" runat="server" OnClientClick=<%# (Alertdisplaycheck((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "display_alert_check_for_mailsend()" : "" %>>
+		<%# (FavoriteDisplayWord((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "お気に入り登録済み" : "お気に入りに追加" %>
+			<% if(HasVariation){ %>&nbsp;(<%# SetFavoriteDataOfProductForDisplay() %>人)<% } %>
+		</asp:LinkButton><% }else{ %>
+		<asp:LinkButton ID="lbAddFavorite" runat="server" OnClick="lbAddFavorite_Click">お気に入りに追加</asp:LinkButton>	<% } %>
 	</li>
 </ul>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var linkButton = document.getElementById('<%= lbAddFavoriteId.ClientID %>');
-    updateFavoriteClass(linkButton);
-  });
-
-  function updateFavoriteClass(linkButton) {
-      var favoriteText = linkButton.querySelector('.favorite-text').innerText;
-      linkButton.classList.remove("favorite-registered", "favorite-not-registered");
-
-      if (favoriteText === "お気に入り登録済み") {
-          linkButton.classList.add("favorite-registered");
-      } else {
-          linkButton.classList.add("favorite-not-registered");
-      }
-  }
-
-  function handleFavoriteClick(button) {
-      var favoriteText = button.querySelector('.favorite-text');
-      if (favoriteText.innerText === "お気に入り登録済み") {
-          favoriteText.innerText = "お気に入りに追加";
-      } else {
-          favoriteText.innerText = "お気に入り登録済み";
-      }
-      updateFavoriteClass(button);
-  }
-
-</script>
 
 </div><!-- productSellInfo -->
 </div>
@@ -1066,18 +1035,27 @@ function changeQuantity() {
 
 <!-- 商品クロスセル一覧 -->
 <%-- ▽商品クロスセル一覧▽ --%>
-<div class="crossItem">
 <asp:Repeater DataSource=<%# this.ProductCrossSellList %> Visible="<%# this.ProductCrossSellList.Count != 0 %>" runat="server">
 <HeaderTemplate>
-  <div class="h2_blc">
-    <h2 class="title">RELATED ITEMS</h2>
-    <span class="title_sub">関連商品</span>
-  </div>
+<h3 class="relate_title">関連商品</h3>
 <div id="dvCrossSell" class="clearFix relate_slick">
 </HeaderTemplate>
 <ItemTemplate>
   <div class="productInfoList">
     <ul class="clearFix productInfoListItem">
+      <!-- 商品アイコン -->
+  <p class="icon">
+  <w2c:ProductIcon IconNo="1" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="2" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="3" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="4" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="5" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="6" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="7" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="8" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="9" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="10" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  </p>
     <li class="thumnail">
     <a href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrlUseProductCategory(Container.DataItem, "")) %>">
         <w2c:ProductImage ImageTagId="picture" ImageSize="L" ProductMaster=<%# Container.DataItem %> IsVariation="false" runat="server" /></a>
@@ -1086,7 +1064,7 @@ function changeQuantity() {
       <%-- △在庫切れ可否△ --%>
     </li>
     <li class="productName">
-    <a class="relateItemName" href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrlUseProductCategory(Container.DataItem, "")) %>"><%# WebSanitizer.HtmlEncode(Eval(Constants.FIELD_PRODUCT_NAME)) %></a><br />
+    <a href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductDetailUrlUseProductCategory(Container.DataItem, "")) %>"><%# WebSanitizer.HtmlEncode(Eval(Constants.FIELD_PRODUCT_NAME)) %></a><br />
     <%-- ▽商品会員ランク価格有効▽ --%>
       <p visible='<%# GetProductMemberRankPriceValid(Container.DataItem) %>' runat="server">
       <strike><%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem)) %></strike><br />
@@ -1106,10 +1084,20 @@ function changeQuantity() {
       </p>
     <%-- △商品特別価格有効△ --%>
     <%-- ▽商品通常価格有効▽ --%>
-      <p class="relateItemPrice" visible='<%# ProductPage.GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
-        <%# WebSanitizer.HtmlEncode(GetProductData(Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円 (税込 <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem)).Replace("¥","") %>円)
+      <p visible='<%# ProductPage.GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
+    <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem)) %>
       </p>
     <%-- △商品通常価格有効△ --%>
+    <%-- ▽定期購入有効▽ --%>
+    <% if (Constants.FIXEDPURCHASE_OPTION_ENABLED) {%>
+      <p visible='<%# (GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG).ToString() != Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_INVALID) && (this.IsUserFixedPurchaseAble) %>' runat="server">
+        <span visible='<%# IsProductFixedPurchaseFirsttimePriceValid(Container.DataItem) %>' runat="server">
+          <p class="productPrice">定期初回価格:<span><%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchaseFirsttimePrice(Container.DataItem)) %></span></p>
+        </span>
+        <p class="productPrice">定期通常価格:<span><%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchasePrice(Container.DataItem)) %></span></p>
+      </p>
+    <% } %>
+    <%-- △定期購入有効△ --%>
     </li>
     </ul>
   </div>
@@ -1118,7 +1106,6 @@ function changeQuantity() {
 </div>
 </FooterTemplate>
 </asp:Repeater>
-</div>
 <%-- △商品クロスセル一覧△ --%>
 	
 <!-- 商品レビュー -->

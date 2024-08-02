@@ -1,0 +1,23 @@
+添付の2ファイルを比べて回答お願いします。
+前提としてyasoでは実現できておりmybalanceではエラーが出ています。
+このmybalanceのエラーを解消したいです。
+
+解決したい問題
+yasoで下記コードがあると思います。
+<span class="bl_products_item_label">
+      <w2c:ProductIcon IconNo="1" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+      <w2c:ProductIcon IconNo="4" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+<style>
+/*   <w2c:ProductIcon IconNo="2" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="3" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="5" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="6" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="7" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="8" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="9" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+  <w2c:ProductIcon IconNo="10" ProductMaster="<%# this.ProductMaster %>" runat="server" /> */
+</style>
+    </span>
+
+これをmybalanceの.productInfoListブロック内にも配置しているのですが、mybalanceだと全てのアイテムが出てきてしまいます。
+yasoでは商品それぞれに登録されているものだけがちゃんと出てきているようなのですが、これはどんなコードが足りないからでしょうか？
