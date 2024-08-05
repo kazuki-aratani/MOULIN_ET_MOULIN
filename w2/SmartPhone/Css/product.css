@@ -126,7 +126,7 @@
 *
 * =================================================================== */
 .wrap-product-detail {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -187,7 +187,7 @@
 /* 商品画像 */
 .product-image-detail {
   position: relative;
-  margin: 0.5em 0;
+  margin: 20px 0 30px;
   clear: both;
   overflow: hidden;
   width: 100%;
@@ -269,7 +269,7 @@
 .product-image-sub {
   width: 100%;
   margin: 0.5em 0;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .product-image-sub a {
@@ -284,7 +284,7 @@
 }
 
 .product-image-sub a.current {
-  border: 1px solid #000;
+  border: 1px solid #5893b1;
 }
 
 /* バリエーション */
@@ -293,6 +293,7 @@
 }
 
 .product-vatiation .matrix {
+  display: none;
   width: 100%;
   margin: 1em 0;
   border-bottom: 1px solid #fff;
@@ -372,17 +373,15 @@
   margin: 1em 0;
 }
 
-.wrap-product-desc .unit {
+/* .wrap-product-desc .unit {
   margin-bottom: 1em;
-}
-
-.wrap-product-desc h2 {
+} */
+/* .wrap-product-desc h2 {
   font-size: 14px;
   margin-bottom: 0.5em;
   padding: 0.4em 0.2em;
   border-bottom: 1px solid #000;
-}
-
+} */
 .wrap-product-desc .contact .btn {
   width: 60%;
   font-size: 12px;
@@ -743,6 +742,6 @@ a.recommendTag span {
 }
 
 /* LEGIT追加CSS */
-.wrap-product-list {
+/* .wrap-product-list {
   padding: 70px 20px 0;
-}/*# sourceMappingURL=product.css.map */
+} *//*# sourceMappingURL=product.css.map */

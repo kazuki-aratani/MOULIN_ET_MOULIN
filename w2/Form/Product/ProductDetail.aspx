@@ -175,6 +175,8 @@
   <ul>
     <li><a href="https://mybalance.jp/">TOP</a></li>
     <span>-</span>
+		<li>LINE UP</li>
+		<span>-</span>
     <li><%: this.ProductName %></li>
   </ul>
 </div>
@@ -233,7 +235,7 @@
   <%-- 商品詳細3 --%>
 	<p class="detail_name_en"><%# GetProductDataHtml("desc_detail3") %></p>
 	<!-- 商品名 -->
-	<h2 class="detail_name"><%# WebSanitizer.HtmlEncode(GetProductData("name")) %></h2>
+	<h1 class="detail_name"><%# WebSanitizer.HtmlEncode(GetProductData("name")) %></h1>
   <%-- 商品詳細4 --%>
 	<p class="detail_capacity"><%# GetProductDataHtml("desc_detail4") %></p>
 

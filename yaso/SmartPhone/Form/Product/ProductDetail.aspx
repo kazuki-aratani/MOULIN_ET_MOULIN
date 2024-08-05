@@ -2,7 +2,7 @@
 =========================================================================================================
   Module      : スマートフォン用商品詳細画面(ProductDetail.aspx)
  ･･･････････････････････････････････････････････････････････････････････････････････････････････････････
-  Copyright   : Copyright W2 Co.,Ltd. 2011 All Rights Reserved.
+  Copyright   : Copyright w2solution Co.,Ltd. 2011 All Rights Reserved.
 =========================================================================================================
 --%>
 <%-- ▽ユーザーコントロール宣言領域▽ --%>
@@ -13,7 +13,6 @@
 <%@ Register TagPrefix="uc" TagName="BodyProductReview" Src="~/SmartPhone/Form/Common/Product/BodyProductReview.ascx" %>
 <%@ Register TagPrefix="uc" TagName="Criteo" Src="~/Form/Common/Criteo.ascx" %>
 <%@ Register TagPrefix="uc" TagName="BodyProductCoordinate" Src="~/SmartPhone/Form/Common/Product/BodyProductCoordinate.ascx" %>
-<%@ Register TagPrefix="uc" TagName="BodyRecommendProductsWithTag" Src="~/SmartPhone/Form/Common/Product/BodyRecommendProductsWithTag.ascx" %>
 <%@ page language="C#" masterpagefile="~/SmartPhone/Form/Common/DefaultPage.master" autoeventwireup="true" inherits="Form_Product_ProductDetail, App_Web_productdetail.aspx.3dcba18f" title="商品詳細ページ" %>
 <%--
 
@@ -117,9 +116,6 @@
 <%-- △編集可能領域△ --%>
 
 <style type="text/css">
-	#Contents {
-		padding: 90px 20px 0; 
-	}
 	.VariationPanel
 	{
 		min-width:50px;
@@ -144,12 +140,6 @@
 		background-color: #dbdfdf;
 		float:left;
 		margin:5px 5px 5px 5px;
-	}
-	[id$="ddlSubscriptionBox"] {
-		width: 100%;
-		height: 33px;
-		margin-top: 10px;
-		margin-bottom: 10px;
 	}
 </style>
 </asp:Content>
@@ -201,15 +191,7 @@
 <% IsDisplayPopupAddFavorite = false; %>
 
 <%-- ▽パンくず▽ --%>
-<div id="breadcrumb" class="breadcrumb_cstm">
-  <ul>
-    <li><a href="https://mybalance.jp/">TOP</a></li>
-    <span>-</span>
-		<li>LINE UP</li>
-		<span>-</span>
-    <li class="last_word"><%: this.ProductName %></li>
-  </ul>
-</div>
+<uc:BodyProductCategoryLinks runat="server" />
 <%-- △パンくず△ --%>
 
 <section class="wrap-product-detail">
@@ -217,102 +199,13 @@
 <%-- class:"ChangesByVariation"→バリエーション変更時の表示更新領域を指定しています --%>
 <!-- 商品詳細TOP -->
 <article class="ChangesByVariation" runat="server">
-	<div class="wrap-product-image">
 
-		<%-- ▽メイン画像▽ --%>
-		<div class="product-image-detail">
-			<div class="flick-wrap loading">
-				<div class="flipsnap">
-					<%-- ▽メイン画像▽ --%>
-					<div class="item">
-						<img class="zoomTarget" src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-zoom-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" />					</div>
-					<%-- △メイン画像△ --%>
-					<%-- ▽バリエーション画像一覧▽ --%>
-					<asp:Repeater DataSource="<%# FilteringImages(this.ProductVariationMasterList, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME3) %>" Visible="<%# this.HasVariation %>" runat="server">
-					<ItemTemplate>
-						<div class="item">
-							<w2c:ProductImage ImageSize="LL" ProductMaster="<%# Container.DataItem %>" IsVariation="true" runat="server" />
-							<span class="var-name"><%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1) %> <%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME3) %></span>
-						</div>
-					</ItemTemplate>
-					</asp:Repeater>
-					<%-- △バリエーション画像一覧△ --%>
-					<%-- ▽サブ画像一覧▽ --%>
-					<asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
-					<ItemTemplate>
-						<div class="item" visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
-							<img src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" alt="" />
-						</div>
-					</ItemTemplate>
-					</asp:Repeater>
-					<%-- △サブ画像一覧△ --%>
-				</div>
-			</div>
-
-			<div class="product-image-sub">
-				<%--メイン画像一覧--%>
-				<a href="javascript:void(0);">
-					<img class="zoomTarget" src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-zoom-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" />
-				</a>
-				<%--バリエーション画像一覧--%>
-				<asp:Repeater ID="rVariationImageList" DataSource='<%# FilteringImages(this.ProductVariationMasterList, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME3) %>' Visible="<%# this.HasVariation %>" runat="server">
-					<HeaderTemplate></HeaderTemplate>
-					<ItemTemplate>
-						<asp:LinkButton ID="lbVariationPicture" runat="server" OnClick="lbVariaionImages_OnClick" CommandArgument="<%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_ID) %>" data-variationid="<%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_ID) %>">
-							<w2c:ProductImage ImageTagId="picture" ImageSize="S" ProductMaster="<%# Container.DataItem %>" IsVariation="true" runat="server" />
-						</asp:LinkButton>
-					</ItemTemplate>
-					<FooterTemplate>
-					</FooterTemplate>
-				</asp:Repeater>
-				<%--サブ画像一覧--%>
-				<asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
-					<HeaderTemplate></HeaderTemplate>
-					<ItemTemplate>
-						<a href="javascript:void(0);" visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
-						<img src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_M, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" alt="" /></a>
-					</ItemTemplate>
-					<FooterTemplate></FooterTemplate>
-				</asp:Repeater>
-			</div>
-
-			<div class="arrow" Visible="<%# this.HasVariation || (this.ProductSubImageList.Count != 0) %>" runat="server">
-				<p class="prev">前へ</p>
-				<p class="next">次へ</p>
-			</div>
-		
-		</div>
-	</div>
-
-	<%-- 商品詳細3 --%>
-	<p class="detail_name_en"><%# GetProductDataHtml("desc_detail3") %></p>
-	<%-- 商品名 --%>
-	<h1 class="detail_name"><%# WebSanitizer.HtmlEncode(GetProductData("name")) %></h1>
-	<%-- 商品詳細4 --%>
-	<p class="detail_capacity"><%# GetProductDataHtml("desc_detail4") %></p>
-
-	<%-- 商品アイコン --%>
-	<div class="icon clearfix">
-		<w2c:ProductIcon ID="ProductIcon1" IconNo="1" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon2" IconNo="2" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon3" IconNo="3" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon4" IconNo="4" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon5" IconNo="5" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon6" IconNo="6" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon7" IconNo="7" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon8" IconNo="8" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon9" IconNo="9" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-		<w2c:ProductIcon ID="ProductIcon10" IconNo="10" ProductMaster="<%# this.ProductMaster %>" runat="server" />
-	</div>
-
-	<!-- キャッチコピー -->
-	<p class="detail_copy"><%# WebSanitizer.HtmlEncode(GetProductData("catchcopy")) %></p>
-
-	<!-- 概要 -->
-  <p class="detail_overview"><%# GetProductDataHtml("outline") %></p>
-
-  <%-- 商品詳細1 --%>
-	<p class="detail_annotation"><%# GetProductDataHtml("desc_detail1") %></p>
+	<header>
+		<%-- 商品名 --%>
+		<h1><%# WebSanitizer.HtmlEncode(GetProductData("name")) %></h1>
+		<%-- キャッチコピー --%>
+		<strong visible='<%# WebSanitizer.HtmlEncode(GetProductData("catchcopy")) != "" %>' runat="server"><%# WebSanitizer.HtmlEncode(GetProductData("catchcopy")) %></strong>
+	</header>
 
 	<ul class="product-info">
 		<li>
@@ -347,9 +240,20 @@
 
 			<%-- ▽商品通常価格有効▽ --%>
 			<p visible='<%# GetProductNormalPriceValid(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected)) %>' runat="server">
-				<%# WebSanitizer.HtmlEncode(GetProductData(Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円 (<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))).Replace("¥","") %>円)
+				<%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))) %>
+				(<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %>)
 			</p>
 			<%-- △商品通常価格有効△ --%>
+			<%-- ▽商品定期購入価格▽ --%>
+			<% if (Constants.FIXEDPURCHASE_OPTION_ENABLED) {%>
+			<div id="Div1" visible='<%# (GetKeyValue(this.ProductMaster, Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG).ToString() != Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_INVALID) && (this.IsUserFixedPurchaseAble) %>' runat="server">
+				<span id="Span1" visible='<%# IsProductFixedPurchaseFirsttimePriceValid(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected)) %>' runat="server">
+					<p class="productPrice">定期初回価格:<span><%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchaseFirsttimePrice(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))) %></span>(<%#: GetTaxIncludeString(this.ProductMaster) %>)</p>
+				</span>
+				<p class="productPrice">定期通常価格:<span><%#: CurrencyManager.ToPrice(ProductPage.GetProductFixedPurchasePrice(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))) %></span>(<%#: GetTaxIncludeString(this.ProductMaster) %>）</p>
+			</div>
+			<% } %>
+			<%-- △商品定期購入価格△ --%>
 			</div>
 		</li>
 		<li>
@@ -370,7 +274,7 @@
 			<span class="point">ポイント<%# WebSanitizer.HtmlEncode(GetProductAddPointString(this.ProductMaster, this.HasVariation, this.VariationSelected)) %>還元</span>
 			<%-- △商品加算ポイント△ --%>
 		</li>
-		<li visible='<%# (this.IsLoggedIn && (this.CanFixedPurchase) && (this.IsUserFixedPurchaseAble) && (GetProductAddPointString(this.ProductMaster, this.HasVariation, this.VariationSelected) != "")) %>' runat="server">
+		<li visible='<%# (this.IsLoggedIn && (GetProductAddPointString(this.ProductMaster, this.HasVariation, this.VariationSelected) != "") && (this.IsUserFixedPurchaseAble)) %>' runat="server">
 			<%-- ▽定期商品加算ポイント▽ --%>
 			<span class="point">ポイント（定期購入）<%# WebSanitizer.HtmlEncode(GetProductAddPointString(this.ProductMaster, this.HasVariation, this.VariationSelected, true)) %>還元</span>
 			<%-- △定期商品加算ポイント△ --%>
@@ -378,13 +282,105 @@
 
 	</ul>
 
+	<%-- 商品アイコン --%>
+	<div class="product-icon clearfix">
+		<w2c:ProductIcon ID="ProductIcon1" IconNo="1" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon2" IconNo="2" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon3" IconNo="3" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon4" IconNo="4" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon5" IconNo="5" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon6" IconNo="6" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon7" IconNo="7" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon8" IconNo="8" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon9" IconNo="9" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+		<w2c:ProductIcon ID="ProductIcon10" IconNo="10" ProductMaster="<%# this.ProductMaster %>" runat="server" />
+	</div>
+
+	<div class="wrap-product-image">
+
+		<%-- ▽メイン画像▽ --%>
+		<div class="product-image-detail">
+			<div class="flick-wrap loading">
+				<div class="flipsnap">
+					<%-- ▽バリエーションなし画像▽ --%>
+					<div class="item" Visible="<%# (this.HasVariation == false) %>" runat="server">
+						<w2c:ProductImage ImageTagId="picture" ImageSize="LL" IsVariation="<%# (this.VariationSelected) %>"  ProductMaster="<%# this.ProductMaster %>" runat="server" />
+					</div>
+					<%-- △バリエーションなし画像△ --%>
+					<%-- ▽バリエーション画像一覧▽ --%>
+					<asp:Repeater DataSource="<%# FilteringImages(this.ProductVariationMasterList, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME3) %>" Visible="<%# this.HasVariation %>" runat="server">
+					<ItemTemplate>
+						<div class="item">
+							<w2c:ProductImage ImageSize="LL" ProductMaster="<%# Container.DataItem %>" IsVariation="true" runat="server" />
+							<span class="var-name"><%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1) %> <%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME3) %></span>
+						</div>
+					</ItemTemplate>
+					</asp:Repeater>
+					<%-- △バリエーション画像一覧△ --%>
+					<%-- ▽サブ画像一覧▽ --%>
+					<asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
+					<ItemTemplate>
+						<div class="item" visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
+							<img src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" alt="" />
+						</div>
+					</ItemTemplate>
+					</asp:Repeater>
+					<%-- △サブ画像一覧△ --%>
+				</div>
+			</div>
+
+			<div class="product-image-sub">
+				<%--バリエーション画像一覧--%>
+				<asp:Repeater ID="rVariationImageList" DataSource='<%# FilteringImages(this.ProductVariationMasterList, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1, Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME3) %>' Visible="<%# this.HasVariation %>" runat="server">
+					<HeaderTemplate></HeaderTemplate>
+					<ItemTemplate>
+						<asp:LinkButton ID="lbVariationPicture" runat="server" OnClick="lbVariaionImages_OnClick" CommandArgument="<%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_ID) %>" data-variationid="<%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_ID) %>">
+							<w2c:ProductImage ImageTagId="picture" ImageSize="S" ProductMaster="<%# Container.DataItem %>" IsVariation="true" runat="server" />
+						</asp:LinkButton>
+					</ItemTemplate>
+					<FooterTemplate>
+					</FooterTemplate>
+				</asp:Repeater>            
+				<%--サブ画像一覧--%>
+				<asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
+					<HeaderTemplate></HeaderTemplate>
+					<ItemTemplate>
+						<a href="javascript:void(0);" visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
+						<img src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_M, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" alt="" /></a>
+					</ItemTemplate>
+					<FooterTemplate></FooterTemplate>
+				</asp:Repeater>
+			</div>
+
+			<div class="arrow" Visible="<%# this.HasVariation || (this.ProductSubImageList.Count != 0) %>" runat="server">
+				<p class="prev">前へ</p>
+				<p class="next">次へ</p>
+			</div>
+		
+		</div>
+	</div>
 
 
+	<%-- SNSボタン ※mixiチェックはクライアント毎にデベロッパ登録したキーを設定する必要あり --%>
+	<div class="sns">
+		<%-- twitter --%>
+		<div class="button">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-lang="ja">ツイート</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+		</div>
+		<%-- mixi --%>
+		<div class="button">
+			<a href="javascript:void(0);" onclick='<%# WebSanitizer.HtmlEncode("window.open('http://mixi.jp/share.pl?u=" + HttpUtility.UrlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_PRODUCT_DETAIL + "?" + Constants.REQUEST_KEY_PRODUCT_ID + "=" + this.ProductId + (Constants.PRODUCT_BRAND_ENABLED ? "&" + Constants.REQUEST_KEY_BRAND_ID + "=" + this.BrandId : "") + "&k=01ac61d95d41a50ea61d0c5ab84adf0cfbf62f7d") + "','share',['width=632','height=456','location=yes','resizable=yes','toolbar=no','menubar=no','scrollbars=no','status=no'].join(','));") %>'><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mixi_bt_check_1.png" alt="mixiチェック" border="0" /></a>
+		</div>
+		<%-- facebook --%>
+		<div class="button">
+			<iframe src="//www.facebook.com/plugins/like.php?href=<%# HttpUtility.UrlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_PRODUCT_DETAIL + "?" + Constants.REQUEST_KEY_PRODUCT_ID + "=" + this.ProductId) %><%# HttpUtility.UrlEncode(Constants.PRODUCT_BRAND_ENABLED ? "&" + Constants.REQUEST_KEY_BRAND_ID + "=" + this.BrandId : "") %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+		</div>
+	</div>
 
 	<div class="wrap-product-cart">
 
 		<div class="product-vatiation unit" runat="server">
-		<p class="product-vatiation-choice">下記よりセットをお選びください</p>
+
 		<%-- ドロップダウン形式 --%>
 		<% if(this.HasVariation) {%>
 			<% if ((this.SelectVariationKbn == Constants.SelectVariationKbn.PANEL)
@@ -394,13 +390,16 @@
 				<asp:HiddenField ID="hIsSelectingVariationExist" Value="<%# this.IsSelectingVariationExist %>" runat="server" />
 				<asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
 					<HeaderTemplate>
-						<div style="width:100%; clear:both">
+						<div style="width:100%; padding-bottom:30px; clear:both">
 							<div style="width:100%">
-								<div class="valiation_flex">
+								<span>Color</span><br />
+							</div>
+							<div style="width:100%">
+								<div style="padding-left:10px; width:10%; float:left">&nbsp;</div>
+								<div style="float:left; width:80%">
 					</HeaderTemplate>
-					
 					<ItemTemplate>
-						<div class="valiation_item">
+						<div>
 							<asp:LinkButton ID="lbVariationName1List" OnClick="lbVariationName1List_OnClick" CommandArgument="<%# Container.DataItem %>" runat="server">
 								<div class="<%# ((string)Container.DataItem == this.SelectedVariationName1) ? "VariationPanelSelected" : "VariationPanel" %>"><%#: Container.DataItem %></div>
 							</asp:LinkButton>
@@ -412,15 +411,21 @@
 						</div>
 					</FooterTemplate>
 				</asp:Repeater>
+				<br />
 				<% if (this.ProductVariationName2List.Count > 0) { %>
 				<asp:Repeater ID="rVariationName2List" DataSource="<%# this.ProductVariationName2List %>" runat="server">
 					<HeaderTemplate>
-						<div style="width:100%; clear:both">
+						<div style="width:100%; padding-bottom:30px; clear:both">
+							<hr /><br />
 							<div style="width:100%">
-								<div class="valiation_item_text">
+								<span>Size</span><br />
+							</div>
+							<div style="width:100%">
+								<div style="padding-left:10px; width:10%; float:left">&nbsp;</div>
+								<div style="float:left; width:80%">
 					</HeaderTemplate>
 					<ItemTemplate>
-						<div class="valiation_item">
+						<div>
 							<asp:LinkButton ID="lbVariationName2List" OnClick="lbVariationName2List_OnClick" CommandArgument="<%# Container.DataItem %>" runat="server">
 								<div class="<%# ((string)Container.DataItem == this.SelectedVariationName2) ? "VariationPanelSelected" : "VariationPanel" %>"><%#: Container.DataItem %></div>
 							</asp:LinkButton>
@@ -434,14 +439,20 @@
 				</asp:Repeater>
 				<%} %>
 				<% if (this.ProductVariationName3List.Count > 0) { %>
+				<br />
 				<asp:Repeater ID="rVariationName3List" DataSource="<%# this.ProductVariationName3List %>" runat="server">
 					<HeaderTemplate>
-						<div style="width:100%; clear:both">
+						<div style="width:100%; padding-bottom:30px; clear:both">
+							<hr /><br />
 							<div style="width:100%">
-								<div class="valiation_item_text">
+								<span>Type</span><br />
+							</div>
+							<div style="width:100%">
+								<div style="padding-left:10px; width:10%; float:left">&nbsp;</div>
+								<div style="float:left; width:80%">
 					</HeaderTemplate>
 					<ItemTemplate>
-						<div class="valiation_item">
+						<div>
 						<asp:LinkButton ID="lbVariationName3List" OnClick="lbVariationName3List_OnClick" CommandArgument="<%# Container.DataItem %>" runat="server">
 							<div class="<%# ((string)Container.DataItem == this.SelectedVariationName3) ? "VariationPanelSelected" : "VariationPanel" %>"><%#: Container.DataItem %></div>
 						</asp:LinkButton>
@@ -460,7 +471,6 @@
 				</div>
 			<%} else if ((this.SelectVariationKbn == Constants.SelectVariationKbn.DOUBLEDROPDOWNLIST)) { %>
 				<div class="drop-down">
-					<div  style="color: red; font-size: 12px; margin-bottom: 10px"><asp:Literal ID="lCombinationErrorMessage" runat="server" /></div>
 					<asp:DropDownList ID="ddlVariationSelect1" CssClass="variation01" DataSource='<%# this.ProductValirationListItemCollection %>' DataTextField="Text" DataValueField="Value" SelectedValue='<%# (this.HasVariation && (this.SelectedVariationName1 != "") && (this.SelectVariationKbn == Constants.SelectVariationKbn.DOUBLEDROPDOWNLIST)) ? this.SelectedVariationName1 : null %>' Visible="<%# this.HasVariation %>" OnSelectedIndexChanged="ddlVariationId_SelectedIndexChanged" AutoPostBack="True" runat="server"></asp:DropDownList>
 					<asp:DropDownList ID="ddlVariationSelect2" DataSource='<%# this.ProductValirationListItemCollection2 %>' DataTextField="Text" DataValueField="Value" SelectedValue='<%# (this.HasVariation && (this.SelectVariationKbn == Constants.SelectVariationKbn.DOUBLEDROPDOWNLIST)) ? this.SelectedVariationName2 : null %>' Visible="<%# this.HasVariation %>" OnSelectedIndexChanged="ddlVariationId_SelectedIndexChanged" AutoPostBack="True" runat="server"></asp:DropDownList>
 				</div>
@@ -468,9 +478,7 @@
 		<%} %>
 		
 		<%-- マトリックス形式 --%>
-		<asp:Repeater ID="rAddCartVariationList" DataSource="<%# this.ProductVariationAddCartList %>" 
-			onitemcommand="rAddCartVariationList_ItemCommand" runat="server"
-			OnItemDataBound="rAddCartVariationList_ItemDataBound">
+		<asp:Repeater ID="rAddCartVariationList" DataSource="<%# this.ProductVariationAddCartList %>" onitemcommand="rAddCartVariationList_ItemCommand" runat="server">
 			<HeaderTemplate>
 			<table class="matrix">
 				<tbody>
@@ -498,54 +506,28 @@
 					</span>
 				</td>
 				<td class="button">
-					<asp:PlaceHolder ID="plhNotSubscriptionBoxOnly" runat="server">
-					<asp:LinkButton ID="lbCartAddVariationList" runat="server" Visible='<%# (bool)GetKeyValue(Container.DataItem, "CanCart") %>' CommandName="CartAdd" CssClass="btn" OnClientClick="return add_cart_check_for_variationlist();">
+					<asp:LinkButton ID="lbCartAddVariationList" runat="server" Visible='<%# (bool)GetKeyValue(Container.DataItem, "CanCart") %>' CommandName="CartAdd" CssClass="btn">
 						カートへ
 					</asp:LinkButton>
 
-					<asp:LinkButton ID="lbCartAddFixedPurchaseVariationList" runat="server" Visible='<%# ((bool)GetKeyValue(Container.DataItem, "CanFixedPurchase")) && (this.IsUserFixedPurchaseAble) %>' OnClientClick="return add_cart_check_for_fixedpurchase_variationlist();" CommandName="CartAddFixedPurchase" CssClass="btn">
+					<asp:LinkButton ID="lbCartAddFixedPurchaseVariationList" runat="server" Visible='<%# (bool)GetKeyValue(Container.DataItem, "CanFixedPurchase") && (this.IsUserFixedPurchaseAble) %>' OnClientClick="return add_cart_check_for_fixedpurchase_variationlist();" CommandName="CartAddFixedPurchase" CssClass="btn">
 						カートへ(定期購入)
 					</asp:LinkButton>
 					<span runat="server" Visible='<%# (this.CanFixedPurchase) && ((string)this.ProductMaster[Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG] == Constants.FLG_PRODUCT_FIXED_PURCHASE_FLG_ONLY) && (this.IsUserFixedPurchaseAble == false) %>' style="color: red;">定期購入のご利用はできません</span>
-					</asp:PlaceHolder>
-					<asp:DropDownList ID="ddlSubscriptionBox" DataTextField="DisplayName" DataValueField="CourseID" runat="server" Visible="false" AutoPostBack="True"></asp:DropDownList>
-					<asp:LinkButton ID="lbCartAddSubscriptionBoxList" runat="server" OnClientClick="return add_cart_check_for_subscriptionBox_variationlist(this);" CommandName="CartAddSubscriptionBox" class="btn btn-mid btn-inverse" Visible="false">
-						頒布会申し込み
-					</asp:LinkButton>
-					<asp:HiddenField ID="hfVariation" Value="<%# GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_VARIATION_ID) %>" runat="server"/>
-					<asp:HiddenField ID="htShopId" Value="<%# GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_SHOP_ID) %>" runat="server"/>
-					<asp:HiddenField ID="hfProduct" Value="<%# GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_PRODUCT_ID) %>" runat="server"/>
-					<asp:HiddenField ID="hfSubscriptionBoxFlg" Value="<%# GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_SUBSCRIPTION_BOX_FLG) %>" runat="server"/>
-					<asp:HiddenField ID="hfCanFixedPurchase" Value='<%# (bool)GetKeyValue(Container.DataItem, "CanFixedPurchase") %>' runat="server"/>
-					<asp:HiddenField ID="hfFixedPurchase" Value="<%# GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCT_FIXED_PURCHASE_FLG) %>" runat="server"/>
-					<asp:HiddenField ID="hfSubscriptionBoxDisplayName"  runat="server" />
-					<div ID="dSubscriptionBoxItemPriceStrikethrough" Visible="False" runat="server" style="text-decoration: line-through" >
-						頒布会通常価格：<strong><%# CurrencyManager.ToPrice(GetProductFixedPurchasePrice(Container.DataItem)) %></strong>(<%#: this.ProductPriceTextPrefix %>)
-					</div>
-					<div ID="dSubscriptionBoxItemPrice" runat="server" Visible="False">
-						頒布会通常価格：<strong><%# CurrencyManager.ToPrice(GetProductFixedPurchasePrice(Container.DataItem)) %></strong>(<%#: this.ProductPriceTextPrefix %>)
-					</div>
-					<div ID="dSubscriptionBoxItemCampaignPrice" Visible="False" runat="server">
-						頒布会特別価格：<strong><asp:Literal ID="lSubscriptionBoxItemCampaignPrice" runat="server"></asp:Literal></strong>(<%#: this.ProductPriceTextPrefix %>)
-					</div>
-					<div ID="dSubscriptionBoxItemCampaignPeriod" Visible="False" runat="server" style="color: red;">
-						キャンペーン期間：<asp:Literal ID="lSubscriptionBoxItemCampaignPeriodSince" runat="server"></asp:Literal> ~ <asp:Literal ID="lSubscriptionBoxItemCampaignPeriodUntil" runat="server"></asp:Literal>
-					</div>
-					<div ID="dSubscriptionBoxPrice" Visible="False" runat="server">
-						頒布会申し込み価格：<strong><asp:Literal ID="lSubscriptionBoxPriceSince" runat="server"></asp:Literal><span runat="server" ID="sSince"> ~ </span><asp:Literal ID="lSubscriptionBoxPriceUntil" runat="server"></asp:Literal></strong>(<%#: this.ProductPriceTextPrefix %>)
-					</div>
+
 					<asp:LinkButton ID="lbCartAddForGiftVariationList" runat="server" Visible='<%# (bool)GetKeyValue(Container.DataItem, "CanGiftOrder") %>' CommandName="CartAddGift" CssClass="btn">
 					カートへ(ギフト購入)
 					</asp:LinkButton>
+
 					<% if (Constants.VARIATION_FAVORITE_CORRESPONDENCE){ %>
-					<asp:LinkButton ID="favoriteVariation" runat="server" CommandName="AddFavorite" class="btn btn-mid" OnClientClick=<%# (Alertdisplaycheck(this.ShopId, this.LoginUserId, (string)GetKeyValue(Container.DataItem, Constants.FIELD_FAVORITE_PRODUCT_ID), (string)GetKeyValue(Container.DataItem, Constants.FIELD_FAVORITE_VARIATION_ID))) ? "display_alert_check_for_mailsend()" : "" %>>
+					<asp:LinkButton ID="favoriteVariation" runat="server" CommandName="AddFavorite" class="btn btn-mid">
 						<%# (FavoriteDisplayWord(this.ShopId, this.LoginUserId, (string)GetKeyValue(Container.DataItem, Constants.FIELD_FAVORITE_PRODUCT_ID), (string)GetKeyValue(Container.DataItem, Constants.FIELD_FAVORITE_VARIATION_ID))) ? "お気に入り登録済み" : "お気に入りに追加" %>
 						(<%# SetFavoriteDataForDisplay((string)GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_PRODUCT_ID), (string)GetKeyValue(Container.DataItem, Constants.FIELD_PRODUCTVARIATION_VARIATION_ID)) %>人)
 					</asp:LinkButton>
 					<% } %>
 
 					<%-- 完売表示 
-					<div class="sold-out" visible='<%# ProductListUtility.IsProductSoldOut(this.ProductMaster) %>' runat="server">
+					<div class="sold-out" visible='<%# (this.Buyable == false) && (StringUtility.ToEmpty(this.ArrivalMailKbn) == "") %>' runat="server">
 						SOLD OUT
 					</div>
 					--%>
@@ -611,10 +593,6 @@
 		</asp:Repeater>
 
 		</div>
-	
-		<div Visible="<%# this.IsDisplayExcludeFreeShippingText %>" runat="server">
-			<p style="color:red;">※本商品は配送料無料適用外です</p>
-		</div>
 
 		<%-- リアル店舗在庫一覧 --%>
 		<% if (Constants.REALSHOP_OPTION_ENABLED){ %>
@@ -635,12 +613,7 @@
 
 		<div visible="<%# this.Buyable %>" class="wrap-buyable" runat="server">
 
-		<%-- 在庫文言表示 --%>
-			<div visible="<%# this.IsStockManaged == false %>" runat="server">
-				<p>
-					在庫状況 : <%# WebSanitizer.HtmlEncode(w2.App.Common.Order.ProductCommon.CreateProductStockMessage(this.ProductMaster, true)) %>
-				</p>
-			</div>
+			<%-- 在庫文言表示 --%>
 			<%if (this.HasStockMessage) {%>
 			<div class="unit stock">
 				<%if (this.HasVariation) {%>
@@ -652,97 +625,47 @@
 			</div>
 			<%}%>
 
-			<div class="productAmount_selectBox">
-  <div class="productAmount_selectBoxContent" style='<%# (this.IsSelectingVariationExist == false) ? "display:none" : "" %>' runat="server" visible="<%# this.ArrivalMailKbn != Constants.FLG_USERPRODUCTARRIVALMAIL_ARRIVAL_MAIL_KBN_ARRIVAL %>">
-    <div class="productAmount_selectBox_label">数量</div>
-    <div class="input_box">
-      <select id="quantity" onChange="changeQuantity()" class="change_quantity">
-        <%-- 普通の商品 --%>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-      </select>
-    </div>
-  </div>
-</div>
-<!-- 注文数量指定 -->
-<div class="productAmount" style='display: none;' runat="server">
-注文数：<asp:TextBox ID="tbCartAddProductCount" runat="server" Text="1" MaxLength="3" Width="28px" OnTextChanged="ddlVariationId_SelectedIndexChanged" AutoPostBack="true" style="text-align:center;"></asp:TextBox>
-</div>
-
-<script>
-setQuantity();
-
-var prm = Sys.WebForms.PageRequestManager.getInstance();
-prm.add_endRequest(function (s, e) {
-	setQuantity();
-});
-
-function setQuantity() {
-	$(function () {
-		var quantityTextBox = $('input[id$="tbCartAddProductCount"]').val();
-		$("select[id$=quantity] option[value='" + quantityTextBox + "']").prop('selected',true);
-	});
-}
-
-function changeQuantity() {
-	$(function () {
-		$('input[id$="tbCartAddProductCount"]').keypress();
-		var quantityDropDown = $("select[id$=quantity]").val();
-		$('input[id$="tbCartAddProductCount"]').val(quantityDropDown);
-		$('input[id$="tbCartAddProductCount"]').blur();
-	});
-}
-</script>
-			
-			
-			<div class="button add-to-cart btnCart">
-				<asp:LinkButton ID="lbCartAdd" runat="server" Visible="<%# (this.CanAddCart) && (this.IsSubscriptionBoxOnly == false) %>" Onclick="lbCartAdd_Click" OnClientClick="return add_cart_check();" CssClass="btnCartBlack">
-					<img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart_wht.svg" alt="カートアイコン">カートに入れる
-				</asp:LinkButton>
-			</div>
-
-			<div class="button fixed btnCart" visible="<%# this.CanFixedPurchase %>" runat="server">
-				<asp:LinkButton ID="lbCartAddFixedPurchase" runat="server" Visible="<%# (this.Buyable && this.CanFixedPurchase) && (this.IsUserFixedPurchaseAble) && (this.IsSubscriptionBoxOnly == false) %>" OnClick="lbCartAddFixedPurchase_Click" OnClientClick="return add_cart_check_for_fixedpurchase();" CssClass="btnCartBlue">
-					<img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart_wht.svg" alt="カートアイコン">定期購入
-				</asp:LinkButton>
-			</div>
-
-			<div class="button fixed" visible="<%# this.CanFixedPurchase %>" runat="server">
-				<asp:DropDownList ID="ddlSubscriptionBox" DataTextField="DisplayName" DataValueField="CourseID" runat="server" Visible="false"></asp:DropDownList>
-				<asp:LinkButton ID="lbCartAddSubscriptionBox" class="btn btn-mid btn-inverse" runat="server" Visible="<%# (this.CanFixedPurchase) && this.IsUserFixedPurchaseAble && (this.IsSubscriptionBoxValid) %>" OnClick="lbCartAddSubscriptionBox_Click" OnClientClick="return add_cart_check_for_subscriptionBox(this);">
-				頒布会申し込み
-			</asp:LinkButton>
-				<asp:HiddenField ID="hfSubscriptionBoxDisplayName"  runat="server" />
-			</div>
-			
-			<div class="button add-to-cart" visible="<%# this.CanGiftOrder %>" runat="server">
-				<asp:LinkButton ID="lbCartAddForGift" runat="server" Visible="<%# (this.CanGiftOrder) %>" OnClick="lbCartAddGift_Click" OnClientClick="return add_cart_check();" CssClass="btn">
-					カートへ(ギフト購入)
-				</asp:LinkButton>
-			</div>
-			
 			<%-- if (this.IsLoggedIn) { --%>
 			<%-- お気に入り --%>
 			<div class="unit button favorite">
-				<asp:LinkButton CSSClass="" ID="lbAddFavorite" OnClick="lbAddFavorite_Click" runat="server" OnClientClick=<%# (Alertdisplaycheck((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "display_alert_check_for_mailsend()" : "" %>>
-					<img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_heart.svg" alt="カートアイコン">
-					<span class="favorite-text"><%# (FavoriteDisplayWord((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "お気に入り登録済み" : "お気に入りに追加" %></span>
+				<asp:LinkButton CSSClass="btn" ID="lbAddFavorite" OnClick="lbAddFavorite_Click" runat="server">
+					<%# (FavoriteDisplayWord((string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_SHOP_ID), this.LoginUserId, (string) GetKeyValue(this.ProductMaster, Constants.FIELD_FAVORITE_PRODUCT_ID), "")) ? "お気に入り登録済み" : "お気に入りに追加" %>
+					(<%# SetFavoriteDataOfProductForDisplay() %>人)
 				</asp:LinkButton>
 				<p id="addCartTip" class="toolTip" style="display: none;">
 					<span id="txt-tooltip"></span><br/>
 					<a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_FAVORITE_LIST) %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/user/btn_menu_favolite.gif" alt="お気に入り一覧"></a>
 				</p>
-				
+				<% if(Constants.VARIATION_FAVORITE_CORRESPONDENCE){ %>
+					<p><br />お気に入りの総登録人数：<%# SetTotalFavoriteDataForDisplay() %>人</p>
+				<% }else{ %>	
+					<p><br />お気に入りの登録人数：<%# this.FavoriteUserCount %>人</p>
+				<% } %>
 			</div>
 			<%-- } --%>
+
+			<div visible="<%# this.IsDisplayValiationStock %>" runat="server">
+				<p>在庫有り</p>
+			</div>
+
+			<div class="button add-to-cart">
+				<asp:LinkButton ID="lbCartAdd" runat="server" Visible="<%# this.CanAddCart %>" Onclick="lbCartAdd_Click" OnClientClick="return add_cart_check();" CssClass="btn">
+				カートへ
+				</asp:LinkButton>
+			</div>
+
+			<div class="button fixed" visible="<%# this.CanFixedPurchase %>" runat="server">
+				<asp:LinkButton ID="lbCartAddFixedPurchase" runat="server" Visible="<%# (this.Buyable && this.CanFixedPurchase) && this.IsUserFixedPurchaseAble %>" OnClick="lbCartAddFixedPurchase_Click" OnClientClick="return add_cart_check_for_fixedpurchase();" CssClass="btn">
+				カートへ(定期)
+				</asp:LinkButton>
+			</div>
+
+			<div class="button add-to-cart" visible="<%# this.CanGiftOrder %>" runat="server">
+				<asp:LinkButton ID="lbCartAddForGift" runat="server" Visible="<%# (this.CanGiftOrder) %>" OnClick="lbCartAddGift_Click" OnClientClick="return add_cart_check();" CssClass="btn">
+				カートへ(ギフト購入)
+				</asp:LinkButton>
+			</div>
+
 		</div>
 
 		<div class="wrap-not-buyable">
@@ -750,7 +673,7 @@ function changeQuantity() {
 				<p class="attention"><%#: this.AlertMessageVariationNotExist %></p>
 			</div>
 			<%-- 完売表示 --%>
-			<div class="button sold-out" visible='<%# ProductListUtility.IsProductSoldOut(this.ProductMaster) %>' runat="server">
+			<div class="button sold-out" visible='<%# (this.Buyable == false) && (StringUtility.ToEmpty(this.ArrivalMailKbn) == "") %>' runat="server">
 				SOLD OUT
 			</div>
 
@@ -772,7 +695,7 @@ function changeQuantity() {
 			<%--販売開始メール表示--%>
 			<div visible="<%# this.ArrivalMailKbn == Constants.FLG_USERPRODUCTARRIVALMAIL_ARRIVAL_MAIL_KBN_RELEASE %>" runat="server" class="button others">
 				<asp:LinkButton ID="lbRequestReleaseMail2" Runat="server" OnCommand="ViewRegsiterArrivalMailForm_Command" CommandArgument="Release" CssClass="btn">
-					販売開始通知メール申込
+					入荷お知らせメール申込
 				</asp:LinkButton>
 				<p class="msg-alert" visible="<%# IsArrivalMailAnyRegistered(Constants.FLG_USERPRODUCTARRIVALMAIL_ARRIVAL_MAIL_KBN_RELEASE) %>" runat="server">
 					登録済み
@@ -787,7 +710,7 @@ function changeQuantity() {
 			<%--再販売メール表示--%>
 			<div visible="<%# this.ArrivalMailKbn == Constants.FLG_USERPRODUCTARRIVALMAIL_ARRIVAL_MAIL_KBN_RESALE %>" runat="server" class="button others">
 				<asp:LinkButton ID="lbRequestResaleMail2" Runat="server" OnCommand="ViewRegsiterArrivalMailForm_Command" CommandArgument="Resale" CssClass="btn">
-					再販売通知メール申込
+					入荷お知らせメール申込
 				</asp:LinkButton>
 				<p class="msg-alert" visible="<%# IsArrivalMailAnyRegistered(Constants.FLG_USERPRODUCTARRIVALMAIL_ARRIVAL_MAIL_KBN_RESALE) %>" runat="server">
 					登録済み
@@ -815,31 +738,22 @@ function changeQuantity() {
 			<dl>
 				<dt>
 					<%--　付帯情報名 --%>
-					<asp:Label ID = "lblProductOptionValueSetting" Text = '<%# ((ProductOptionSetting)Container.DataItem).ValueName%>' runat="server" />
+					<%# ((ProductOptionSetting)Container.DataItem).DisplayKbn != Constants.PRODUCTOPTIONVALUES_DISP_KBN_TEXTBOX ? WebSanitizer.HtmlEncode(((ProductOptionSetting)Container.DataItem).ValueName) : ""%>
+					<asp:Label ID = "lblProductOptionValueSetting" Text = '<%# ((ProductOptionSetting)Container.DataItem).ValueName%>' visible='<%# ((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_TEXTBOX %>' runat="server" />
 					<span class="require" runat="server" visible="<%# ((ProductOptionSetting)Container.DataItem).IsNecessary%>">※</span>
 				</dt>
 				<dd>
 					<%-- ラジオボタン --%>
-					<asp:Repeater ID="rCblProductOptionValueSetting"
-								DataSource='<%# ((ProductOptionSetting)Container.DataItem).SettingValuesListItemCollection %>'
-								ItemType="System.Web.UI.WebControls.ListItem"
-								Visible='<%# (((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_CHECKBOX) || (((ProductOptionSetting)Container.DataItem).DisplayKbn) == Constants.PRODUCTOPTIONVALUES_DISP_KBN_PRICE_CHECKBOX %>'
-								runat="server" >
+					<asp:Repeater ID="rCblProductOptionValueSetting" DataSource='<%# ((ProductOptionSetting)Container.DataItem).SettingValuesListItemCollection %>' Visible='<%# ((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_CHECKBOX %>' runat="server" >
 						<ItemTemplate>
-							<asp:CheckBox ID="cbProductOptionValueSetting" Text='<%# Item.Text %>' Checked='<%# Item.Selected %>' runat="server" />
+							<asp:CheckBox ID="cbProductOptionValueSetting" Text='<%# Eval("Text") %>' Checked='<%# (bool)Eval("Selected") %>' runat="server" />
 						</ItemTemplate>
 					</asp:Repeater>
-					<p class="attention"><asp:Label ID="lblProductOptionCheckboxErrorMessage" runat="server" /></p>
 
 					<%-- ドロップダウンリスト --%>
-					<asp:DropDownList ID="ddlProductOptionValueSetting"
-									DataSource='<%# InsertDefaultAtFirstToDdlProductOptionSettingList(((ProductOptionSetting)Container.DataItem).SettingValuesListItemCollection, ((ProductOptionSetting)Container.DataItem).IsNecessary) %>'
-									visible='<%# (((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_SELECTMENU) || (((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_PRICE_DROPDOWNMENU) %>'
-									SelectedValue='<%# ((ProductOptionSetting)Container.DataItem).GetDisplayProductOptionSettingSelectedValue() %>'
-									runat="server" />
-					<p class="attention"><asp:Label ID="lblProductOptionDropdownErrorMessage" runat="server" /></p>
+					<asp:DropDownList ID="ddlProductOptionValueSetting" DataSource='<%# ((ProductOptionSetting)Container.DataItem).SettingValuesListItemCollection %>'  visible='<%# ((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_SELECTMENU %>' SelectedValue='<%# ((ProductOptionSetting)Container.DataItem).GetDisplayProductOptionSettingSelectedValue() %>' runat="server" />
 					<%-- テキストボックス --%>
-					<asp:TextBox ID ="txtProductOptionValueSetting" Text = '<%# ((ProductOptionSetting)Container.DataItem).DefaultValue%>' visible='<%# ((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_TEXTBOX %>' runat="server" />
+					<asp:TextBox ID ="txtProductOptionValueSetting" placeholder = '<%# ((ProductOptionSetting)Container.DataItem).DefaultValue%>' visible='<%# ((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_TEXTBOX %>' runat="server" />
 					<p class="attention"><asp:Label ID = "lblProductOptionErrorMessage" runat="server" /></p>
 				</dd>
 			</dl>
@@ -854,16 +768,23 @@ function changeQuantity() {
 	<div class="wrap-product-desc">
 
 		<%-- 商品概要 --%>
-		<div visible='<%# this.IsProductOutlineVisible %>' runat="server" class="outline unit">
-		<div class="h2_blc">
-      <h2 class="title">ITEM INFO</h2>
-      <span class="title_sub">商品詳細</span>
-    </div>
-		<%-- 商品詳細2 --%>
-    <p><%# GetProductDataHtml("desc_detail2") %></p><br />
+		<div visible='<%# GetProductDataHtml("outline") != "" %>' runat="server" class="outline unit">
+		<h2>概要</h2>
+		<p><%# GetProductDataHtml("outline") %></p>
 		</div>
 		
 
+		<div class="desc-detail unit">
+		<h2>詳細情報</h2>
+		<!-- 商品詳細1 -->
+		<p><%# GetProductDataHtml("desc_detail1") %></p>
+		<!-- 商品詳細2 -->
+		<p><%# GetProductDataHtml("desc_detail2") %></p>
+		<!-- 商品詳細3 -->
+		<p><%# GetProductDataHtml("desc_detail3") %></p>
+		<!-- 商品詳細4 -->
+		<p><%# GetProductDataHtml("desc_detail4") %></p>
+		</div>
 
 		<div visible='<%# StringUtility.ToEmpty(GetProductData("return_exchange_message")) != "" %>' runat="server" class="unit">
 			<%-- 返品交換文言表示 --%>
@@ -890,6 +811,12 @@ function changeQuantity() {
 			お問合せ：<%# WebSanitizer.HtmlEncode(GetProductData("inquire_tel")) %>
 		</div>
 
+		<%-- お問い合わせリンク --%>
+		<div class="unit contact" runat="server">
+			<a href="<%# WebSanitizer.UrlAttrHtmlEncode(CreateProductInquiryUrl(this.ProductMaster, this.VariationSelected)) %>" class="btn">
+			この商品を問い合わせる
+			</a>
+		</div>
 
 	</div>
 
@@ -981,12 +908,9 @@ function changeQuantity() {
 <%-- クロスセル --%>
 <asp:Repeater DataSource="<%# this.ProductCrossSellList %>" Visible="<%# this.ProductCrossSellList.Count != 0 %>" runat="server">
 <HeaderTemplate>
-	<section class="up-sell unit crossItem">
-	<div class="h2_blc">
-    <h2 class="title">RELATED ITEMS</h2>
-    <span class="title_sub">関連商品</span>
-  </div>
-	<ul class="clearfix relate_slick">
+	<section class="up-sell unit">
+	<h4 class="title">関連商品</h4>
+	<ul class="product-list-3 clearfix">
 	</HeaderTemplate>
 <ItemTemplate>
 <li>
@@ -1064,18 +988,6 @@ function changeQuantity() {
 </article>
 </section>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.relate_slick').slick({
-      dots: false,           // ドットナビゲーションを表示
-      infinite: true,       // スライドをループさせる
-      speed: 300,           // スライドのスピード
-      slidesToShow: 2,      // 一度に表示するスライド数
-      slidesToScroll: 1,    // 一度にスクロールするスライド数
-    });
-  });
-</script>
-
 <%-- △編集可能領域△ --%>
 <div id="divBottomArea">
 <%-- ▽レイアウト領域：ボトムエリア▽ --%>
@@ -1090,16 +1002,11 @@ function changeQuantity() {
 <uc:BodyProductReview Visible="<%# Constants.PRODUCTREVIEW_ENABLED %>" ShopId="<%# this.ShopId %>" ProductId="<%# this.ProductId %>" ProductName="<%# this.ProductName %>" ProductReviewCount="5" runat="server"></uc:BodyProductReview>
 <%--コーディネート --%>
 <uc:BodyProductCoordinate ID="BodyProductCoordinate2" runat="server"/>
-<uc:BodyRecommendProductsWithTag ShopId="<%# this.ShopId %>" ProductId="<%# this.ProductId %>" ImageSize="M" DisplayKbn="ALL" runat="server" />
 </section>
 
 <script type="text/javascript">
 <!--
 	var strAlertmessage = '<%= MESSAGE_ERROR_VARIATION_UNSELECTED %>';
-	var strAlertMessageOption = '<%= MESSAGE_ERROR_OPTION_UNSELECTED %>';
-	var fixedpurchaseMessage = '定期的に商品をお送りする「定期購入」で購入します。\nよろしいですか？';
-	var subscriptionBoxMessage = '頒布会「@@ 1 @@」の内容確認画面に進みます。\nよろしいですか？';
-	var mailSendAlertMessage = 'お気に入り追加商品の在庫減少時にメールを送信いたします。\nマイページ＞登録情報の変更より変更できます。';
 
 	// バリエーション選択チェック判定
 	function variation_selected_check() {
@@ -1135,11 +1042,6 @@ function changeQuantity() {
 	// バリエーション選択チェック(通常)
 	function add_cart_check() {
 		if (variation_selected_check()) {
-			var alertMessage = get_alert_message_for_product_option_unselected();
-			if (alertMessage) {
-				alert(alertMessage);
-				return false;
-			}
 			return true;
 		}
 		else {
@@ -1148,34 +1050,10 @@ function changeQuantity() {
 		}
 	}
 
-	// バリエーションカート投入時チェック(定期)
+	// バリエーション選択チェック(定期)
 	function add_cart_check_for_fixedpurchase() {
-		var strCartAddFixedPurchase = '<%# this.WlbCartAddFixedPurchase.ClientID %>';
-		var CartAddFixedPurchaseDisabled = document.getElementById(strCartAddFixedPurchase).attributes.disabled;
 		if (variation_selected_check()) {
-			var alertMessage = get_alert_message_for_product_option_unselected();
-			if (alertMessage) {
-				alert(alertMessage);
-				return false;
-			}
-			if (CartAddFixedPurchaseDisabled === undefined) {
-				return confirm(fixedpurchaseMessage);
-			}
-			return false;
-		}
-		else {
-			alert(strAlertmessage);
-			return false;
-		}
-	}
-
-	// バリエーション選択チェック(頒布会)
-	function add_cart_check_for_subscriptionBox(value) {
-		if (variation_selected_check()) {
-			var subscriptionBoxName = ($(value).parent().find("[id$='ddlSubscriptionBox']").length > 0)
-				? $('#<%: ddlSubscriptionBox.ClientID %> option:selected')[0].innerText
-				: $(value).parent().find("[id$='hfSubscriptionBoxDisplayName']").val();
-			return confirm('頒布会「' + subscriptionBoxName + '」の内容確認画面に進みます。\nよろしいですか？');
+			return confirm('定期的に商品をお送りする「定期購入」で購入します。\nよろしいですか？');
 		}
 		else {
 			alert(strAlertmessage);
@@ -1194,56 +1072,9 @@ function changeQuantity() {
 		}
 	}
 
-	//メール送信があることを確認
-	function display_alert_check_for_mailsend() {
-		alert(mailSendAlertMessage);
-	}
-
 	// 入荷通知登録画面をポップアップウィンドウで開く
 	function show_arrival_mail_popup(pid, vid, amkbn) {
 		show_popup_window('<%= this.SecurePageProtocolAndHost %><%= Constants.PATH_ROOT %><%= Constants.PAGE_FRONT_USER_PRODUCT_ARRIVAL_MAIL_REGIST %>?<%= Constants.REQUEST_KEY_PRODUCT_ID %>=' + pid + '&<%= Constants.REQUEST_KEY_VARIATION_ID %>=' + vid + '&<%= Constants.REQUEST_KEY_USERPRODUCTARRIVALMAIL_ARRIVAL_MAIL_KBN %>=' + amkbn, 480, 270, true, true, 'Information');
-	}
-
-	// バリエーションリスト毎のカート投入時チェック(通常商品)
-	function add_cart_check_for_variationlist() {
-		var alertMessage = get_alert_message_for_product_option_unselected();
-		if (alertMessage) {
-			alert(alertMessage);
-			return false;
-		}
-		return true;
-	}
-
-	// バリエーションリスト毎のカート投入時チェック(定期商品)
-	function add_cart_check_for_fixedpurchase_variationlist() {
-		var alertMessage = get_alert_message_for_product_option_unselected();
-		if (alertMessage) {
-			alert(alertMessage);
-			return false;
-		}
-		return confirm(fixedpurchaseMessage);
-	}
-
-	<%-- 商品付帯情報未選択時のアラートメッセージを取得 --%>
-	<%-- NOTE: 付帯価格オプションが有効の際は、ドロップダウンの付帯情報の必須入力チェックを行うため利用 --%>
-	function get_alert_message_for_product_option_unselected() {
-		<% if (Constants.PRODUCT_OPTION_SETTINGS_PRICE_GRANT_ENABLED == false){ %>
-			return "";
-		<% } %>
-
-		var productOptionUnselectedMessageList = [];
-		<% foreach (RepeaterItem ri in rProductOptionValueSettings.Items){ %>
-			var ddlProductOptionSetting = document.getElementById('<%= ((DropDownList)ri.FindControl("ddlProductOptionValueSetting")).ClientID %>');
-			if (ddlProductOptionSetting) {
-				if (ddlProductOptionSetting.value == '<%# ReplaceTag("@@DispText.variation_name_list.unselected@@") %>') {
-					var productOptionName = document.getElementById('<%= ((Label)ri.FindControl("lblProductOptionValueSetting")).ClientID %>').innerHTML;
-					productOptionUnselectedMessageList.push(strAlertMessageOption.format(productOptionName));
-				}
-			}
-		<% } %>
-
-		var alertMessage = productOptionUnselectedMessageList.join('\r\n');
-		return alertMessage;
 	}
 //-->
 </script>

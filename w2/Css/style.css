@@ -77,6 +77,11 @@ body {
   font-family: "source-han-sans-japanese", sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+  #Contents {
+    padding: 100px 20px 0;
+  }
+}
 .inner_960 {
   max-width: 960px;
   margin: 0 auto;
@@ -291,6 +296,17 @@ body {
 }
 
 /* ヘッダー */
+#header {
+  transition: background-color 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+}
+
+.blurred {
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
 .header_wrp {
   width: 100%;
   position: fixed;
@@ -305,8 +321,13 @@ body {
 @media screen and (max-width: 768px) {
   .header_wrp {
     height: 70px;
-    justify-content: flex-end;
     padding: initial;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header_wrp .header_logo {
+    width: 180px;
+    padding-left: 15px;
   }
 }
 .header_wrp .icon_blc {
@@ -321,7 +342,7 @@ body {
   .header_wrp .icon_blc {
     -moz-column-gap: 15px;
          column-gap: 15px;
-    padding: 20px;
+    padding: 15px;
   }
   .header_wrp .icon_blc a {
     text-align: right;
@@ -1771,32 +1792,68 @@ footer .footer_blc .footer_cont .copy {
 }
 
 /* 商品詳細ページ */
-#dvProductDetailArea .detail_name_en {
+@media screen and (max-width: 768px) {
+  #dvProductDetailArea,
+  .wrap-product-detail {
+    line-height: 1.55;
+  }
+}
+#dvProductDetailArea .detail_name_en,
+.wrap-product-detail .detail_name_en {
   font-size: 14px;
   margin-bottom: 20px;
 }
-#dvProductDetailArea .detail_name {
+#dvProductDetailArea .detail_name,
+.wrap-product-detail .detail_name {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 20px;
 }
-#dvProductDetailArea .detail_capacity {
+#dvProductDetailArea .detail_capacity,
+.wrap-product-detail .detail_capacity {
   margin-bottom: 20px;
 }
-#dvProductDetailArea .detail_copy {
+@media screen and (max-width: 768px) {
+  #dvProductDetailArea .icon,
+  .wrap-product-detail .icon {
+    margin-bottom: 20px;
+  }
+  #dvProductDetailArea .icon img,
+  .wrap-product-detail .icon img {
+    height: 22px;
+    margin: 0 2px 2px 0;
+  }
+}
+#dvProductDetailArea .detail_copy,
+.wrap-product-detail .detail_copy {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 20px;
 }
-#dvProductDetailArea .detail_overview {
+#dvProductDetailArea .detail_overview,
+.wrap-product-detail .detail_overview {
   font-size: 13px;
   margin-bottom: 20px;
 }
-#dvProductDetailArea .detail_annotation {
+@media screen and (max-width: 768px) {
+  #dvProductDetailArea .detail_overview,
+  .wrap-product-detail .detail_overview {
+    margin-bottom: initial;
+  }
+}
+#dvProductDetailArea .detail_annotation,
+.wrap-product-detail .detail_annotation {
   font-size: 10px;
   color: #b4b4b4;
 }
-#dvProductDetailArea .productPrice {
+@media screen and (max-width: 768px) {
+  #dvProductDetailArea .detail_annotation,
+  .wrap-product-detail .detail_annotation {
+    margin-bottom: 20px;
+  }
+}
+#dvProductDetailArea .productPrice,
+.wrap-product-detail .productPrice {
   font-size: 24px;
   font-weight: 600;
 }
@@ -1871,7 +1928,9 @@ footer .footer_blc .footer_cont .copy {
        column-gap: 15px;
 }
 
-#ctl00_ContentPlaceHolder1_lbAddFavoriteId {
+/* お気に入りボタン */
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId,
+#ctl00_ContentPlaceHolder1_lbAddFavorite {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1880,15 +1939,22 @@ footer .footer_blc .footer_cont .copy {
   border: 1px solid #565655;
   height: 55px;
 }
-#ctl00_ContentPlaceHolder1_lbAddFavoriteId.favorite-registered {
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId.favorite-registered,
+#ctl00_ContentPlaceHolder1_lbAddFavorite.favorite-registered {
   opacity: 0.6;
 }
-#ctl00_ContentPlaceHolder1_lbAddFavoriteId.favorite-registered:hover {
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId.favorite-registered:hover,
+#ctl00_ContentPlaceHolder1_lbAddFavorite.favorite-registered:hover {
   opacity: 0.6;
 }
-#ctl00_ContentPlaceHolder1_lbAddFavoriteId:hover {
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId:hover,
+#ctl00_ContentPlaceHolder1_lbAddFavorite:hover {
   opacity: 1;
   color: #565655;
+}
+
+.wrap-buyable {
+  margin-bottom: 60px;
 }
 
 #dvProductDescription {
@@ -1928,6 +1994,44 @@ footer .footer_blc .footer_cont .copy {
   padding-left: 25px;
 }
 
+.wrap-product-desc .unit {
+  margin: 0 calc(50% - 50vw);
+  padding: 60px calc(50vw - 50%);
+  background-color: #f4f8f9;
+}
+.wrap-product-desc .unit .h2_blc {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.wrap-product-desc .unit .h2_blc .title {
+  font-size: 28px;
+  color: #5893b2;
+  padding: 8px;
+}
+.wrap-product-desc .unit .h2_blc .title_sub {
+  font-size: 12px;
+  font-weight: 600;
+}
+.wrap-product-desc .unit table {
+  border-top: 1px solid #565655;
+}
+.wrap-product-desc .unit table th, .wrap-product-desc .unit table td {
+  display: block;
+  line-height: 1.75;
+}
+.wrap-product-desc .unit table th {
+  padding-top: 25px;
+}
+.wrap-product-desc .unit table td {
+  padding: 10px 0 25px;
+  border-bottom: 1px solid #565655;
+}
+
+.product-vatiation-choice {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 .selectValiation {
   border-bottom: 1px solid #eeeeee;
 }
@@ -1961,20 +2065,16 @@ footer .footer_blc .footer_cont .copy {
   width: 100%;
   border: 1px solid #5893b2;
   padding: 20px 5px;
-  margin-right: 15px;
-  margin-bottom: 10px;
+  margin: 0 15px 10px 0;
   background-color: #f4f8f9;
   float: left;
   text-align: center;
 }
 .valiation_flex .valiation_item .VariationPanel {
   width: 100%;
-  border: 1px;
+  border: none;
   padding: 20px 5px;
-  margin-right: 15px;
-  margin-bottom: 10px;
-  border-style: solid;
-  border-color: #adb0b0;
+  margin: 0 15px 10px 0;
   background-color: #f5f7f7;
   float: left;
   text-align: center;
@@ -1985,11 +2085,22 @@ footer .footer_blc .footer_cont .copy {
   color: #565655;
 }
 .valiation_item_text .valiation_item .VariationPanelSelected {
+  border: none;
   margin-bottom: 10px;
+  background-color: transparent;
+}
+.valiation_item_text .valiation_item .VariationPanel {
+  border: none;
+  background-color: transparent;
 }
 
 .crossItem {
   margin-top: 120px;
+}
+@media screen and (max-width: 768px) {
+  .crossItem {
+    margin-top: 60px;
+  }
 }
 .crossItem .h2_blc {
   text-align: center;
@@ -2012,21 +2123,43 @@ footer .footer_blc .footer_cont .copy {
   font-size: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  .relate_slick li {
+    padding: 0 10px;
+  }
+}
 .relate_slick .slick-prev,
 .relate_slick .slick-next {
   width: 40px; /* 矢印の幅 */
   height: 40px; /* 矢印の高さ */
   z-index: 1000; /* 矢印がスライドの上に表示されるようにする */
 }
+@media screen and (max-width: 768px) {
+  .relate_slick .slick-prev,
+  .relate_slick .slick-next {
+    width: 25px;
+    height: 25px;
+  }
+}
 .relate_slick .slick-prev {
   left: -50px; /* 矢印の位置を調整 */
   background: url("https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_prev.svg") no-repeat center center; /* カスタム矢印画像を設定 */
   background-size: 30%;
 }
+@media screen and (max-width: 768px) {
+  .relate_slick .slick-prev {
+    left: -23px;
+  }
+}
 .relate_slick .slick-next {
   right: -50px; /* 矢印の位置を調整 */
   background: url("https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_next.svg") no-repeat center center; /* カスタム矢印画像を設定 */
   background-size: 30%;
+}
+@media screen and (max-width: 768px) {
+  .relate_slick .slick-next {
+    right: -23px;
+  }
 }
 .relate_slick .slick-prev:before,
 .relate_slick .slick-next:before {

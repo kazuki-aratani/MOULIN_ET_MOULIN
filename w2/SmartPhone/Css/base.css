@@ -604,10 +604,26 @@ a:active {
 *    パンくず/ページャー
 */
 
-#breadcrumb {
-  font-size: 11px;
-  line-height: 1.5;
-  margin-bottom: 30px;
+.breadcrumb_cstm {
+  font-size: 12px;
+  max-width: 100%;
+  overflow: hidden;
+  line-height: 1.75;
+}
+
+.breadcrumb_cstm ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.breadcrumb_cstm li, 
+.breadcrumb_cstm span {
+  display: inline-block;
+  white-space: nowrap;
+}
+.breadcrumb_cstm .last_word {
+  white-space: wrap;
 }
 
 /* .pager-wrap {

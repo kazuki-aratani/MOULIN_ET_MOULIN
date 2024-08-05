@@ -52,7 +52,25 @@
     </div>
   </div>
 </footer>
+<script>
+  // script.js
+document.addEventListener("DOMContentLoaded", function() {
+    const header = document.getElementById("header");
 
+    window.addEventListener("scroll", function() {
+        if (window.innerWidth <= 768) {
+            if (window.scrollY > 200) {
+                header.classList.add("blurred");
+            } else {
+                header.classList.remove("blurred");
+            }
+        } else {
+            header.classList.remove("blurred");
+        }
+    });
+});
+
+</script>
 <%-- △編集可能領域△ --%>
 
 <%-- w2アクセスログトラッカー出力 --%>

@@ -30,6 +30,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 	<span style="color: #fff"><%# this.BrandId %></span>
 
+<style>
+  #Contents {
+    padding: initial;
+  }
+</style>
+
 <main>
     <section id="fv">
       <div class="fv_blc">

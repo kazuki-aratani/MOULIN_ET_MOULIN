@@ -95,6 +95,12 @@ body {
   font-family: "source-han-sans-japanese", sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+  #Contents {
+    padding: 100px 20px 0;
+  }
+}
+
 .inner_960 {
   max-width: 960px;
   margin: 0 auto;
@@ -296,6 +302,12 @@ body {
 }
 
 /* ヘッダー */
+#header {
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+.blurred {
+  backdrop-filter: blur(4px);
+}
 .header_wrp {
   width: 100%;
   position: fixed;
@@ -309,8 +321,13 @@ body {
 
   @media screen and (max-width: 768px) {
     height: 70px;
-    justify-content: flex-end;
     padding: initial;
+  }
+  .header_logo {
+    @media screen and (max-width: 768px) {
+      width: 180px;
+      padding-left: 15px;
+    }
   }
 
   .icon_blc {
@@ -321,7 +338,7 @@ body {
     padding: 35px 0 35px 35px;
     @media screen and (max-width: 768px) {
       column-gap: 15px;
-      padding: 20px;
+      padding: 15px;
       a {
         text-align: right;
         @media screen and (max-width: 768px) {
@@ -1807,7 +1824,11 @@ footer {
 }
 
 /* 商品詳細ページ */
-#dvProductDetailArea {
+#dvProductDetailArea,
+.wrap-product-detail {
+  @media screen and (max-width: 768px) {
+    line-height: 1.55;
+  }
   .detail_name_en {
     font-size: 14px;
     margin-bottom: 20px;
@@ -1820,6 +1841,15 @@ footer {
   .detail_capacity {
     margin-bottom: 20px;
   }
+  @media screen and (max-width: 768px) {
+    .icon {
+      margin-bottom: 20px;
+      img {
+        height: 22px;
+        margin: 0 2px 2px 0;
+      }
+    }
+  }
   .detail_copy {
     font-size: 15px;
     font-weight: 600;
@@ -1828,10 +1858,16 @@ footer {
   .detail_overview {
     font-size: 13px;
     margin-bottom: 20px;
+    @media screen and (max-width: 768px) {
+      margin-bottom: initial;
+    }
   }
   .detail_annotation {
     font-size: 10px;
     color: #b4b4b4;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 20px;
+    }
   }
   .productPrice {
     font-size: 24px;
@@ -1906,7 +1942,9 @@ footer {
     column-gap: 15px;
   }
 }
-#ctl00_ContentPlaceHolder1_lbAddFavoriteId {
+/* お気に入りボタン */
+#ctl00_ContentPlaceHolder1_lbAddFavoriteId,
+#ctl00_ContentPlaceHolder1_lbAddFavorite {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1923,6 +1961,10 @@ footer {
     opacity: 1;
     color: #565655;
   }
+}
+
+.wrap-buyable {
+  margin-bottom: 60px;
 }
 
 #dvProductDescription {
@@ -1961,6 +2003,43 @@ footer {
     }
   }
 }
+.wrap-product-desc .unit {
+  margin: 0 calc(50% - 50vw);
+  padding: 60px calc(50vw - 50%);
+  background-color: #f4f8f9;
+  .h2_blc {
+    text-align: center;
+    margin-bottom: 50px;
+    .title {
+      font-size: 28px;
+      color: #5893b2;
+      padding: 8px;
+    }
+    .title_sub {
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+  table {
+    border-top: 1px solid #565655;
+    th,td {
+      display: block;
+      line-height: 1.75;
+    }
+    th {
+      padding-top: 25px;
+    }
+    td {
+      padding: 10px 0 25px;
+      border-bottom: 1px solid #565655;
+    }
+  }
+}
+
+.product-vatiation-choice {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 .selectValiation {
   border-bottom: 1px solid #eeeeee;
   p {
@@ -1991,20 +2070,16 @@ footer {
       width:100%;
       border:1px solid #5893b2;
       padding:20px 5px;
-      margin-right: 15px;
-      margin-bottom: 10px;
+      margin: 0 15px 10px 0;
       background-color: #f4f8f9;
       float:left;
       text-align: center;
     }
     .VariationPanel {
       width:100%;
-      border:1px;
+      border: none;
       padding:20px 5px;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      border-style:solid;
-      border-color: #adb0b0;
+      margin: 0 15px 10px 0;
       background-color: #f5f7f7;
       float:left;
       text-align: center;
@@ -2018,13 +2093,22 @@ footer {
       color: #565655;
     }
     .VariationPanelSelected {
+      border: none;
       margin-bottom: 10px;
+      background-color: transparent;
+    }
+    .VariationPanel {
+      border: none;
+      background-color: transparent;
     }
   }
 }
 
 .crossItem {
   margin-top: 120px;
+  @media screen and (max-width: 768px) {
+    margin-top: 60px;
+  }
   .h2_blc {
     text-align: center;
     margin-bottom: 50px;
@@ -2049,23 +2133,38 @@ footer {
   }
 }
 .relate_slick {
+  li {
+    @media screen and (max-width: 768px) {
+      padding: 0 10px;
+    }
+  }
   .slick-prev,
   .slick-next {
     width: 40px; /* 矢印の幅 */
     height: 40px; /* 矢印の高さ */
     z-index: 1000; /* 矢印がスライドの上に表示されるようにする */
+    @media screen and (max-width: 768px) {
+      width: 25px;
+      height: 25px;
+    }
   }
 
   .slick-prev {
     left: -50px; /* 矢印の位置を調整 */
     background: url('https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_prev.svg') no-repeat center center; /* カスタム矢印画像を設定 */
     background-size: 30%;
+    @media screen and (max-width: 768px) {
+      left: -23px;
+    }
   }
 
   .slick-next {
     right: -50px; /* 矢印の位置を調整 */
     background: url('https://mybalance.jp/Contents/ImagesPkg/mybalance/arrow_next.svg') no-repeat center center; /* カスタム矢印画像を設定 */
     background-size: 30%;
+    @media screen and (max-width: 768px) {
+      right: -23px;
+    }
   }
 
   .slick-prev:before,
