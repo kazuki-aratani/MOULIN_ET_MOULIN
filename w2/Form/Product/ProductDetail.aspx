@@ -203,6 +203,56 @@
 </div>
 <%-- ↑バリエーション変更時の表示更新領域を指定しています --%>
 
+<div class="detailSubImageFlex">
+<%-- ▽メイン画像▽ --%>
+    <li class="selected">
+        <a href="javascript:void(0);">
+            <img class="zoomTarget" src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" data-zoom-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)(Constants.PRODUCTSUBIMAGE_DEFAULT_SUB_IMAGE_NO + 1))) %>" />
+        </a>
+    </li>
+<%-- △メイン画像△ --%>
+
+<!-- サブ画像一覧 -->
+<%-- ▽サブ画像一覧▽ --%>
+<asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
+<HeaderTemplate>
+</HeaderTemplate>
+<ItemTemplate>
+    <li visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
+		<a href="javascript:void(0);" title="<%# Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NAME) %>">
+		<!--
+			--><img class="zoomTarget" src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" data-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" data-zoom-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" /></a>
+    </li>
+</ItemTemplate>
+<FooterTemplate>
+</FooterTemplate>
+</asp:Repeater>
+<%-- △サブ画像一覧△ --%>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const liElements = document.querySelectorAll(".detailSubImageFlex li");
+    
+    // 最初のliタグにselectedクラスを追加
+    if (liElements.length > 0) {
+        liElements[0].classList.add("selected");
+    }
+
+    liElements.forEach(function(li) {
+        li.addEventListener("click", function() {
+            // すべてのliタグからselectedクラスを削除
+            liElements.forEach(function(el) {
+                el.classList.remove("selected");
+            });
+            // クリックされたliタグにselectedクラスを追加
+            li.classList.add("selected");
+        });
+    });
+});
+</script>
+
+
 <div class="description">
 
 	<!-- 販売期間 -->
@@ -350,27 +400,7 @@
 </asp:Repeater>
 	 △バリエーション表示名1・2の画像一覧△ --%>
 
-<!-- サブ画像一覧 -->
-<%-- ▽サブ画像一覧▽ --%>
-<asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
-<HeaderTemplate>
-		<div class="unit">
-		<p class="title">詳細画像</p>
-		<ul class="subImage clearFix">
-</HeaderTemplate>
-<ItemTemplate>
-		<li visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
-		<a href="javascript:void(0);" title="<%# Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NAME) %>">
-		<!--
-			--><img class="zoomTarget" src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" data-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" data-zoom-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" /></a>
-</li>
-</ItemTemplate>
-<FooterTemplate>
-</ul>
-</div>
-</FooterTemplate>
-</asp:Repeater>
-<%-- △サブ画像一覧△ --%>
+
 
 	<!--
 	<div class="btnDetailpopUp">

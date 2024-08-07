@@ -1858,6 +1858,25 @@ footer .footer_blc .footer_cont .copy {
   font-weight: 600;
 }
 
+.ChangesByVariation {
+  margin-bottom: 20px;
+}
+
+.detailSubImageFlex {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.detailSubImageFlex li.selected {
+  border: 1px solid #5893b2;
+}
+.detailSubImageFlex li a img {
+  width: 110px;
+  height: 110px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 #dvCrossSell .productInfoList .productInfoListItem {
   width: 100%;
 }
@@ -2094,17 +2113,15 @@ footer .footer_blc .footer_cont .copy {
   background-color: transparent;
 }
 
-.crossItem {
-  margin-top: 120px;
-}
-@media screen and (max-width: 768px) {
-  .crossItem {
-    margin-top: 60px;
-  }
-}
 .crossItem .h2_blc {
   text-align: center;
+  margin-top: 120px;
   margin-bottom: 50px;
+}
+@media screen and (max-width: 768px) {
+  .crossItem .h2_blc {
+    margin-top: 60px;
+  }
 }
 .crossItem .h2_blc .title {
   font-size: 28px;
@@ -2164,4 +2181,12 @@ footer .footer_blc .footer_cont .copy {
 .relate_slick .slick-prev:before,
 .relate_slick .slick-next:before {
   display: none; /* デフォルトの矢印を非表示にする */
+}
+
+.sns {
+  display: none;
+}
+
+.arrow .prev, .arrow .next {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

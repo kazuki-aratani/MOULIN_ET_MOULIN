@@ -265,6 +265,11 @@
 </div>
 <%-- △パンくず△ --%>
 
+<div class="h1_blc">
+  <h1>LINE UP</h1>
+  <span class="h1_sub">商品一覧</span>
+</div>
+
 <%-- ▽ページャー▽ --%>
 <% if (this.IsInfiniteLoad == false) { %>
 <div class="pager-wrap above top_pager">

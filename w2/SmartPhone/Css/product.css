@@ -198,7 +198,7 @@
   z-index: 1;
   height: auto;
   width: 320px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 
 .flick-wrap.loading {
@@ -742,6 +742,15 @@ a.recommendTag span {
 }
 
 /* LEGIT追加CSS */
-/* .wrap-product-list {
-  padding: 70px 20px 0;
-} *//*# sourceMappingURL=product.css.map */
+.wrap-product-list .h1_blc {
+  text-align: center;
+  margin: 40px 0;
+  line-height: 1.5;
+}
+.wrap-product-list .h1_blc h1 {
+  font-size: 28px;
+  color: #5893b2;
+}
+.wrap-product-list .h1_blc .h1_sub {
+  font-size: 12px;
+}/*# sourceMappingURL=product.css.map */

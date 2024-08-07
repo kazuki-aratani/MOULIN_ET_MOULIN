@@ -232,7 +232,6 @@
 					<ItemTemplate>
 						<div class="item">
 							<w2c:ProductImage ImageSize="LL" ProductMaster="<%# Container.DataItem %>" IsVariation="true" runat="server" />
-							<span class="var-name"><%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME1) %> <%# Eval(Constants.FIELD_PRODUCTVARIATION_VARIATION_NAME3) %></span>
 						</div>
 					</ItemTemplate>
 					</asp:Repeater>
@@ -265,15 +264,20 @@
 					<FooterTemplate>
 					</FooterTemplate>
 				</asp:Repeater>
-				<%--サブ画像一覧--%>
-				<asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
-					<HeaderTemplate></HeaderTemplate>
-					<ItemTemplate>
-						<a href="javascript:void(0);" visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
-						<img src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_M, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" alt="" /></a>
-					</ItemTemplate>
-					<FooterTemplate></FooterTemplate>
-				</asp:Repeater>
+
+                <%-- ▽サブ画像一覧▽ --%>
+                <asp:Repeater DataSource="<%# this.ProductSubImageList %>" Visible="<%# (this.ProductSubImageList.Count != 0) %>" runat="server">
+                <HeaderTemplate>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <a href="javascript:void(0);" visible='<%# IsSubImagesNoLimit((int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO)) %>' runat="server">
+                        <!--
+                            --><img class="zoomTarget" src="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" data-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" data-zoom-image="<%# WebSanitizer.HtmlEncode(CreateProductSubImageUrl(this.ProductMaster, Constants.PRODUCTIMAGE_FOOTER_LL, (int)Eval(Constants.FIELD_PRODUCTSUBIMAGESETTING_PRODUCT_SUB_IMAGE_NO))) %>" /></a>
+                </ItemTemplate>
+                <FooterTemplate>
+                </FooterTemplate>
+                </asp:Repeater>
+                <%-- △サブ画像一覧△ --%>
 			</div>
 
 			<div class="arrow" Visible="<%# this.HasVariation || (this.ProductSubImageList.Count != 0) %>" runat="server">
@@ -281,6 +285,22 @@
 				<p class="next">次へ</p>
 			</div>
 		
+		</div>
+	</div>
+  
+  <%-- SNSボタン ※mixiチェックはクライアント毎にデベロッパ登録したキーを設定する必要あり --%>
+	<div class="sns">
+		<%-- twitter --%>
+		<div class="button">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-lang="ja">ツイート</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+		</div>
+		<%-- mixi --%>
+		<div class="button">
+			<a href="javascript:void(0);" onclick='<%# WebSanitizer.HtmlEncode("window.open('http://mixi.jp/share.pl?u=" + HttpUtility.UrlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_PRODUCT_DETAIL + "?" + Constants.REQUEST_KEY_PRODUCT_ID + "=" + this.ProductId + (Constants.PRODUCT_BRAND_ENABLED ? "&" + Constants.REQUEST_KEY_BRAND_ID + "=" + this.BrandId : "") + "&k=01ac61d95d41a50ea61d0c5ab84adf0cfbf62f7d") + "','share',['width=632','height=456','location=yes','resizable=yes','toolbar=no','menubar=no','scrollbars=no','status=no'].join(','));") %>'><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mixi_bt_check_1.png" alt="mixiチェック" border="0" /></a>
+		</div>
+		<%-- facebook --%>
+		<div class="button">
+			<iframe src="//www.facebook.com/plugins/like.php?href=<%# HttpUtility.UrlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_PRODUCT_DETAIL + "?" + Constants.REQUEST_KEY_PRODUCT_ID + "=" + this.ProductId) %><%# HttpUtility.UrlEncode(Constants.PRODUCT_BRAND_ENABLED ? "&" + Constants.REQUEST_KEY_BRAND_ID + "=" + this.BrandId : "") %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
 		</div>
 	</div>
 
