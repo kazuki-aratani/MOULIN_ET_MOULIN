@@ -54,72 +54,76 @@
 </script>
 
 <header id="header" class="header_wrp">
-      <div class="header_logo">
-        <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>">
-          <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/hd_logo.png" alt="">
+  <div class="header_logo">
+    <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>">
+      <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/hd_logo.png" alt="">
+    </a>
+  </div>
+  <div class="icon_blc">
+    <%if (this.IsLoggedIn) { %>
+      <a href="<%: this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE %>" class="">
+        <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ">
+      </a>
+    <% }else{ %>
+      <a href="<%= WebSanitizer.HtmlEncode(this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_LOGIN + "?" + Constants.REQUEST_KEY_NEXT_URL + "=" + HttpUtility.UrlEncode(this.NextUrl)) %>" class="">
+        <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="ログイン">
+      </a>
+    <% } %>
+    <a href="<%: this.CartListPageUrl %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart.svg" alt="カート"></a>
+    <div class="hamburger">
+      <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_hamburger.svg" alt="ハンバーガー">
+    </div>
+  </div>
+  
+  <nav class="globalMenuSp">
+    <div class="left_area">
+      <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_bg.jpg" alt="ナビメニュー画像" class="ov_tab">
+    </div>
+    <div class="right_area">
+      <div class="ham_header">
+        <div class="icon_blc">
+          <a href="<%: this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ"></a>
+          <a href="<%: this.CartListPageUrl %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart.svg" alt="カート"></a>
+          <div class="hamburger_close">
+            <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_hamburger_close.svg" alt="ハンバーガー">
+          </div>
+        </div>
+      </div>
+      <div class="ham_cont">
+        <div class="ham_logo"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_logo.png" alt="MyBALANCE"></div>
+        <ul>
+            <li class="anker">
+              <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#concept">
+                <span class="ttl">CONCEPT</span>
+              </a>
+            </li>
+            <li class="anker">
+              <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#service">
+                <span class="ttl">SERVICE</span>
+              </a>
+            </li>
+            <li class="anker">
+              <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/form/Product/ProductList.aspx">
+                <span class="ttl">LINE UP</span>
+              </a>
+            </li>
+            <li class="anker">
+              <a href="https://m-moulin.jp/company/" target="_blank">
+                <span class="ttl">COMPANY</span>
+              </a>
+            </li>
+        </ul>
+        <a href="" class="ham_link_btn">
+          <img class="un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_ham_bnr.jpg" alt="">
         </a>
       </div>
-      <div class="icon_blc">
-        <%if (this.IsLoggedIn) { %>
-          <a href="<%: this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE %>" class="">
-            <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ">
-          </a>
-        <% }else{ %>
-          <a href="<%= WebSanitizer.HtmlEncode(this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_LOGIN + "?" + Constants.REQUEST_KEY_NEXT_URL + "=" + HttpUtility.UrlEncode(this.NextUrl)) %>" class="">
-            <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="ログイン">
-          </a>
-        <% } %>
-        <a href="<%: this.CartListPageUrl %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart.svg" alt="カート"></a>
-        <div class="hamburger">
-          <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_hamburger.svg" alt="ハンバーガー">
-        </div>
-      </div>
-      
-      <nav class="globalMenuSp">
-        <div class="left_area">
-          <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_bg.jpg" alt="ナビメニュー画像" class="ov_tab">
-        </div>
-        <div class="right_area">
-          <div class="ham_header">
-            <div class="icon_blc">
-              <a href="<%: this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ"></a>
-              <a href="<%: this.CartListPageUrl %>"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_cart.svg" alt="カート"></a>
-              <div class="hamburger_close">
-                <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_hamburger_close.svg" alt="ハンバーガー">
-              </div>
-            </div>
-          </div>
-          <div class="ham_cont">
-            <div class="ham_logo"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_logo.png" alt="MyBALANCE"></div>
-            <ul>
-                <li class="anker">
-                  <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#concept">
-                    <span class="ttl">CONCEPT</span>
-                  </a>
-                </li>
-                <li class="anker">
-                  <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#service">
-                    <span class="ttl">SERVICE</span>
-                  </a>
-                </li>
-                <li class="anker">
-                  <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/form/Product/ProductList.aspx">
-                    <span class="ttl">LINE UP</span>
-                  </a>
-                </li>
-                <li class="anker">
-                  <a href="https://m-moulin.jp/company/" target="_blank">
-                    <span class="ttl">COMPANY</span>
-                  </a>
-                </li>
-            </ul>
-            <a href="" class="ham_link_btn">
-              <img class="un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_ham_bnr.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </nav>
-    </header>
+    </div>
+  </nav>
+</header>
+
+<a href="#Contents" class="top_back_btn">
+  <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_back.svg" alt="">
+</a>
 
 
 

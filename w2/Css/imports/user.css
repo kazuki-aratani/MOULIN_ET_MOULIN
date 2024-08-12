@@ -282,8 +282,8 @@ input.nameShipping {
  ユーザー系コンテンツ枠
 ==============================================================================================*/
 #dvUserContents {
-  width: 100%;
-  margin: 20px 0;
+  width: 480px;
+  margin: 20px auto;
 }
 /* フロート用コンテンツ枠 */
 #dvUserFltContents {
@@ -2020,9 +2020,9 @@ input.nameShipping {
   float: left;
   width: 450px;
   display: inline;
-  border-right-style: solid;
+  /* border-right-style: solid;
   border-right-width: 1px;
-  border-right-color: #ccc;
+  border-right-color: #ccc; */
 }
 
 #dvUserBox #dvLogin .dvLoginLogin {
@@ -2048,6 +2048,7 @@ input.nameShipping {
 #dvUserBox #dvLogin .dvLoginRegist {
   float: right;
   width: 460px;
+  display: none;
 }
 #dvUserBox #dvLogin .dvLoginRegist p {
   margin-right: 0px;

@@ -129,6 +129,10 @@
       </nav>
     </header>
 
+    <a href="#Wrap" class="top_back_btn">
+      <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_back.svg" alt="">
+    </a>
+
 
     <%--
 		<div id="HeadUserNav" class="hoverMenu">

@@ -1,0 +1,19 @@
+<svg id="top_back.svg" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #82a9bb;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-width: 3px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <circle id="楕円形_843" data-name="楕円形 843" class="cls-1" cx="35" cy="35" r="35"/>
+  <path id="シェイプ_844" data-name="シェイプ 844" class="cls-2" d="M5272.93,9840.15l14.05-14.05,14.05,14.05" transform="translate(-5252 -9801)"/>
+</svg>
