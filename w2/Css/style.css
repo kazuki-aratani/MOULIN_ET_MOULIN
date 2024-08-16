@@ -1469,19 +1469,22 @@ nav.globalMenuSp.active {
   margin: 0 auto;
 }
 
+#skinCheck {
+  background-color: #fff;
+}
 #skinCheck .skinCheck_blc {
   background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/top_bottom_area_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 618px;
-  margin: 0 20px;
+  margin: 20px;
   color: #fff;
 }
 @media screen and (max-width: 768px) {
   #skinCheck .skinCheck_blc {
     background-image: url(https://mybalance.jp/Contents/ImagesPkg/mybalance/sp_top_bottom_area_bg.png);
     height: auto;
-    margin: 0 10px;
+    margin: 20px 10px;
   }
 }
 #skinCheck .skinCheck_blc .skinCheck_cont {

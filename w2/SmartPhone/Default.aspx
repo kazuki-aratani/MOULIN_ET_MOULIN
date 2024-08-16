@@ -6,6 +6,7 @@
 =========================================================================================================
 --%>
 <%-- ▽ユーザーコントロール宣言領域▽ --%>
+<%@ Register TagPrefix="uc" TagName="Parts060NEWS_999" Src="~/Page/Parts//Parts060NEWS_999.ascx" %>
 <%@ Register TagPrefix="uc" TagName="Parts000TMPL_999" Src="~/SmartPhone/Page/Parts//Parts000TMPL_999.ascx" %>
 <%@ Register TagPrefix="uc" TagName="Parts900FAT_999" Src="~/SmartPhone/Page/Parts//Parts900FAT_999.ascx" %>
 <%-- △ユーザーコントロール宣言領域△ --%>
@@ -335,7 +336,7 @@
             </div>
             <div class="service_btn_blc">
               <div class="service_btn_flex">
-                <a href="" class="service_btn">お問い合わせフォーム</a>
+                <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Form/Inquiry/InquiryInput.aspx" class="service_btn">お問い合わせフォーム</a>
               </div>
             </div>
           </div>
@@ -359,6 +360,9 @@
           </div>
         </div>
       </div>
+    </section>
+    <section>
+      <uc:Parts060NEWS_999 runat="server" />
     </section>
   </main>
 

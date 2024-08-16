@@ -15,7 +15,6 @@
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#service">SERVICE</a></li>
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/form/Product/ProductList.aspx">LINE UP</a></li>
             <li><a href="">SKIN CHECK</a></li>
-            <li><a href="https://m-moulin.jp/company/" target="_blank">COMPANY</a></li>
           </ul>
           <ul class="bottom_blc">
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Form/Inquiry/InquiryInput.aspx">お問い合わせ</a></li>
@@ -23,8 +22,8 @@
             <li><a href="">利用規約</a></li>
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/privacy.aspx">プライバシーポリシー</a></li>
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/first.aspx">ご利用ガイド</a></li>
-            <li><a href="">よくある質問</a></li>
-            <li><a href="">会社概要</a></li>
+            <li><a href="https://mybalance.jp/Page/faq.aspx">よくある質問</a></li>
+            <li><a href="https://m-moulin.jp/company/">会社概要</a></li>
           </ul>
         </div>
         <div class="copy un_tab">©️2024 My BALANCE</div>
