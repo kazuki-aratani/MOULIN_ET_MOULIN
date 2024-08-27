@@ -282,7 +282,8 @@ input.nameShipping {
  ユーザー系コンテンツ枠
 ==============================================================================================*/
 #dvUserContents {
-  width: 480px;
+  width: 100%;
+  /* width: 480px; */
   margin: 20px auto;
 }
 /* フロート用コンテンツ枠 */
@@ -2012,6 +2013,12 @@ input.nameShipping {
 #dvUserBox #dvLogin {
   /*float:left;*/
   position: relative;
+  width: 480px;
+  margin: 0 auto;
+}
+#dvUserBox #ctl00_ContentPlaceHolder1_h2Login {
+  width: 480px;
+  margin: 0 auto;
 }
 #dvUserBox #dvLogin p {
   margin: 5px 20px 10px 12px;

@@ -1,33 +1,29 @@
 ﻿<%--
 =========================================================================================================
-Module : トップ画面(Default.aspx)
-･･･････････････････････････････････････････････････････････････････････････････････････････････････････
-Copyright : Copyright W2 Co.,Ltd. 2009 All Rights Reserved.
+  Module      : トップ画面(Default.aspx)
+ ･･･････････････････････････････････････････････････････････････････････････････････････････････････････
+  Copyright   : Copyright W2 Co.,Ltd. 2009 All Rights Reserved.
 =========================================================================================================
---%> <%-- ▽ユーザーコントロール宣言領域▽ --%> <%@ Register TagPrefix="uc"
-TagName="Parts000TMPL_999" Src="~/Page/Parts//Parts000TMPL_999.ascx" %> <%@
-Register TagPrefix="uc" TagName="Parts060NEWS_999"
-Src="~/Page/Parts//Parts060NEWS_999.ascx" %> <%@ Register TagPrefix="uc"
-TagName="Parts900FAT_999" Src="~/Page/Parts//Parts900FAT_999.ascx" %> <%@
-Register TagPrefix="uc" TagName="BodyProductRanking"
-Src="~/Form/Common/Product/BodyProductRanking.ascx" %> <%@ Register
-TagPrefix="uc" TagName="BodyProductHistory"
-Src="~/Form/Common/Product/BodyProductHistory.ascx" %> <%@ Register
-TagPrefix="uc" TagName="BodyCoordinateList"
-Src="~/Form/Common/Coordinate/BodyCoordinateList.ascx" %> <%@ Register
-TagPrefix="uc" TagName="BodyFeaturePageList"
-Src="~/Form/Common/FeaturePage/BodyFeaturePageList.ascx" %> <%@ Register
-TagPrefix="uc" TagName="BodyProductRecommendAdvanced"
-Src="~/Form/Common/Product/BodyProductRecommendAdvanced.ascx" %> <%@ Register
-TagPrefix="uc" TagName="BodySubscriptionBoxList"
-Src="~/Form/Common/BodySubscriptionBoxList.ascx" %> <%--
-△ユーザーコントロール宣言領域△ --%> <%@ Register TagPrefix="uc" TagName="Criteo"
-Src="~/Form/Common/Criteo.ascx" %> <%@ page language="C#"
-masterpagefile="~/Form/Common/DefaultPage.master" autoeventwireup="true"
-inherits="Default, App_Web_default.aspx.cdcab7d2"
-title="マイバランスショップ" %> <%--
-下記は保持用のダミー情報です。削除しないでください。 <%@ FileInfo
-LayoutName="NoSide" %><%@ FileInfo LastChanged="ｗ２ユーザー" %> --%>
+--%>
+<%-- ▽ユーザーコントロール宣言領域▽ --%>
+<%@ Register TagPrefix="uc" TagName="Parts000TMPL_999" Src="~/Page/Parts//Parts000TMPL_999.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Parts060NEWS_999" Src="~/Page/Parts//Parts060NEWS_999.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Parts900FAT_999" Src="~/Page/Parts//Parts900FAT_999.ascx" %>
+<%@ Register TagPrefix="uc" TagName="BodyProductRanking" Src="~/Form/Common/Product/BodyProductRanking.ascx" %>
+<%@ Register TagPrefix="uc" TagName="BodyProductHistory" Src="~/Form/Common/Product/BodyProductHistory.ascx" %>
+<%@ Register TagPrefix="uc" TagName="BodyCoordinateList" Src="~/Form/Common/Coordinate/BodyCoordinateList.ascx" %>
+<%@ Register TagPrefix="uc" TagName="BodyFeaturePageList" Src="~/Form/Common/FeaturePage/BodyFeaturePageList.ascx" %>
+<%@ Register TagPrefix="uc" TagName="BodyProductRecommendAdvanced" Src="~/Form/Common/Product/BodyProductRecommendAdvanced.ascx" %>
+<%@ Register TagPrefix="uc" TagName="BodySubscriptionBoxList" Src="~/Form/Common/BodySubscriptionBoxList.ascx" %>
+<%-- △ユーザーコントロール宣言領域△ --%>
+<%@ Register TagPrefix="uc" TagName="Criteo" Src="~/Form/Common/Criteo.ascx" %>
+<%@ page language="C#" masterpagefile="~/Form/Common/DefaultPage.master" autoeventwireup="true" inherits="Default, App_Web_default.aspx.cdcab7d2" title="ｗ２ショッピングデモサイト トップページ" %>
+<%--
+
+下記は保持用のダミー情報です。削除しないでください。
+<%@ FileInfo LayoutName="NoSide" %><%@ FileInfo LastChanged="ｗ２ユーザー" %>
+
+--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
   <%-- ▽編集可能領域：HEAD追加部分▽ --%> <% if
   (Constants.MOBILEOPTION_ENABLED){%>
@@ -50,6 +46,9 @@ LayoutName="NoSide" %><%@ FileInfo LastChanged="ｗ２ユーザー" %> --%>
     #Wrap {
       width: auto;
       padding-top: initial;
+    }
+    #Contents {
+      margin: 0;
     }
   </style>
   <%-- ▽レイアウト領域：トップエリア▽ --%> 
@@ -361,9 +360,8 @@ LayoutName="NoSide" %><%@ FileInfo LastChanged="ｗ２ユーザー" %> --%>
               </div>
             </div>
             <div class="service_btn_blc">
-                <a href="" class="service_btn">お問い合わせはこちらから</a>
+                <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Form/Inquiry/InquiryInput.aspx" class="service_btn">お問い合わせはこちらから</a>
             </div>
-          </div>
         </div>
       </div>
     </section>
@@ -384,6 +382,9 @@ LayoutName="NoSide" %><%@ FileInfo LastChanged="ｗ２ユーザー" %> --%>
           </div>
         </div>
       </div>
+    </section>
+    <section>
+      <uc:Parts060NEWS_999 runat="server" />
     </section>
   </main>
 

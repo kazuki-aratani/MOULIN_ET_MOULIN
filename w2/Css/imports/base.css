@@ -930,6 +930,12 @@ a.ag:active {
 
 #Contents input {
   vertical-align: middle;
+  padding: 3px 5px;
+  margin-right: 5px;
+}
+#Contents select {
+  vertical-align: middle;
+  padding: 3px 5px;
 }
 *html #Contents input {
   vertical-align: middle !important;
@@ -2073,6 +2079,10 @@ a.ag:active {
   text-decoration: none;
 }
 
+#ctl00_ContentPlaceHolder1_rCartList_ctl00_Div7 .sumBox,
+#ctl00_ContentPlaceHolder1_rCartList_ctl00_Div12 .sumBox {
+  width: auto;
+}
 .sumBox {
   padding: 20px;
   background-color: #f6f6f6;
@@ -2547,7 +2557,7 @@ div.btmbtn.below ul {
   padding-top: 5px;
 }
 #CartList div.productList div.product p.price {
-  width: 142px;
+  width: 170px;
   text-align: center;
   float: left;
   padding-top: 25px;
