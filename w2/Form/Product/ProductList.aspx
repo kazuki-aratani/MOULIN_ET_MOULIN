@@ -193,6 +193,18 @@
 
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var priceElements = document.querySelectorAll('.price span');
+        
+        priceElements.forEach(function(span) {
+            var price = span.textContent;
+            var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
+            span.textContent = formattedPrice;
+        });
+    });
+</script>
+
 <table id="tblLayout" class="tblLayout_ProductList">
 <%-- ▽レイアウト領域：レフトエリア▽ --%>
 <%-- △レイアウト領域△ --%>
@@ -668,7 +680,7 @@
 
             <%-- ▽商品通常価格有効▽ --%>
             <p visible='<%# GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
-            <%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)).Replace("¥","") %>円）
+            <span><%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_COOPERATION_ID3)) %></span>円（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)).Replace("¥","") %>円）
             </p>
             
             <%-- ▽頒布会購入価格有効▽ --%>

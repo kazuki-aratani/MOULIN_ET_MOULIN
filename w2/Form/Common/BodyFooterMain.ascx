@@ -14,12 +14,12 @@
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#concept">CONCEPT</a></li>
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/#service">SERVICE</a></li>
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/form/Product/ProductList.aspx">LINE UP</a></li>
-            <li><a href="">SKIN CHECK</a></li>
+            <li><a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx">SKIN CHECK</a></li>
           </ul>
           <ul class="bottom_blc">
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Form/Inquiry/InquiryInput.aspx">お問い合わせ</a></li>
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/termofuse.aspx">特定商取引法</a></li>
-            <li><a href="">利用規約</a></li>
+            <!-- <li><a href="">利用規約</a></li> -->
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/privacy.aspx">プライバシーポリシー</a></li>
             <li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/first.aspx">ご利用ガイド</a></li>
             <li><a href="https://mybalance.jp/Page/faq.aspx">よくある質問</a></li>

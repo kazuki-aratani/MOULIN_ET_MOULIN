@@ -30,7 +30,7 @@
 <script>
   (function(d) {
     var config = {
-      kitId: 'upx6bub',
+      kitId: 'qsj2tao',
       scriptTimeout: 3000,
       async: true
     },
@@ -113,7 +113,7 @@
               </a>
             </li>
         </ul>
-        <a href="" class="ham_link_btn">
+        <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="ham_link_btn">
           <img class="un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_ham_bnr.jpg" alt="">
         </a>
       </div>

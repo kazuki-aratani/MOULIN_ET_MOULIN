@@ -335,7 +335,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     column-gap: 25px;
-    padding: 35px 0 35px 35px;
+    padding: 35px 20px 35px 35px;
     @media screen and (max-width: 768px) {
       column-gap: 15px;
       padding: 15px;
@@ -396,15 +396,15 @@ body {
 }
 
 .top_back_btn {
-    width: 55px;
     position: fixed;
-    bottom: 4%;
-    right: 4%;
+    bottom: 5%;
+    right: 3%;
     z-index: 1000;
   @media screen and (max-width: 768px) {
-    width: 45px;
-    bottom: 15%;
-    right: 5.5%;
+    bottom: 17%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -1732,12 +1732,12 @@ footer {
     padding-bottom: 60px;
 
     .icon {
-      height: 30px;
+      height: 18px;
       margin-bottom: 10px;
 
-      img {
+      /* img {
         height: 30px;
-      }
+      } */
     }
 
     .thumb {

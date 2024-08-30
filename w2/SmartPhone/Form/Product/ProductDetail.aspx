@@ -114,6 +114,17 @@
 		<%} %>
 	}
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var priceElements = document.querySelectorAll('.product-price span');
+    
+    priceElements.forEach(function(span) {
+        var price = span.textContent;
+        var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
+        span.textContent = formattedPrice;
+    });
+});
+</script>
 <%-- △編集可能領域△ --%>
 
 <style type="text/css">
@@ -367,7 +378,7 @@
 
 			<%-- ▽商品通常価格有効▽ --%>
 			<p visible='<%# GetProductNormalPriceValid(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected)) %>' runat="server">
-				<%# WebSanitizer.HtmlEncode(GetProductData(Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円 (<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))).Replace("¥","") %>円)
+				<span><%# WebSanitizer.HtmlEncode(GetProductData(Constants.FIELD_PRODUCT_COOPERATION_ID3)) %></span>円 (<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))).Replace("¥","") %>円)
 			</p>
 			<%-- △商品通常価格有効△ --%>
 			</div>

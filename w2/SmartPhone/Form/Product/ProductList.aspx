@@ -247,6 +247,17 @@
 		});
 	});
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var priceElements = document.querySelectorAll('.product-price span');
+        
+        priceElements.forEach(function(span) {
+            var price = span.textContent;
+            var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
+            span.textContent = formattedPrice;
+        });
+    });
+</script>
 
 <div id="divTopArea">
 <%-- ▽レイアウト領域：トップエリア▽ --%>
@@ -360,7 +371,7 @@
 								<%-- △商品特別価格有効△ --%>
 								<%-- ▽商品通常価格有効▽ --%>
 								<p visible='<%# GetProductNormalPriceValid(Container.DataItem) %>' runat="server">
-									<%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>円）
+									<span><%# WebSanitizer.HtmlEncode(GetProductData(Container.DataItem, Constants.FIELD_PRODUCT_COOPERATION_ID3)) %></span>円（<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(Container.DataItem)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(Container.DataItem, Constants.SETTING_PRODUCT_LIST_SEARCH_KBN)) %>円）
 								</p>
 								<%-- △商品通常価格有効△ --%>
 								<%-- ▽商品加算ポイント▽ --%>

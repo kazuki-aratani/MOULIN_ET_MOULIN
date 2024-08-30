@@ -17,7 +17,7 @@
 <%@ Register TagPrefix="uc" TagName="BodySubscriptionBoxList" Src="~/Form/Common/BodySubscriptionBoxList.ascx" %>
 <%-- △ユーザーコントロール宣言領域△ --%>
 <%@ Register TagPrefix="uc" TagName="Criteo" Src="~/Form/Common/Criteo.ascx" %>
-<%@ page language="C#" masterpagefile="~/Form/Common/DefaultPage.master" autoeventwireup="true" inherits="Default, App_Web_default.aspx.cdcab7d2" title="ｗ２ショッピングデモサイト トップページ" %>
+<%@ page language="C#" masterpagefile="~/Form/Common/DefaultPage.master" autoeventwireup="true" inherits="Default, App_Web_default.aspx.cdcab7d2" title="MyBALANCE" %>
 <%--
 
 下記は保持用のダミー情報です。削除しないでください。
@@ -60,14 +60,14 @@
         <img class="fv_img un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_fv.jpg" alt="MyBALANCE">
         <div class="ov_tab">
           <div class="blc_bnr">
-            <a href=""><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/bnr_skincheck.jpg" alt="スキンチェックから"></a>
-            <a href=""><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/bnr_buy.jpg" alt="商品のご購入はこちら"></a>
+            <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/bnr_skincheck.jpg" alt="スキンチェックから"></a>
+            <a href="https://mybalance.jp/Form/Product/ProductList.aspx"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/bnr_buy.jpg" alt="商品のご購入はこちら"></a>
           </div>
         </div>
         <div class="un_tab">
           <div class="blc_bnr">
-            <a href=""><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_bnr_skincheck.jpg" alt="スキンチェックから"></a>
-            <a href=""><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_bnr_buy.jpg" alt="商品のご購入はこちら"></a>
+            <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_bnr_skincheck.jpg" alt="スキンチェックから"></a>
+            <a href="https://mybalance.jp/Form/Product/ProductList.aspx"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_bnr_buy.jpg" alt="商品のご購入はこちら"></a>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@
                   <div class="text_blc">
                     <div class="ttl"><span class="num">01</span>自分の肌状態を知る</div>
                     <p class="text">スキンチェックによって、皮膚科学の専門家が、あなたの肌状態を科学的に分析します。<br>まずはスキンチェックで自分の肌状態を知りましょう！</p>
-                    <a href="" class="gdt_btn">
+                    <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="gdt_btn">
                       <div class="left_blc"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/gdt_btn_free.png" alt="無料"></div>
                       <div class="right_blc">
                         <span>SKIN CHECK</span>
@@ -184,7 +184,7 @@
           <p class="lineup_text gen">マイバランスはお客さま一人ひとりの肌状態に合った商品をお使いいただくため、<br>
             <span>スキンチェック（肌分析）をお申込みいただいた方</span>に販売しております。
           </p>
-          <a href="" class="gdt_btn">
+          <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="gdt_btn">
             <div class="left_blc"><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/gdt_btn_free.png" alt="無料"></div>
             <div class="right_blc">
               <span>SKIN CHECK</span>
@@ -240,7 +240,7 @@
                 <p class="teiki_price">通常価格 <span>7,500円</span></p>
                 <p class="teiki_sale_price">→ 5,000円（税込 5,500円）</p>
               </div>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB110" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_nd.jpg" alt="マイバランス デイリーケア ND">
@@ -254,7 +254,7 @@
                 <p class="teiki_price">通常価格 <span>7,500円</span></p>
                 <p class="teiki_sale_price">→ 5,000円（税込 5,500円）</p>
               </div>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB110" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_teiki_d.jpg" alt="マイバランス デイリーケア D">
@@ -268,7 +268,7 @@
                 <p class="teiki_price">通常価格 <span>7,500円</span></p>
                 <p class="teiki_sale_price">→ 5,000円（税込 5,500円）</p>
               </div>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB110" class="product_btn">DETAIL MORE</a>
             </li>
           </ul>
         </div>
@@ -278,13 +278,13 @@
           </div>
           <ul class="product_grid">
             <li class="product_grid_item">
-              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_cleansing.jpg" alt="マイバランス デイリーケア N">
+              <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_cleansing.jpg" alt="マイバランス クレンジング">
               <div class="product_name_blc">
-                <p class="product_name gen">マイバランス デイリーケア N</p>
-                <span class="product_name_en">My BALANCE Daily Care N</span>
+                <p class="product_name gen">マイバランス クレンジング</p>
+                <span class="product_name_en">My BALANCE Cleansing</span>
               </div>
               <p class="normal_price">75g / 2,250円<span>（税込 2,475円）</span></p>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB10060012" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_washing_n.jpg" alt="マイバランス ウォッシング N">
@@ -293,7 +293,7 @@
                 <span class="product_name_en">My BALANCE Washing N</span>
               </div>
               <p class="normal_price">90g / 2,250円<span>（税込 2,475円）</span></p>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB10160029" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_washing_d.jpg" alt="マイバランス ウォッシング D">
@@ -302,7 +302,7 @@
                 <span class="product_name_en">My BALANCE Washing D</span>
               </div>
               <p class="normal_price">90g / 2,250円<span>（税込 2,475円）</span></p>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB10260036" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_liquid_n.jpg" alt="マイバランス リクイド N">
@@ -311,7 +311,7 @@
                 <span class="product_name_en">My BALANCE Liquid N</span>
               </div>
               <p class="normal_price">100mL / 3,000円<span>（税込 3,300円）</span></p>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB10360043" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_liquid_d.jpg" alt="マイバランス リクイド D">
@@ -320,7 +320,7 @@
                 <span class="product_name_en">My BALANCE Liquid D</span>
               </div>
               <p class="normal_price">100mL / 3,000円<span>（税込 3,300円）</span></p>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB10460050" class="product_btn">DETAIL MORE</a>
             </li>
             <li class="product_grid_item">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/product_skincheck.jpg" alt="スキンチェック（肌分析）">
@@ -329,7 +329,7 @@
                 <span class="product_name_en">SKIN CHECK</span>
               </div>
               <p class="normal_price">1,500円<span>（税込 1,650円）</span></p>
-              <a href="" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="product_btn">DETAIL MORE</a>
             </li>
           </ul>
         </div>
@@ -374,7 +374,7 @@
               <p class="text">マイバランスをはじめる</p>
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_bottom_area_logo.png" alt="MyBALANCE" class="logo">
               <img class="left_img un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_bottom_area_img.png" alt="">
-              <a href="" class="skinCheck_btn"><span><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/skinCheck_btn_free.png" class="" alt="無料"></span>スキンチェックから始める</a>
+              <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="skinCheck_btn"><span><img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/skinCheck_btn_free.png" class="" alt="無料"></span>スキンチェックから始める</a>
             </div>
             <div class="right ov_tab">
               <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/top_bottom_area_img.png" alt="スキンチェックイメージ画像">

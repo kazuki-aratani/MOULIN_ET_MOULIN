@@ -74,6 +74,17 @@
 	});
 //]]>
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var priceElements = document.querySelectorAll('.productPrice span');
+    
+    priceElements.forEach(function(span) {
+        var price = span.textContent;
+        var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
+        span.textContent = formattedPrice;
+    });
+});
+</script>
 <%-- △編集可能領域△ --%>
 
 <style type="text/css">
@@ -94,6 +105,9 @@
 	}
   #Contents {
     margin: initial;
+  }
+  .productSellInfo .error {
+    display: none;
   }
 </style>
 </asp:Content>
@@ -175,7 +189,7 @@
   <ul>
     <li><a href="https://mybalance.jp/">TOP</a></li>
     <span>-</span>
-		<li>LINE UP</li>
+		<li><a href="https://mybalance.jp/Form/Product/ProductList.aspx">LINE UP</a></li>
 		<span>-</span>
     <li><%: this.ProductName %></li>
   </ul>
@@ -334,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	<%-- △商品特別価格有効△ --%>
 	<%-- ▽商品通常価格有効▽ --%>
 	<div visible='<%# GetProductNormalPriceValid(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected)) %>' runat="server">
-		<p class="productPrice"><%# WebSanitizer.HtmlEncode(GetProductData(Constants.FIELD_PRODUCT_COOPERATION_ID3)) %>円 (<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))).Replace("¥","") %>円)</p>
+		<p class="productPrice"><span><%# WebSanitizer.HtmlEncode(GetProductData(Constants.FIELD_PRODUCT_COOPERATION_ID3)) %></span>円 (<%# WebSanitizer.HtmlEncode(GetTaxIncludeString(this.ProductMaster)) %> <%#: CurrencyManager.ToPrice(ProductPage.GetProductPriceNumeric(this.ProductMaster, (this.HasVariation == false) || (this.VariationSelected))).Replace("¥","") %>円)</p>
 	</div>
 	<%-- △商品通常価格有効△ --%>
 	<%-- ▽商品加算ポイント▽ --%>
@@ -570,7 +584,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <asp:Repeater ID="rProductOptionValueSettings" DataSource='<%# this.ProductOptionSettingList %>' runat="server">
 <ItemTemplate>
 <asp:Label ID="lblProductOptionValueSetting" runat="server" Text="<%# WebSanitizer.HtmlEncode(((ProductOptionSetting)Container.DataItem).ValueName) %>" />
-	<span class="necessary" runat="server" style="color: red" visible="<%# ((ProductOptionSetting)Container.DataItem).IsNecessary %>">*</span>
+	<span class="necessary" runat="server" style="color: red" visible="<%# IsProductOptionSettingNecessary((ProductOptionSetting)Container.DataItem) %>">*</span>
 	<asp:Repeater ID="rCblProductOptionValueSetting" DataSource='<%# ((ProductOptionSetting)Container.DataItem).SettingValuesListItemCollection %>' ItemType="System.Web.UI.WebControls.ListItem" Visible='<%# (((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_CHECKBOX) || (((ProductOptionSetting)Container.DataItem).DisplayKbn == Constants.PRODUCTOPTIONVALUES_DISP_KBN_PRICE_CHECKBOX) %>' runat="server" >
 		<HeaderTemplate><div class="field-boxes"></HeaderTemplate>
 		<ItemTemplate>

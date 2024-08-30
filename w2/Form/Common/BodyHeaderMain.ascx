@@ -30,7 +30,7 @@
 <script>
   (function(d) {
     var config = {
-      kitId: 'upx6bub',
+      kitId: 'qsj2tao',
       scriptTimeout: 3000,
       async: true
     },
@@ -62,11 +62,11 @@
     <header class="header_wrp">
       <div class="header_logo">
         <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>">
-          <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/hd_logo.png" alt="">
+          <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/hd_logo.png" alt="myblance">
         </a>
       </div>
       <div class="icon_blc">
-        <a href="" class="hd_skincheck_btn"><span>初めての方</span>スキンチェックのお申込み</a>
+        <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="hd_skincheck_btn"><span>初めての方</span>スキンチェックのお申込み</a>
         <%if (this.IsLoggedIn) { %>
           <a href="<%: this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE %>" class="">
             <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/icon_mypage.svg" alt="マイページ">
@@ -120,7 +120,7 @@
                   </a>
                 </li>
             </ul>
-            <a href="" class="ham_link_btn">
+            <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="ham_link_btn">
               <img class="ov_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_bnr.jpg" alt="">
               <img class="un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_ham_bnr.jpg" alt="">
             </a>
@@ -142,7 +142,7 @@
 				<ul>
 				<li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + "Page/first.aspx") %>">はじめての方へ</a></li>
 				<li><a href="<%= WebSanitizer.HtmlEncode(this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_INQUIRY_INPUT) %>">お問い合わせ</a></li>
-				<li><a href="#">よくある質問</a></li>
+				<li><a href="https://mybalance.jp/Page/faq.aspx">よくある質問</a></li>
 				<li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + "Page/privacy.aspx") %>">プライバシーポリシー</a></li>
 				<% if (Constants.REALSHOP_OPTION_ENABLED) { %>
 				<li><a href="<%= Constants.PATH_ROOT + Constants.PAGE_FRONT_SHOP_LIST %>">店舗一覧</a></li>
