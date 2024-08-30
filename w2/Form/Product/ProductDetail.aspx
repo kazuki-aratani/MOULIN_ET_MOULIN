@@ -445,7 +445,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <asp:HiddenField ID="hIsSelectingVariationExist" Value="<%# this.IsSelectingVariationExist %>" runat="server" />
         <asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
         <HeaderTemplate>
-          <p>下記よりセットをお選びください</p>
+          <p>下記よりセットをお選びください<br>※定期お届けコースは１回のご注文で1セットのみご購入可能です</p>
 			<div class="selectValiationItem" style="width:100%; clear:both">
 				<div style="width:100%">
 					<div class="valiation_flex">

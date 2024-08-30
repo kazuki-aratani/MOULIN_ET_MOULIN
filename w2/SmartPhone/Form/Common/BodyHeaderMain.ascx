@@ -108,12 +108,12 @@
               </a>
             </li>
             <li class="anker">
-              <a href="https://m-moulin.jp/company/" target="_blank">
+              <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/company.aspx">
                 <span class="ttl">COMPANY</span>
               </a>
             </li>
         </ul>
-        <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="ham_link_btn">
+        <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Landing/Formlp/new_lp.aspx" class="ham_link_btn">
           <img class="un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_ham_bnr.jpg" alt="">
         </a>
       </div>

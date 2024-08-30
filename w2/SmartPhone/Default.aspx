@@ -32,9 +32,23 @@
 	<span style="color: #fff"><%# this.BrandId %></span>
 
 <style>
-  #Contents {
-    padding: initial;
-  }
+    #Contents {
+        padding: initial;
+    }
+    .top_back_btn {
+        position: fixed;
+        bottom: 5%;
+        right: 3%;
+        z-index: 1000;
+    }
+    @media screen and (max-width: 768px) {
+        .top_back_btn {
+            bottom: 19%;
+            right: 5%;
+            width: 50px;
+            height: 50px;
+        }
+    }
 </style>
 
 <main>
@@ -303,7 +317,7 @@
                 <span class="product_name_en">SKIN CHECK</span>
               </div>
               <p class="normal_price">1,500円<span>(税込 1,650円)</span></p>
-              <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="product_btn">DETAIL MORE</a>
+              <a href="https://mybalance.jp/Form/Product/ProductDetail.aspx?shop=0&pid=MB10733382" class="product_btn">DETAIL MORE</a>
             </li>
           </ul>
         </div>
@@ -326,7 +340,7 @@
               <div class="left">
                 <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_service_01.jpg" class="" alt="">
                 <p class="ttl"><span class="num">01</span>お客さまご相談窓口</p>
-                <p class="text">商品やサービスのご不明点など「教えて！マイバランスパートナー」または「お問い合わせフォーム」から気軽にお問い合わせいただけます。</p>
+                <p class="text">商品やサービスのご不明点など「<a href="https://657jv.channel.io/home" class="text_link" target="_blank">教えて！マイバランスパートナー</a>」または「お問い合わせフォーム」から気軽にお問い合わせいただけます。</p>
               </div>
               <div class="right">
                 <img src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_top_service_02.jpg" class="" alt="">

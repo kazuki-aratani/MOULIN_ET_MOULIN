@@ -115,12 +115,12 @@
                   </a>
                 </li>
                 <li class="anker">
-                  <a href="https://m-moulin.jp/company/" target="_blank">
+                  <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/company.aspx">
                     <span class="ttl">COMPANY</span>
                   </a>
                 </li>
             </ul>
-            <a href="https://mybalance.jp/Landing/Formlp/new_lp.aspx" class="ham_link_btn">
+            <a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Landing/Formlp/new_lp.aspx" class="ham_link_btn">
               <img class="ov_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/ham_bnr.jpg" alt="">
               <img class="un_tab" src="<%= Constants.PATH_ROOT %>Contents/ImagesPkg/mybalance/sp_ham_bnr.jpg" alt="">
             </a>
@@ -142,7 +142,7 @@
 				<ul>
 				<li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + "Page/first.aspx") %>">はじめての方へ</a></li>
 				<li><a href="<%= WebSanitizer.HtmlEncode(this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_INQUIRY_INPUT) %>">お問い合わせ</a></li>
-				<li><a href="https://mybalance.jp/Page/faq.aspx">よくある質問</a></li>
+				<li><a href="<%= WebSanitizer.HtmlEncode(this.UnsecurePageProtocolAndHost + Constants.PATH_ROOT) %>/Page/faq.aspx">よくある質問</a></li>
 				<li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + "Page/privacy.aspx") %>">プライバシーポリシー</a></li>
 				<% if (Constants.REALSHOP_OPTION_ENABLED) { %>
 				<li><a href="<%= Constants.PATH_ROOT + Constants.PAGE_FRONT_SHOP_LIST %>">店舗一覧</a></li>

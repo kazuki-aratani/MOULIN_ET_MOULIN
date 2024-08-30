@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <ul>
     <li><a href="https://mybalance.jp/">TOP</a></li>
     <span>-</span>
-		<li>LINE UP</li>
+        <li><a href="https://mybalance.jp/Form/Product/ProductList.aspx">LINE UP</a></li>
 		<span>-</span>
     <li class="last_word"><%: this.ProductName %></li>
   </ul>
@@ -415,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	<div class="wrap-product-cart">
 
 		<div class="product-vatiation unit" runat="server">
-		<p class="product-vatiation-choice">下記よりセットをお選びください</p>
+		<p class="product-vatiation-choice">下記よりセットをお選びください<br>※定期お届けコースは１回のご注文で1セットのみご購入可能です</p>
 		<%-- ドロップダウン形式 --%>
 		<% if(this.HasVariation) {%>
 			<% if ((this.SelectVariationKbn == Constants.SelectVariationKbn.PANEL)

@@ -408,8 +408,8 @@ body {
 }
 @media screen and (max-width: 768px) {
   .top_back_btn {
-    bottom: 17%;
-    right: 5%;
+    bottom: 2%;
+    right: 3%;
     width: 50px;
     height: 50px;
   }
@@ -664,7 +664,7 @@ nav.globalMenuSp.active {
 }
 @media screen and (max-width: 768px) {
   .gdt_bg #concept .concept_blc .h2_blc .h2_sub {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 .gdt_bg #concept .concept_blc .h2_blc .h2_sub span {
@@ -1464,6 +1464,11 @@ nav.globalMenuSp.active {
   font-size: 13px;
   line-height: 2;
   margin-bottom: 30px;
+}
+#service .service_blc .service_cont .text .text_link {
+  display: inline;
+  text-decoration: underline;
+  color: #565655;
 }
 #service .service_blc .service_btn {
   margin: 0 auto;
