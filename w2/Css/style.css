@@ -402,7 +402,7 @@ body {
 
 .top_back_btn {
   position: fixed;
-  bottom: 5%;
+  bottom: 12%;
   right: 3%;
   z-index: 1000;
 }
@@ -642,6 +642,9 @@ nav.globalMenuSp.active {
   .gdt_bg .gdt_flex {
     row-gap: 0;
   }
+}
+.gdt_bg #concept {
+  scroll-margin-top: 70px;
 }
 .gdt_bg #concept .concept_blc .h2_blc {
   text-align: center;

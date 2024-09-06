@@ -75,15 +75,27 @@
 //]]>
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    var priceElements = document.querySelectorAll('.productPrice span');
-    
-    priceElements.forEach(function(span) {
-        var price = span.textContent;
-        var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
-        span.textContent = formattedPrice;
+    document.addEventListener("DOMContentLoaded", function() {
+        function formatPrices() {
+            var priceElements = document.querySelectorAll('.productPrice span');
+            
+            priceElements.forEach(function(span) {
+                var price = span.textContent.replace(/,/g, ''); // 既存のカンマを除去
+                var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
+                span.textContent = formattedPrice;
+            });
+        }
+
+        // 初期ロード時にカンマ付与
+        formatPrices();
+
+        // .valiation_item を監視し、クリックされた時にカンマを付与
+        document.body.addEventListener('click', function(event) {
+            if (event.target.closest('.valiation_item a')) {
+                setTimeout(formatPrices, 100); // 100ms後にカンマ付与
+            }
+        });
     });
-});
 </script>
 <%-- △編集可能領域△ --%>
 
@@ -445,7 +457,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <asp:HiddenField ID="hIsSelectingVariationExist" Value="<%# this.IsSelectingVariationExist %>" runat="server" />
         <asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
         <HeaderTemplate>
-          <p>下記よりセットをお選びください<br>※定期お届けコースは１回のご注文で1セットのみご購入可能です</p>
+          <p>下記よりセットをお選びください</p>
 			<div class="selectValiationItem" style="width:100%; clear:both">
 				<div style="width:100%">
 					<div class="valiation_flex">

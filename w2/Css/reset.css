@@ -178,7 +178,7 @@ select
   vertical-align: middle;
   color: inherit;
   font: inherit;
-  border: 0;
+  /* border: 0; */
   background: transparent;
   padding: 0;
   margin: 0;
@@ -186,8 +186,8 @@ select
 }
 
 select {
-  -webkit-appearance: none;
-  appearance: none;
+  -webkit-appearance: auto;
+  appearance: auto;
   border-radius: 0;
 }
 

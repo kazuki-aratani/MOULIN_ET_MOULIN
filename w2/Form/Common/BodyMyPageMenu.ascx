@@ -4,8 +4,8 @@
   <ul>
     <li><a href="<%= WebSanitizer.HtmlEncode(this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_MYPAGE) %>"> マイページ トップ</a></li>
     <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_FAVORITE_LIST) %>"> お気に入りリスト</a></li>
-    <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_FOLLOW_LIST) %>"> フォローリスト</a></li>
-    <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_LIKE_LIST) %>"> いいねリスト</a></li>
+    <!-- <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_FOLLOW_LIST) %>"> フォローリスト</a></li> -->
+    <!-- <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_LIKE_LIST) %>"> いいねリスト</a></li> -->
     <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_ORDER_HISTORY_LIST) %>"> 購入履歴一覧</a></li>
     <%if (Constants.FIXEDPURCHASE_OPTION_ENABLED) { %>
     <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_FIXED_PURCHASE_LIST) %>"> 定期購入情報</a></li>
@@ -16,10 +16,10 @@
     <% } %> <%if (this.DisplayMailSendLogs) { %>
     <li><a href="<%: Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_RECIEVE_MAIL_LIST %>"> 受信メール履歴</a></li>
     <%} %>
-    <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_PRODUCT_ARRIVAL_MAIL_LIST) %>"> 入荷お知らせメール情報</a></li>
+    <!-- <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_PRODUCT_ARRIVAL_MAIL_LIST) %>"> 入荷お知らせメール情報</a></li> -->
     <li><a href="<%= WebSanitizer.HtmlEncode(this.SecurePageProtocolAndHost + Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_MODIFY_INPUT) %>"> 登録情報の変更</a></li>
-    <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_WITHDRAWAL_INPUT) %>"> 会員退会</a></li>
-    <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_SHIPPING_LIST) %>"> アドレス帳</a></li>
+    <!-- <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_WITHDRAWAL_INPUT) %>"> 会員退会</a></li> -->
+    <!-- <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_SHIPPING_LIST) %>"> アドレス帳</a></li> -->
     <%if (Constants.MAX_NUM_REGIST_CREDITCARD > 0) { %>
     <li><a href="<%= WebSanitizer.HtmlEncode(Constants.PATH_ROOT + Constants.PAGE_FRONT_USER_CREDITCARD_LIST) %>"> 登録クレジットカード</a></li>
     <%} %> <%if (Constants.W2MP_POINT_OPTION_ENABLED) { %>

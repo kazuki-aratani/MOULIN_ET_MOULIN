@@ -116,14 +116,27 @@
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var priceElements = document.querySelectorAll('.product-price span');
-    
-    priceElements.forEach(function(span) {
-        var price = span.textContent;
-        var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
-        span.textContent = formattedPrice;
+    function formatPrices() {
+        var priceElements = document.querySelectorAll('.product-price span');
+        
+        priceElements.forEach(function(span) {
+            var price = span.textContent.replace(/,/g, ''); // 既存のカンマを除去
+            var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
+            span.textContent = formattedPrice;
+        });
+    }
+
+    // 初期ロード時にカンマ付与
+    formatPrices();
+
+    // .valiation_item を監視し、クリックされた時にカンマを付与
+    document.body.addEventListener('click', function(event) {
+        if (event.target.closest('.valiation_item a')) {
+            setTimeout(formatPrices, 200); // 100ms後にカンマ付与
+        }
     });
 });
+
 </script>
 <%-- △編集可能領域△ --%>
 
@@ -415,16 +428,16 @@ document.addEventListener("DOMContentLoaded", function() {
 	<div class="wrap-product-cart">
 
 		<div class="product-vatiation unit" runat="server">
-		<p class="product-vatiation-choice">下記よりセットをお選びください<br>※定期お届けコースは１回のご注文で1セットのみご購入可能です</p>
-		<%-- ドロップダウン形式 --%>
-		<% if(this.HasVariation) {%>
-			<% if ((this.SelectVariationKbn == Constants.SelectVariationKbn.PANEL)
+            <%-- ドロップダウン形式 --%>
+            <% if(this.HasVariation) {%>
+                <% if ((this.SelectVariationKbn == Constants.SelectVariationKbn.PANEL)
 				|| (this.IsVariationName3 && ((this.SelectVariationKbn == Constants.SelectVariationKbn.DOUBLEDROPDOWNLIST)
-					|| (this.SelectVariationKbn == Constants.SelectVariationKbn.MATRIX)
-					|| (this.SelectVariationKbn == Constants.SelectVariationKbn.MATRIXANDMESSAGE)))) { %>
-				<asp:HiddenField ID="hIsSelectingVariationExist" Value="<%# this.IsSelectingVariationExist %>" runat="server" />
-				<asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
+                || (this.SelectVariationKbn == Constants.SelectVariationKbn.MATRIX)
+                || (this.SelectVariationKbn == Constants.SelectVariationKbn.MATRIXANDMESSAGE)))) { %>
+                    <asp:HiddenField ID="hIsSelectingVariationExist" Value="<%# this.IsSelectingVariationExist %>" runat="server" />
+                    <asp:Repeater ID="rVariationName1List" DataSource="<%# this.ProductVariationName1List %>" runat="server">
 					<HeaderTemplate>
+                        <p class="product-vatiation-choice">下記よりセットをお選びください<br>※定期お届けコースは１回のご注文で1セットのみご購入可能です</p>
 						<div style="width:100%; clear:both">
 							<div style="width:100%">
 								<div class="valiation_flex">

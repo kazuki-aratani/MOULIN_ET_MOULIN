@@ -2088,7 +2088,8 @@ a.ag:active {
   background-color: #f6f6f6;
   border: #cccccc solid 1px;
   margin-top: 15px;
-  width: 298px;
+  /* width: 298px; */
+  width: auto;
 }
 .sumBox p {
   width: 298px;
