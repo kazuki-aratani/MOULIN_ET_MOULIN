@@ -182,19 +182,46 @@
 	}
 
 	window.onload = function() {
-			var filterApplied = sessionStorage.getItem('filterApplied');
-			if (filterApplied === 'true') {
-					var selectedOptionText = localStorage.getItem('selectedOptionText');
-					if (selectedOptionText) {
-							document.getElementById("dropbtn").innerText = selectedOptionText;
-					}
-			} else {
-					document.getElementById("dropbtn").innerText = "すべて表示";
-					localStorage.setItem('selectedOptionText', "すべて表示");
-					localStorage.setItem('selectedOptionValue', '0');
-			}
-			sessionStorage.removeItem('filterApplied');
-	};
+        // 外部からのURLに含まれる 'fpfl' パラメーターを取得
+        var urlParams = new URLSearchParams(window.location.search);
+        var fpfl = urlParams.get('fpfl');
+        
+        // fpfl パラメーターが存在する場合、その値に応じてドロップダウンの表示を変更
+        if (fpfl !== null) {
+            var selectedOptionText = '';
+            switch(fpfl) {
+                case '0':
+                    selectedOptionText = 'すべて表示';
+                    break;
+                case '1':
+                    selectedOptionText = '通常購入可能';
+                    break;
+                case '2':
+                    selectedOptionText = '定期購入可能';
+                    break;
+                default:
+                    selectedOptionText = 'すべて表示'; // デフォルト値
+            }
+            document.getElementById("dropbtn").innerText = selectedOptionText;
+            localStorage.setItem('selectedOptionText', selectedOptionText);
+            localStorage.setItem('selectedOptionValue', fpfl);
+        } else {
+            // fpfl が存在しない場合、通常の処理
+            var filterApplied = sessionStorage.getItem('filterApplied');
+            if (filterApplied === 'true') {
+                var selectedOptionText = localStorage.getItem('selectedOptionText');
+                if (selectedOptionText) {
+                    document.getElementById("dropbtn").innerText = selectedOptionText;
+                }
+            } else {
+                document.getElementById("dropbtn").innerText = "すべて表示";
+                localStorage.setItem('selectedOptionText', "すべて表示");
+                localStorage.setItem('selectedOptionValue', '0');
+            }
+        }
+        sessionStorage.removeItem('filterApplied');
+    };
+
 
 	// Close the dropdown if the user clicks outside of it
 	window.onclick = function(event) {
@@ -253,5 +280,27 @@
 		}
 	});
 	<% } %>
+</script>
+
+<script>
+    function filterResults(value, text) {
+    document.getElementById("dropbtn").innerText = text;
+    localStorage.setItem('selectedOptionText', text);
+    localStorage.setItem('selectedOptionValue', value);
+    sessionStorage.setItem('filterApplied', 'true');
+
+    // 現在のURLから特定のパラメーターを削除
+    var url = new URL(window.location.href);
+    url.searchParams.delete('udns');
+    url.searchParams.delete('fpfl');
+    url.searchParams.delete('sfl');
+    
+    // 新しいパラメーターを追加
+    url.searchParams.set('fpfl', value);
+    
+    // ページをリロードして新しいURLに移動
+    window.location.href = url.href;
+}
+
 </script>
 <%-- △編集可能領域△ --%>

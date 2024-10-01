@@ -76,26 +76,27 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        function formatPrices() {
-            var priceElements = document.querySelectorAll('.productPrice span');
-            
-            priceElements.forEach(function(span) {
-                var price = span.textContent.replace(/,/g, ''); // 既存のカンマを除去
-                var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
-                span.textContent = formattedPrice;
-            });
-        }
-
-        // 初期ロード時にカンマ付与
-        formatPrices();
-
-        // .valiation_item を監視し、クリックされた時にカンマを付与
-        document.body.addEventListener('click', function(event) {
-            if (event.target.closest('.valiation_item a')) {
-                setTimeout(formatPrices, 100); // 100ms後にカンマ付与
-            }
+    function formatPrices() {
+        var priceElements = document.querySelectorAll('.productPrice span');
+        
+        priceElements.forEach(function(span) {
+            var price = span.textContent.replace(/,/g, ''); // 既存のカンマを除去
+            var formattedPrice = Number(price).toLocaleString(); // カンマ区切りを付与
+            span.textContent = formattedPrice;
         });
+    }
+
+    // 初期ロード時にカンマ付与
+    formatPrices();
+
+    // .valiation_item を監視し、クリックされた時にカンマを付与
+    document.body.addEventListener('click', function(event) {
+        if (event.target.closest('.valiation_item a')) {
+            setTimeout(formatPrices, 100); // 100ms後にカンマ付与
+        }
     });
+});
+
 </script>
 <%-- △編集可能領域△ --%>
 

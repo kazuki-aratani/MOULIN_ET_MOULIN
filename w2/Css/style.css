@@ -2216,4 +2216,8 @@ footer .footer_blc .footer_cont .copy {
 
 .arrow .prev, .arrow .next {
   display: none;
+}
+
+#ctl00_ContentPlaceHolder1_rCartList_ctl00_dvShippingMethod {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

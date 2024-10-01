@@ -38,19 +38,32 @@
   })(document);
 </script>
 <script>
-  $(function () {
-  $(".hamburger").click(function () {
-    $(".globalMenuSp").addClass("active");
-  });
+$(function () {
+    function bindHamburgerEvents() {
+        $(".hamburger").off("click").on("click", function () {
+            $(".globalMenuSp").addClass("active");
+        });
 
-  $(".hamburger_close").click(function () {
-    $(".globalMenuSp").removeClass("active");
-  });
+        $(".hamburger_close").off("click").on("click", function () {
+            $(".globalMenuSp").removeClass("active");
+        });
 
-  $(".anker a").click(function () {
-    $(".globalMenuSp").removeClass("active");
-  });
+        $(".anker a").off("click").on("click", function () {
+            $(".globalMenuSp").removeClass("active");
+        });
+    }
+
+    // 初期バインド
+    bindHamburgerEvents();
+
+    // .valiation_item を監視し、商品が切り替わった後にハンバーガーイベントを再バインド
+    document.body.addEventListener('click', function(event) {
+        if (event.target.closest('.valiation_item a')) {
+            setTimeout(bindHamburgerEvents, 100); // 遅延で再バインド
+        }
+    });
 });
+
 </script>
 
 <header id="header" class="header_wrp">

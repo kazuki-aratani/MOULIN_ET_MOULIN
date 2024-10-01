@@ -115,7 +115,7 @@
 	}
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     function formatPrices() {
         var priceElements = document.querySelectorAll('.product-price span');
         
@@ -129,13 +129,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // 初期ロード時にカンマ付与
     formatPrices();
 
-    // .valiation_item を監視し、クリックされた時にカンマを付与
+    // .valiation_item a または .product-image-sub a がクリックされた時にカンマを付与
     document.body.addEventListener('click', function(event) {
-        if (event.target.closest('.valiation_item a')) {
-            setTimeout(formatPrices, 200); // 100ms後にカンマ付与
+        if (event.target.closest('.valiation_item a') || event.target.closest('.product-image-sub a')) {
+            setTimeout(formatPrices, 200); // 200ms後にカンマ付与
         }
     });
 });
+
 
 </script>
 <%-- △編集可能領域△ --%>
